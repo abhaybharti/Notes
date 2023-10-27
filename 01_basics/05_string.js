@@ -14,5 +14,7 @@ console.log(gameName.substring(0,4));
 console.log(gameName.slice(-3));
 console.log(gameName.trim());
 console.log(gameName.replace('A','T'));
+console.log(gameName.includes("Abhay"));
+console.log(gameName.split(" "));
 
 //To Do - write a blog about string operation method
