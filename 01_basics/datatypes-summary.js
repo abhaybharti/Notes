@@ -54,3 +54,10 @@ console.log(typeof id);
                       "number" or "String"
 */
 
+//++++++++++++++++++Memory Types+++++++++++++++++++++++++
+//1. Stack Memory 
+// all primitive type uses, provides only value
+//2. Heap Memory
+// Non-Primitive types, provides referece
+
+let ytName = "abhay"
