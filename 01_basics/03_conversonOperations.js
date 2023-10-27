@@ -35,4 +35,13 @@ console.log("1"+2);
 console.log(1+"2");
 console.log("1"+2+2);
 console.log(1+2+"2");
-"1:23 https://www.youtube.com/watch?v=sscX432bMZo&t=2379s"
+console.log(+true); //senseless code
+console.log(+""); //senseless code
+
+let num1, num2, num3; 
+num1 = num2=num3 = 2+2; //not a good way to write code, foremost focus should be on readability
+
+let gameCounter = 100;
+++gameCounter;
+console.log(++gameCounter); //prefix operator, increases value then print
+console.log(gameCounter++); //postfix operation, prints and then increases values
