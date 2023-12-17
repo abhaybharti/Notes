@@ -10,5 +10,6 @@ let abc = undefined // when value is not defined or assigned
 
 // object 
 
-console.log(typeof undefined); //undefined reason value not assigned
-console.log(typeof null); //is a type
+typeof variable //will show type of variable
+console.log(typeof undefined); //undefined reason value not assigned, is a datatype
+console.log(typeof null); //object, null is an object
