@@ -44,3 +44,5 @@ let s1 = 300;
 let s2 = 400;
 let s3 = 500;
 console.log("Converts varaible to array : ",Array.of(s1,s2,s3));
+
+// To DO -- read more about array methods
