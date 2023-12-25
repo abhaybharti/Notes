@@ -84,3 +84,15 @@ const mCode = [
 mCode.forEach((item)=>{
     console.log(item.name,item.file);
 })
+
+ //Notes - foreach does not return any value, better usable methods are filter/map/reduce
+
+  //How to return value using ForEach
+  const myNums = [1,2,3,4,5,6,7,8,9,10];
+  const newNums = [];
+  myNums.forEach((num)=>{
+     if (num > 4){
+         newNums.push(num)
+     }
+  })
+  console.log(newNums);
