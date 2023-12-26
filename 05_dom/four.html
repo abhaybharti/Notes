@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chai Aur Code</title>
+  </head>
+  <body style="background-color: #212121; color: #fff">
+    <ul class="language">
+      <li>JavaScript</li>
+    </ul>
+  </body>
+  <script>
+    // function add language as list item
+    // Parameters:
+    // - langName: The name of the language to be added.
+    // Returns: None
+    function addLanguage(text) {
+      const li = document.createElement("li");
+      const parentUl = document.querySelector(".language");
+      li.innerHTML = `${text}`;
+      parentUl.appendChild(li);
+    }
+    addLanguage("Python");
+    addLanguage("English");
+
+    // function add language as list item in optimized way
+    // Parameters:
+    // - langName: The name of the language to be added.
+    // Returns: None
+    function addOptimizedLanguage(langName) {
+      const li = document.createElement("li"); //create element
+      li.appendChild(document.createTextNode(langName)); //preferred way to add element
+      document.querySelector(".language").appendChild(li); //append to UL to display on HTML page
+    }
+    addOptimizedLanguage("Abhaya");
+
+    //Edit
+    //Find element using CSS locator
+    //update/replace value
+    const secondLang = document.querySelector("li:nth-child(2)");
+    secondLang.innerHTML="Loto"; 
+
+    //Optimized way of editing value
+    const newLi = document.createElement("li");
+    newLi.textContent = "Hindi";
+    secondLang.replaceWith(newLi);
+
+    //Remove
+    //Find element using CSS locator
+    //remove() method
+    const  lastLang = document.querySelector("li:last-child");
+    lastLang.remove();
+  </script>
+</html>
