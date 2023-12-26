@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .button {
+        width: 100px;
+        height: 100px;
+        border: solid black 2px;
+        display: inline-block;
+      }
+      #grey {
+        background: grey;
+      }
+      #yellow {
+        background: yellow;
+      }
+      #blue {
+        background: blue;
+      }
+      #white {
+        background: white;
+      }
+      #purple {
+        background: purple;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Color Scheme Switcher</h1>
+    <span class="button" id="grey"></span>
+    <span class="button" id="white"></span>
+    <span class="button" id="blue"></span>
+    <span class="button" id="yellow"></span>
+    <span class="button" id="purple"></span>
+  </body>
+  <script>
+    //Steps
+    //get reference list of buttons on page
+    //get reference of body element
+
+    const buttonList = document.querySelectorAll(".button");
+    console.log(buttonList);
+    const body = document.querySelector("body");
+    console.log(body);
+
+    //iterate through button list
+    buttonList.forEach((button) => {
+      console.log(button);
+      button.addEventListener("click", (event) => {
+        console.log(event);
+        console.log(event.target);
+        console.log(
+          "button : ",
+          event.target.id,
+          " is clicked, backgroundColor will be set to ",
+          event.target.id
+        );
+        body.style.backgroundColor = event.target.id;
+      });
+    });
+  </script>
+</html>
