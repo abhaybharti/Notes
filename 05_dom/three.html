@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chai Aut Code</title>
+  </head>
+  <body style="background-color: #212121; color: #fff"></body>
+  <script>
+    let h1 = document.createElement("h1");
+    h1.innerHTML = "My Element";
+
+    h1.className = "main";
+    h1.id = Math.round(Math.random() * 10 + 1);
+    console.log(h1);
+    h1.setAttribute("title", "My Title");
+    h1.style.color = "red";
+    h1.style.backgroundColor = "green";
+    h1.style.padding = "12px";
+
+    const addText = document.createTextNode("Chai aur code");
+
+    //attaching to element
+    h1.appendChild(addText);
+    
+    //appending to body
+    document.body.appendChild(h1);
+  </script>
+</html>
