@@ -1,4 +1,4 @@
-<!-- To Do - What is API,  -->
+<!-- Notes - What is API, Hit api using XHR  -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -39,15 +39,23 @@
           const data = JSON.parse(this.responseText);
           followersCount = data.followers;
 
-          followerSpan = document.createElement("p");
-          showDetails.appendChild(followerSpan);
-          followerSpan.innerHTML = followersCount;
+          if (document.getElementsByTagName("p").length > 0) {
+            document.getElementsByTagName("p")[0].innerHTML = followersCount;
+          } else {
+            followerSpan = document.createElement("p");
+            showDetails.appendChild(followerSpan);
+            followerSpan.innerHTML = followersCount;
+          }
 
-          profileImage = data.avatar_url;
-          console.log("profileImage in xhr", profileImage);
-          imageTag = document.createElement("img");
-          imageTag.setAttribute("src", profileImage);
-          showDetails.appendChild(imageTag);
+          if (document.getElementsByTagName("img").length > 0) {
+            profileImage = data.avatar_url;
+            imageTag.setAttribute("src", profileImage);
+          } else {
+            profileImage = data.avatar_url;
+            imageTag = document.createElement("img");
+            imageTag.setAttribute("src", profileImage);
+            showDetails.appendChild(imageTag);
+          }
         }
       };
       console.log("xhr.readyState outside", xhr.readyState);
