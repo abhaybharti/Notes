@@ -123,7 +123,7 @@
   </body>
   <script>
     let randomNumber = parseInt(Math.random() * 100);
-    console.log(randomNumber);
+    console.log("randomNumber: ", randomNumber);
     const submit = document.querySelector("#subt");
     const userInput = document.querySelector("#guessField");
     const guessSlot = document.querySelector(".guesses");
@@ -192,10 +192,11 @@
       const newGameBtn = document.querySelector("#newGame");
       newGameBtn.addEventListener("click", (event) => {
         randomNumber = parseInt(Math.random() * 100);
-        
+
         prevGuess = [];
         numGuess = 1;
         guessSlot.innerHTML = "";
+        displayMessage("");
         remaining.innerHTML = `${11 - numGuess}`;
         userInput.removeAttribute("disabled");
         startOver.removeChild(p);
