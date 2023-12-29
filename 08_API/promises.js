@@ -108,4 +108,7 @@ fetch("https://api.github.com/users/abhaybharti")
   .catch((error) => {
     console.log(error);
   });
-//fetch("https://api.github.com/users/abhaybharti");
+
+  //To Do - read more about fetch api
+  // Micro task queue or priority queue  contains fetch request. It gets added on top of call stack.
+
