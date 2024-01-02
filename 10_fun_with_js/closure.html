@@ -31,16 +31,15 @@
 
   <script>
     //closure practical or real world example
-    // document.querySelector("#orange").onclick = function(){
-    //     document.body.style.backgroundColor="orange";
-    // }
-    // document.querySelector("#green").onclick = function(){
-    //     document.body.style.backgroundColor="green";
-    // }
 
     function clickHandler(color) {
-      document.body.style.backgroundColor = `${color}`;
+      console.log(color);
+      return function () {
+        console.log(`innerfunction ${color}`);
+        document.body.style.backgroundColor = `${color}`;
+      };
     }
-    document.getElementById("orange").onclick = clickHandler();
+    document.getElementById("orange").onclick = clickHandler("orange");
+    document.getElementById("green").onclick = clickHandler("green");
   </script>
 </html>
