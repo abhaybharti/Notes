@@ -1,29 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Closure</title>
-</head>
-<body>
-    
-</body>
-<script>
-    function outer(){
-        let name = "Mozilla"; //name is a local variable created by init
-        function inner(){
-            //inner() is the inner function, that forms the closure
-            console.log("Inner function",name); //use variable declared in the parent function
-            let secret = "my123" // this will be accessible only inside this method
-        }
-        function innerTwo(){
-            //inner() is the inner function, that forms the closure
-            console.log("InnerTwo function",name); //use variable declared in the parent function
-        }
-        inner();
-        innerTwo();
+  </head>
+  <body>
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+  </body>
+  <script>
+    function outer() {
+      let name = "Mozilla"; //name is a local variable created by init
+      function inner() {
+        //inner() is the inner function, that forms the closure
+        console.log("Inner function", name); //use variable declared in the parent function
+        let secret = "my123"; // this will be accessible only inside this method
+      }
+      function innerTwo() {
+        //inner() is the inner function, that forms the closure
+        console.log("InnerTwo function", name); //use variable declared in the parent function
+      }
+      return inner; //when you return reference of inner function, it sends inner function reference + lexical scope of outer function
+      inner();
+      innerTwo();
     }
     outer();
     //console.log("Too Outer",name); // will throw error, not available in outer context
-    </script>
+  </script>
+
+  <script>
+    //closure practical or real world example
+    // document.querySelector("#orange").onclick = function(){
+    //     document.body.style.backgroundColor="orange";
+    // }
+    // document.querySelector("#green").onclick = function(){
+    //     document.body.style.backgroundColor="green";
+    // }
+
+    function clickHandler(color) {
+      document.body.style.backgroundColor = `${color}`;
+    }
+    document.getElementById("orange").onclick = clickHandler();
+  </script>
 </html>
