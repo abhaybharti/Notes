@@ -32,7 +32,7 @@ https://www.typescriptlang.org/play
 - 2. String
 - 3. Boolean
 - 4. Array
-- 5. any - it turn off the type checking. You usually want to avoid this, though, because `any` is not type-checked. Use the compiler flag noImplicitAny to flag any implicit `any` as an error.
+- 5. any - it turn off the type checking. You usually want to avoid this, though, because `any` is not type-checked. Use the compiler flag `noImplicitAny` (this flag is in TypeScript) to flag any implicit `any` as an error.
 - 6. function
 - 7. Object
 - 8. Union
