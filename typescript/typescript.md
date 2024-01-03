@@ -46,5 +46,5 @@ https://www.typescriptlang.org/play
 - 16. symbol
 - 17. Void
 - 18. Tuples
-- 19. Never
+- 19. never - The never type represents values which are never observed. In a return type, this means that the function throws an exception or terminates execution of the program. never also appears when TypeScript determines there is nothing left in union.
 - 20. unknown
