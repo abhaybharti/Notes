@@ -22,7 +22,7 @@ let newUser = {
   email: "h@h.com",
 };
 
-createUser(newUser); //This is wrong way, function expects only two key, while we are passing 3
+createUser(newUser); //This is wrong way, function expects only two key, while we are passing 3. We are passing more key than expected.
 //createUser({ name: "Abhay", isPaid: false, email: "h@h.com" }); email can't be passed, will throw error
 
 export {};

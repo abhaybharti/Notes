@@ -28,15 +28,18 @@ https://www.typescriptlang.org/play
 
 ### Types:
 
-- 1. Number
-- 2. String
-- 3. Boolean
-- 4. Array
-- 5. any - it turn off the type checking. You usually want to avoid this, though, because `any` is not type-checked. Use the compiler flag `noImplicitAny` (this flag is in TypeScript) to flag any implicit `any` as an error.
+- 1. number
+- 2. string
+- 3. boolean
+- 4. array
+- 5. `any` - it turn off the type checking. You usually want to avoid this, though, because `any` is not
+     type-checked. Use the compiler flag `noImplicitAny` (this flag is in TypeScript) to flag any implicit `any` as an error.
 - 6. function
 - 7. Object
 - 8. Union
-- 9. Type
+- 9. `type` - We have been using object types and union types by writing them directly in type annotations. This is
+     convenient, but is is common to want to use the same type more than once and refer to it by single name.
+     A type alias is exactly that - a name for any type.
 - 10. Interfaces
 - 11. Literal
 - 12. Null
@@ -46,5 +49,6 @@ https://www.typescriptlang.org/play
 - 16. symbol
 - 17. Void
 - 18. Tuples
-- 19. never - The never type represents values which are never observed. In a return type, this means that the function throws an exception or terminates execution of the program. never also appears when TypeScript determines there is nothing left in union.
+- 19. `never` - The never type represents values which are never observed. In a return type, this means that the
+      function throws an exception or terminates execution of the program. never also appears when TypeScript determines there is nothing left in union.
 - 20. unknown
