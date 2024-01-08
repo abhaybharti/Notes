@@ -90,7 +90,7 @@ bear.honey;```
 - 20. unknown
 ````
 
-#### How to configure TypeScript compiler options in your project
+### How to configure TypeScript compiler options in your project
 
 - create a folder
 - run `tsc --init`, this will create `tsconfig.json` file in your project
@@ -101,3 +101,5 @@ bear.honey;```
 - run `npx tsc --watch` or `npx tsc` to build your project
 - write code in `index.ts` file
 - open `index.html` file with live server & check your code output
+
+### What is the usage of interfaces?

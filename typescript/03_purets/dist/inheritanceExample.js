@@ -1,17 +1,6 @@
 "use strict";
-//code to declare class
-class UserSample {
-    constructor(email, name) {
-        this.city = "";
-        this.cityCode = "123";
-        this.citPinCode = 12345; //private variable, it can't be accessed outside the class & can be accessed only by class function
-        this.email = email;
-        this.name = name;
-    }
-}
-const user = new UserSample("h@h.com", "hitesh");
-user.city = "delhi";
-//Other way to write class code, mostly preferred by expert user to write production grade code
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.User = void 0;
 class User {
     constructor(email, name, userId) {
         this.email = email;
@@ -44,4 +33,16 @@ class User {
         console.log("Token deleted");
     }
 }
-const user2 = new User("h@h.com", "hitesh", "12345");
+exports.User = User;
+class SubUser extends User {
+    constructor() {
+        //public : can be accessed by child class & outside class using class object
+        //private : can be accessed only inside class
+        //protected : can be access inside class as well as all child class
+        super(...arguments);
+        this.isFamily = true;
+    }
+    changeCourseCount() {
+        this._courseCount = 4;
+    }
+}

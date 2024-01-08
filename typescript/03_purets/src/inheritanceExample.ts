@@ -1,23 +1,6 @@
-//code to declare class
-class UserSample {
-  public email: string;
-  public name: string;
-  public city: string = "";
+export class User {
   readonly cityCode: string = "123";
-  private citPinCode: number = 12345; //private variable, it can't be accessed outside the class & can be accessed only by class function
-  constructor(email: string, name: string) {
-    this.email = email;
-    this.name = name;
-  }
-}
-
-const user = new UserSample("h@h.com", "hitesh");
-user.city = "delhi";
-
-//Other way to write class code, mostly preferred by expert user to write production grade code
-class User {
-  readonly cityCode: string = "123";
-  private _courseCount = 1;
+  protected _courseCount = 1;
 
   constructor(
     public email: string,
@@ -53,4 +36,14 @@ class User {
     console.log("Token deleted");
   }
 }
-const user2 = new User("h@h.com", "hitesh", "12345");
+
+class SubUser extends User {
+  //public : can be accessed by child class & outside class using class object
+  //private : can be accessed only inside class
+  //protected : can be access inside class as well as all child class
+
+  isFamily: boolean = true;
+  changeCourseCount() {
+    this._courseCount = 4;
+  }
+}
