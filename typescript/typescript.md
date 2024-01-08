@@ -106,3 +106,6 @@ bear.honey;```
 - open `index.html` file with live server & check your code output
 
 ### What is the usage of interfaces?
+
+TypeScript : https://www.youtube.com/watch?v=ZchBYjHFCC4
+watched upto 4:05
