@@ -1,7 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.User = void 0;
-class User {
+class UserForInheritance {
     constructor(email, name, userId) {
         this.email = email;
         this.name = name;
@@ -33,8 +31,7 @@ class User {
         console.log("Token deleted");
     }
 }
-exports.User = User;
-class SubUser extends User {
+class SubUser extends UserForInheritance {
     constructor() {
         //public : can be accessed by child class & outside class using class object
         //private : can be accessed only inside class

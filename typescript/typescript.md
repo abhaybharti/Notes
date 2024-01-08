@@ -50,13 +50,16 @@ tsc filename.ts -- recompile file as .js file
 - 2. string
 - 3. boolean
 - 4. array
-- 5. `any` - it turn off the type checking. You usually want to avoid this, though, because `any` is not
+- 5. `any` - it turn off the type checking. You usually want to avoid this, though,
+     because `any` is not
      type-checked. Use the compiler flag `noImplicitAny` (this flag is in TypeScript) to flag any implicit `any` as an error.
 - 6. function
 - 7. Object
-- 8. Union - A union type is a type formed from two or more other types, representing values that may be any one of
+- 8. Union - A union type is a type formed from two or more other types,
+     representing values that may be any one of
      those types.
-- 9. `type` - We have been using object types and union types by writing them directly in type annotations. This is
+- 9. `type` - We have been using object types and union types by writing them
+     directly in type annotations. This is
      convenient, but is is common to want to use the same type more than once and refer to it by single name.
      A type alias is exactly that - a name for any type.
 - 10. `Interfaces` - An interface declaration is another way to name an object type.

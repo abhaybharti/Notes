@@ -1,4 +1,4 @@
-export class User {
+class UserForInheritance {
   readonly cityCode: string = "123";
   protected _courseCount = 1;
 
@@ -37,7 +37,7 @@ export class User {
   }
 }
 
-class SubUser extends User {
+class SubUser extends UserForInheritance {
   //public : can be accessed by child class & outside class using class object
   //private : can be accessed only inside class
   //protected : can be access inside class as well as all child class

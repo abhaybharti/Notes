@@ -1,5 +1,5 @@
 //defining interface
-interface TakePhoto {
+interface TakePhoto2 {
   cameraMode: String;
   filter: string;
   burst: number;
@@ -10,7 +10,7 @@ interface Story {
 }
 
 //implement interface
-class Instagram implements TakePhoto {
+class Instagram implements TakePhoto2 {
   constructor(
     public cameraMode: String,
     public filter: string,
@@ -18,7 +18,7 @@ class Instagram implements TakePhoto {
   ) {}
 }
 //implement multiple interface
-class Youtube implements TakePhoto, Story {
+class Youtube implements TakePhoto2, Story {
   constructor(
     public cameraMode: string,
     public filter: string,
