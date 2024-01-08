@@ -2,6 +2,14 @@
 
 When you run your code, typescript is a development tool, when you run your code. Your code gets converted or transpiled to JavaScript.
 
+### typescript playground
+
+https://www.typescriptlang.org/play
+
+### TypeScript Official doc
+
+https://www.typescriptlang.org/
+
 ### install typescript
 
 #### global installation
@@ -22,10 +30,6 @@ shows typescript version
 
 tsc filename.ts -- recompile file as .js file
 
-### typescript playground
-
-https://www.typescriptlang.org/play
-
 ### Types:
 
 - 1. number
@@ -41,7 +45,24 @@ https://www.typescriptlang.org/play
 - 9. `type` - We have been using object types and union types by writing them directly in type annotations. This is
      convenient, but is is common to want to use the same type more than once and refer to it by single name.
      A type alias is exactly that - a name for any type.
-- 10. Interfaces
+- 10. `Interfaces` - An interface declaration is another way to name an object type.
+      Type aliases and interfaces are very similar, and in many cases you can choose between them freely. Almost all features of an interface are available in type, the key distinction is that a type cannot be re-opened to add new properties vs an interface which is always extendable.
+
+Extending an interface
+
+````
+interface Animal {
+  name: string;
+}
+
+interface Bear extends Animal {
+  honey: boolean;
+}
+
+const bear = getBear();
+bear.name;
+bear.honey;```
+
 - 11. Literal
 - 12. Null
 - 13. Undefined
@@ -53,3 +74,4 @@ https://www.typescriptlang.org/play
 - 19. `never` - The never type represents values which are never observed. In a return type, this means that the
       function throws an exception or terminates execution of the program. never also appears when TypeScript determines there is nothing left in union.
 - 20. unknown
+````
