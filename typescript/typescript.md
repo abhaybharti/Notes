@@ -20,7 +20,21 @@ npm install -g typescript
 
 npm install typescript --save-dev
 
-#### npx tsc
+### tsc --init
+
+To generate `tsconfig.json` file in your project. tsconfig.json file is for typescript configuration.
+
+You can download the tsconfig.json from https://www.typescriptlang.org/play#code/C4TwDgpgBACg9gSwHbCgXigbwLACgpQAeAXFAM7ABOyA5gNx4EikXVL14C+DueA9HygBRQgEMAxsAA2IKMAAW0MqIC20UWTmKoEUZSkIIlHWJVgpEPADMArkkkI4SKGDbAAwnDiUAJgAowYFJ4ZGAASixGKHEnMjgLADopOBo-ACIAFW0Y7x9kUWAIAHJNQigAN1EpG2gETTSoAGoXYATCMJ4CGKQ4xOTUzOyvX3zCkqhZSura+qaWhJAOrjw8V1DPXL9MIlI0gEYABgO0gBoJ3cPjqE4OoA
+
+#### run TypeScript code
+
+`npx tsc`
+
+run above command in console, it builds .js file from \*.ts file.
+
+#### run TypeScript code in watch mode
+
+`npx tsc --watch`
 
 this helps your to build the typescript
 
@@ -75,3 +89,15 @@ bear.honey;```
       function throws an exception or terminates execution of the program. never also appears when TypeScript determines there is nothing left in union.
 - 20. unknown
 ````
+
+#### How to configure TypeScript compiler options in your project
+
+- create a folder
+- run `tsc --init`, this will create `tsconfig.json` file in your project
+- run `npm init -y` to create package.json file in your project
+- create `src` folder & inside it create `index.ts` file
+- create `dist` folder & \*.js file will be stored here
+- create `*.html` file & link .js file `<script src="./dist/index.js"></script>`
+- run `npx tsc --watch` or `npx tsc` to build your project
+- write code in `index.ts` file
+- open `index.html` file with live server & check your code output
