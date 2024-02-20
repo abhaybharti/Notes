@@ -6,7 +6,7 @@ const gameName = new String('Abhay Name'); //another way to declare string
 console.log(gameName);
 console.log(gameName[1]);
 console.log(gameName.__proto__);
-console.log(gameName.length);
+console.log(gameName.length); // get length of string value
 console.log(gameName.toUpperCase());
 console.log(gameName.charAt(1));
 console.log(gameName.indexOf('A'));

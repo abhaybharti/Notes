@@ -10,7 +10,7 @@ arrays aren't primitives but are instead Array objects:
 // const myArray = [1,2,3,4,true,"ABhay"];
 // console.log(myArray);
 
-const myHeroes = new Array("A","B");
+const myHeroes = new Array("C","A","B","D");
 // console.log(myHeroes);
 
 //Array Methods
@@ -22,9 +22,11 @@ const myHeroes = new Array("A","B");
 // myHeroes.unshift("Start"); //adds at the beginning of array
 // console.log(myHeroes);
 // myHeroes.shift(); //removes element from start of array
-// console.log(myHeroes);
-// console.log(myHeroes.includes("A")); //returns true if element is found else false
-// console.log(myHeroes.indexOf("B")); //returns index else -1 if element is not found
+console.log(myHeroes);
+console.log(myHeroes.includes("A")); //returns true if element is found else false
+console.log(myHeroes.indexOf("B")); //returns index else -1 if element is not found
+console.log('Sort array values : ',myHeroes.sort()); //sort array values
+console.log('Convert array to String : ',myHeroes.toString()); //convert array to string values
 
 const newArra = myHeroes.join();
 console.log(newArra ); //converts array to comma seperate string value. typeof newArra is `string`
