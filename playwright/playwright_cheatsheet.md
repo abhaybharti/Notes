@@ -6,6 +6,14 @@
 - Aqua/IntelliJ/Visual Studio Code
 - @playwright/test package (npm init playwright@latest)
 
+## Why playwright
+
+- supports JS/TS/Java/C#/Python
+- Built by Microsoft
+- Fast
+- Parallel Execution
+- Trace Viewer, Inspector, codegen, video
+
 ## npx playwright codegen
 
 ## run playwright test
