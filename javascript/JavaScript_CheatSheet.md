@@ -1,6 +1,91 @@
 # JavaScript
 
-# If
+## Variables
+
+`const accountId = 14456;
+let accountEmail = "abhay@gmail.com"
+var accountPassword = "12345"
+accountCity = "Bangalore"
+// accountId =2; //not allowed
+accountEmail ="hc@gmail.com"
+accountPassword = "212121"
+accountCity = "Delhi"
+console.log(accountId);
+
+let accountState;
+
+console.table([accountId,accountEmail,accountPassword,accountCity,accountState])`
+
+**Prefer not to use var because of issue in block scope and functional scope**
+
+`console.log('accountState',accountState);`
+
+## Data Conversion
+
+`let score = true;
+
+let valueInNumber = Number (score);
+console.log(score);
+console.log(typeof valueInNumber);
+console.log(valueInNumber);`
+
+\* Outcome :
+
+1. if score = 33, output will be number & 33
+2. if score= "33" output will be number & 33
+3. if score = "33abc" output will be number & NaN
+4. if score = null output will be number & 0
+5. if score = undefined output will be number & NaN
+6. if score = true output will be number & 1
+   \*/
+
+/_ Boolean conversion
+Boolean(score);
+1 => true; 0 => false
+"" => false
+"abhay" => true
+_/
+
+/_ To Do : All possible Data Type Conversion_/
+
+### Data Types
+
+**"use strict"** //treat all JS code as newer version in whole file
+
+// alert(3+3) // cant use in nodejs, can be used browser. Currently, we are running in nodejs
+//JavaScript : 7 Primitive Data types
+// 1. String
+let name = "Abhay" //String data types
+
+// 2. number
+let age =18 // number data types
+
+// 3. BigInt
+
+// 4. Boolean
+let isLoggedIn = false //boolean data types -- true/false
+
+// 5. undefined
+let abc = undefined // when value is not defined or assigned
+
+// 6. null
+let ab = null // it is a standalone value, its a type. repretensation of empty value
+// 7. symbol
+
+//Object Data Type
+// 1. An Object
+// 2. An Array
+// 3. A date
+
+// symbol - used to uniquley define a component
+
+// object
+
+`typeof variable //will show type of variable
+console.log(typeof undefined); //undefined reason value not assigned, is a datatype
+console.log(typeof null); //object, null is an object`
+
+## If
 
 ### Multiple ways to write if conditions
 
@@ -16,11 +101,9 @@ console.log('Do Something')
 
 **A better approach**
 
-`
-if (['online','away', 'busy'].indexOf(status)!== -1){
+`if (['online','away', 'busy'].indexOf(status)!== -1){
  console.log('Do Something')
-}
-`
+}`
 
 `Check IndexOf with `~` operator`
 
