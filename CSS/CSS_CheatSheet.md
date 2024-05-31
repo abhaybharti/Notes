@@ -51,7 +51,7 @@ The :where() function takes in a list of selectors as an argument and applies th
 
 `Repetitive code`
 
-````
+```
 
 header a:hover,
 main a:hover,
@@ -102,6 +102,7 @@ We can use class & ID of HTML elements to apply css properties.
 - We should never set absolute width/length (ex width:500px; height:500px), reason it causes overflow. Which adds scroll bar.
 - We should never set height/width in pixel #
 - We should use max-width/max-height instead of width/height property
+- Box model starts with content -> padding -> border -> margin. Where content is innermost item.
 
 #### Different Padding Definitions
 
@@ -209,4 +210,6 @@ color:red;
 color:red;
 }
 
-````
+```
+
+```
