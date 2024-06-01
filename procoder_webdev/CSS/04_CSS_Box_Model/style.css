@@ -7,33 +7,13 @@
 
   /*Notes - a better way is use max-width, maximum width will be set as 500px, when you reduce screen size, 
   it does not add horizontal scroll bar & won't do overflow. Will work on mobile device too. We should not cause overflow*/
+  
   max-width: 500px;
 
-  height: 100px;
+  min-height: 100px;
   /* default behavior of overflow */
   overflow: visible;
 }
 .two {
   background-color: blueviolet;
-}
-
-img {
-  width: 10%;
-  transition-property: width;
-  transition-duration: 3s;
-}
-
-img:hover {
-  width: 40%;
-  height: 40%;
-}
-
-p {
-  font-size: 1rem;
-  transition-property: font-size;
-  transition-duration: 5s;
-  transition-timing-function: ease-out;
-}
-p:hover {
-  font-size: 7rem;
 }

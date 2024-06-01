@@ -104,8 +104,32 @@ We can use class & ID of HTML elements to apply css properties.
 - We should use max-width/max-height instead of width/height property
 - Box model starts with content -> padding -> border -> margin. Where content is innermost item.
 
+##### How to set width/height of an element
+
+```
+.one {
+
+background-color: aquamarine;
+
+<!-- Set fixed width, Even if screen size changes, width will be fixed as 500px.
+If screen width is less than 500px, horizontal scroll bar will get added. This is called overflow; -->
+
+ width: 500px;
+
+<!-- Notes - a better way is use max-width, maximum width will be set as 500px, when you reduce screen size,
+it does not add horizontal scroll bar & won't do overflow. Will work on mobile device too. We should not cause overflow -->
+max-width: 500px;
+
+min-height: 100px;
+
+<!-- default behavior of overflow -->
+overflow: visible;
+}
+```
+
 #### Different Padding Definitions
 
+```
 p{
 padding: 10px(Top) 5px(Right) 5px (Bottom) 10px(Left);
 }
@@ -117,6 +141,8 @@ padding: 10px(Top) 5px(Right and left) 10px(Bottom);
 p{
 padding: 10px(Top and Bottom) 5px(Right and left);
 }
+
+```
 
 ### CASCADING SPECIFICITY INHERITANCE
 
@@ -220,14 +246,15 @@ color:red;
 #### How to change an image size on mouse hover without using CSS transitions
 
 ```
+
 img {
-  width: 10%;
-  height: 10%;
-  }
+width: 10%;
+height: 10%;
+}
 
 img:hover {
-  width: 40%;
-  height: 40%;
+width: 40%;
+height: 40%;
 }
 
 ```
@@ -237,15 +264,16 @@ This code instantaneously change the image size from initial width/height of 10%
 #### How to change an image size on mouse hover with using CSS transitions
 
 ```
+
 img {
-  width: 10%;
-  height: 10%;
-  transition: width 3s ease-out 0.4s;
-  }
+width: 10%;
+height: 10%;
+transition: width 3s ease-out 0.4s;
+}
 
 img:hover {
-  width: 40%;
-  height: 40%;
+width: 40%;
+height: 40%;
 }
 
 ```
@@ -331,4 +359,49 @@ p:hover {
 
 - the `transition-property` informs the browsers to transitions the `img` element's width
 - we used the `transition-duration` property to define three seconds (`3s`) duration from the start to the end of the transitions
-- We used the `transition-timing-function` properly to begin the transition qui
+- We used the `transition-timing-function` properly to begin the transition quickly and end it slowly.
+
+##### How to transition and element's width with a linear speed
+
+```img {
+  width: 10%;
+  transition-property: width;
+  transition-duration: 3s;
+  transition-timing-function: linear;
+}
+
+img:hover {
+  width: 100%;
+}
+```
+
+**_Notes_**
+
+- The `transition-property` informs browsers to transitions the `img` element's width
+- We used the `transition-duration` property to define three seconds `(3s)` duration from the start to the end of the transition.
+- The `transition-timing-function` property tells browsers to transition from the element's initial width to its new size using a consistent transition speed throughout.
+
+##### How to transition and element's width with a two-second delay
+
+```img {
+  width: 10%;
+  transition-property: width;
+  transition-duration: 3s;
+  transition-timing-function: linear;
+  transition-delay: 2s;
+}
+
+img:hover {
+  width: 100%;
+}
+```
+
+**_Notes_**
+
+- The `transition-property` informs browsers to transitions the `img` element's width
+- We used the `transition-duration` property to define three seconds `(3s)` duration from the start to the end of the transition.
+- The `transition-timing-function` property tells browsers to transition from the element's initial width to its new size using a consistent transition speed throughout.
+- We used the `transition-delay` property to apply a two second (`2s`) delay to the starting time of the transition.
+
+further reading - https://www.freecodecamp.org/news/css-transition-vs-css-animation-handbook/
+**_Notes taken before Shorthand for Defining the CSS Transition Properties_**
