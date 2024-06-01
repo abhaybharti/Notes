@@ -210,6 +210,125 @@ color:red;
 color:red;
 }
 
-```
+### CSS Transitions
+
+**CSS transitions** provides a smooth and gradual way to change a specific CSS property's value. Instead of allowing browsers to change a property's value immediately, CSS transitions cause the change to happen smoothly over a specified period of time. For instance, suppose you wish to change an element size on hover. You have two options:
+
+1. Implement the change without CSS transitions
+2. Use CSS transitions to transition smoothly from the element's initial size to its new state
+
+#### How to change an image size on mouse hover without using CSS transitions
 
 ```
+img {
+  width: 10%;
+  height: 10%;
+  }
+
+img:hover {
+  width: 40%;
+  height: 40%;
+}
+
+```
+
+This code instantaneously change the image size from initial width/height of 10% to new dimension of 40%. Because we did not use CSS transitions.
+
+#### How to change an image size on mouse hover with using CSS transitions
+
+```
+img {
+  width: 10%;
+  height: 10%;
+  transition: width 3s ease-out 0.4s;
+  }
+
+img:hover {
+  width: 40%;
+  height: 40%;
+}
+
+```
+
+The transitions property applied a smooth and gradual transition from width:10% to width:40%.
+
+#### Categories of CSS Transitions Properties
+
+1. Required transitions properties
+2. Optional transition properties
+
+#### What are the required CSS Transitions properties
+
+1. **transition-property** - specifies the CSS property you wish to transition from its initial to its new state.
+
+2. **transition-duration** - defines the length of time in which browser should complete the selected element's transition. In other words,
+
+   - **transition-duration** sets the total start-to-finish time. It accepts time in milliseconds (ms) or second(s). Zero seconds (0s) is the transition-duration's default value.
+   - If you do not specify **transition-duration**, the `transition event` will not be triggered.
+   - transition-duration accepts only a zero(0) or a positive numeric value. Browser will ignore the duration declaration if you provide anything else.
+
+##### Example of Required CSS Transition Properties
+
+##### How to transition an element's width within 3 seconds
+
+```img {
+width: 10%;
+transition-property: width;
+transition-duration: 3s;
+}
+
+img:hover {
+width: 40%;
+}
+```
+
+##### How to transition a font's size within five seconds
+
+```
+
+p {
+font-size: 1rem;
+transition-property: font-size;
+transition-duration: 5s;
+}
+p:hover {
+font-size: 7rem;
+}
+
+```
+
+#### What are the two optionals CSS Transitions properties
+
+1. **transition-timing-function** : this property defines the implementation timing (speed) of the selected element's transition. In other words, specifies the speed for implementing the transition at various intervals of its duration. The values the transition-timing-function property accepts ares :
+
+   - **ease** : Starts the transtions slowly. The speeds it up and ends it slowly. This is the default value.
+   - **ease-in** :Starts the transitions slowly with a gradual increase in speed
+   - **ease-out** : Starts fast and ends the transitions slowly.
+   - **ease-in-out** : Starts and ends the transitions slowly.
+   - **linear** : Starts and ends the transitions using a consistent speed throughout the transition's duration.
+   - **cubic-bezier (p1, p2, p3, p4)** : Allows you to define the values of the cubic-bezier curve
+
+2. **transition-delay** : defines how long the browser should wait before it starts the transitions.
+   - The **transition-delay** property must be in milliseconds (ms) or seconds (s).
+   - **0s** is the transition-delay's default value. It causes the transition to start immediately from the moment browsers apply it to an HTML element.
+   - A negative value causes the transition to begin immediately from the specified time.E.g. an element's **transitions-delay** value is `-3s`. In that case, transition will start immediately at 3 seconds.
+   - A positive value causes the transition to begin after the specified delay time has elapsed. E.g. an element's `transition-delay` value is `3s`. In that case transition will start after 3 seconds delay.
+
+##### How to transition an element's width with an ease-out speed
+
+```p {
+  font-size: 1rem;
+  transition-property: font-size;
+  transition-duration: 5s;
+  transition-timing-function: ease-out;
+}
+p:hover {
+  font-size: 7rem;
+}
+```
+
+**_Notes_** :
+
+- the `transition-property` informs the browsers to transitions the `img` element's width
+- we used the `transition-duration` property to define three seconds (`3s`) duration from the start to the end of the transitions
+- We used the `transition-timing-function` properly to begin the transition qui
