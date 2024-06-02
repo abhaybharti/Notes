@@ -104,6 +104,19 @@ We can use class & ID of HTML elements to apply css properties.
 - We should use max-width/max-height instead of width/height property
 - Box model starts with content -> padding -> border -> margin. Where content is innermost item.
 
+##### margin
+
+margin can be negative value.
+
+##### padding
+
+padding can never to negative value.
+
+##### border vs outline property
+
+- border is the outline of an element
+- outline same like border, it does not change element width and height.
+
 ##### How to set width/height of an element
 
 ```
@@ -126,6 +139,8 @@ min-height: 100px;
 overflow: visible;
 }
 ```
+
+**word-break**: break-all; -- breaks words
 
 #### Different Padding Definitions
 
@@ -405,3 +420,61 @@ img:hover {
 
 further reading - https://www.freecodecamp.org/news/css-transition-vs-css-animation-handbook/
 **_Notes taken before Shorthand for Defining the CSS Transition Properties_**
+
+**Universal Selectors**
+
+```
+* {
+  box-sizing: border-box;
+}
+
+```
+
+##### Create a circle using CSS
+
+.one {
+background-color: aquamarine;
+color: blue;
+
+<!-- width/height is set to equal size to, make it a square -->
+
+width: 300px;
+height: 300px;
+border: 8px solid green;
+
+<!-- it creates a circle if size is of a square -->
+
+border-radius: 50%;
+}
+
+##### Create a circle using CSS and and your image
+
+- Step 1: create a div
+- Step 2 : create an image tag inside div
+
+`````<div class="one">
+      <img src="./ab.jpg" alt="Abhay Profile pic" />
+    </div>
+
+img {
+
+<!-- This inherit size from parent, parent div has size of 300px -->
+
+width: 100%;
+}
+
+.one {
+background-color: aquamarine;
+color: blue;
+width: 300px;
+height: 300px;
+padding: 0px;
+border: 1px solid green;
+margin: 40px;
+border-radius: 100%;
+
+<!-- this property stops image from overflowing  -->
+
+overflow: hidden;
+}````
+`````
