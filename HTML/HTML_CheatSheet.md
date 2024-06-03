@@ -82,6 +82,8 @@ A block-level element always starts on a new line, and the browsers automaticall
 `most commonly used block element is <div></div>`
 Block element width is 100% of parent element width.
 
+- block element shape is in box.
+
 ##### Inline Level elements
 
 An inline element does not start on a new line. It only takes up as much width as necessary.
@@ -119,6 +121,9 @@ An inline element does not start on a new line. It only takes up as much width a
 - `<time>`
 - `<tt>`
 - `<var>`
+- `<img>` : inline replaced element
+- `<a>` : inline replaced element
+- `<video>` : inline replaced element
 
 `most commonly used inline element is <span></span>`
 inline element width is till content width. can have multiple element on same line if there is space.
@@ -138,6 +143,23 @@ attribute "abhay" is added in HTML
 
 <h1 abhay="coder">Hello world</h1>
 attribute "abhay" is added in HTML
+
+##### Applying BOX model on Inline elements
+
+- By default inline element content width & height is auto, so based on content size.
+- inline element shape is not in box.
+- height and width property does not work on inline element.
+- Top and bottom padding can't be applied on inline elements, it does not push top/bottom element. It overlaps top/bottom element. Only left/right margin works.
+- top and bottom margin can't be applied on inline elements. Only left/right margin works.
+- border and outline does not push top and bottom element, it is shown but overlaps top/bottom element.
+
+##### Replaced Inline tags
+
+Tag which content is downloaded or come from external sources like `img`, `iframe`. It works like a inline block. You can apply margin/padding on this tag. In other words, it pushes the element up/down and left/right.
+
+##### Non-Replaced Inline tags
+
+Whichever tag has content like a, span are Non-Replaced inline tags like `span`. You can't apply top/bottom margin/padding on these elements.
 
 #### Form tag
 
@@ -230,7 +252,7 @@ The `<img>` tag has two required attributes:
 <img src="/images/stickman.gif" alt="Stickman" width="24" height="39"> //insert image from other folder
 <img src="https://www.w3schools.com/images/lamp.jpg" alt="Lamp" width="32" height="32"> //insert image from other web site
 
-//Add hyperlink to an image
+<!-- Add hyperlink to an image -->
 <a href="https://abhaybharti.netlify.app/">
 <img src="w3html.gif" alt="abhaybharti.netlify.app" width="100" height="132">
 </a>
@@ -239,6 +261,8 @@ The `<img>` tag has two required attributes:
 We do not add width/height attribute in image tag, it is not a good practice. We can use style="width:100%; max-width:600px". To make image responsive to screen size, limit max size to 600px.
 
 `<img src="./image.JPG" alt="my screenshot" style="width:100%;max-width:600px">`
+
+`Note` : We should provide either height or weight property. Only one property, other will automatically be adjusted, based on image aspect ratio. If you pass both, image will not show properly.
 
 ### Create Accordion element in pure HTML
 
@@ -494,3 +518,5 @@ If you are building a search functionality then use `<input type="search"/>` ins
 
 - Go to google fonts and click on any font type
 - Select import and copy from descending text area
+
+##### iframe tag

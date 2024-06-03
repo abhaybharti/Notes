@@ -99,6 +99,14 @@ We can use class & ID of HTML elements to apply css properties.
 
 #### Box model in CSS
 
+Box model has following properties:
+
+- content
+- border
+- margin
+- padding
+- display
+
 - We should never set absolute width/length (ex width:500px; height:500px), reason it causes overflow. Which adds scroll bar.
 - We should never set height/width in pixel #
 - We should use max-width/max-height instead of width/height property
@@ -158,6 +166,13 @@ padding: 10px(Top and Bottom) 5px(Right and left);
 }
 
 ```
+
+#### display property
+
+- `inline`
+- `inline-block`
+- `block`
+- `none`
 
 ### CASCADING SPECIFICITY INHERITANCE
 
@@ -452,7 +467,7 @@ border-radius: 50%;
 - Step 1: create a div
 - Step 2 : create an image tag inside div
 
-`````<div class="one">
+```<div class="one">
       <img src="./ab.jpg" alt="Abhay Profile pic" />
     </div>
 
@@ -476,5 +491,27 @@ border-radius: 100%;
 <!-- this property stops image from overflowing  -->
 
 overflow: hidden;
-}````
-`````
+}
+```
+
+##### How to make an inline element as block level element using CSS
+
+```
+{
+display:block;
+}
+```
+
+##### How to make an block element as inline level element using CSS
+
+```{
+display:inline;
+}
+```
+
+##### How to add height and width in an inline level element
+
+```{
+display:inline;
+}
+```
