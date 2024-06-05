@@ -1,6 +1,55 @@
 # JavaScript
 
+## How JavaScript works
+
+Everything in JS happens inside an Execution context. it is a synchronous single-threaded language.
+
+#### Execution Context : Component where JS is executed. It has
+
+##### Memory or variable Env -
+
+    Here variables are stored as `key:value` pair
+
+##### Code Env or Thread of Execution -
+
+    This is the place where code is executed one line at a time
+
 ## Variables
+
+### Things to Keep in mind when naming a variable
+
+- `Names should be self descriptive with enough context so we don't have to comment out code`
+- `Descriptive names are better than comments`
+- `Avoid single letter names`
+- `prefer explicit over implicit names`
+- `Use descriptive loop indexes instead of i, j, k`
+- `Avoid double negatives`
+- `Use verb as a prefix for the function name`
+- `No magic number or magic values, use a variable`
+- `Don't use abbreviations or acronyms without sufficient contexts`
+- `Make variable name as long as necessary if needed but no longer`
+- `A prefix like is, are , or has helps to distinguish a boolean from another variable`
+
+### variable scope->Understanding
+
+```
+/* Declaring a variable in the global scope. its life span is whole program */
+var globalScopeVariable = 7;
+
+function test() {
+  /* Declaring a variable in the function scope. It's life span is in function only*/
+  var functionScopeVariable = 10;
+
+  /* Declaring a variable in the local scope, inside a for loop. It's life span is inside for loop only */
+  for (let index = 0; index < functionScopeVariable; index++) {
+    console.log(index);
+  }
+}
+
+test();
+```
+
+- `console.log(functionScopeVariable); //will throw error - ReferenceError: functionScopeVariable is not defined. Reason we are trying to use this outside of function scope`
 
 `const accountId = 14456;
 let accountEmail = "abhay@gmail.com"
@@ -39,14 +88,13 @@ console.log(valueInNumber);`
 6. if score = true output will be number & 1
    \*/
 
-/_ Boolean conversion
+**Boolean conversion**
 Boolean(score);
 1 => true; 0 => false
 "" => false
 "abhay" => true
-_/
 
-/_ To Do : All possible Data Type Conversion_/
+`To Do` : All possible Data Type Conversion
 
 ### Data Types
 
@@ -122,11 +170,11 @@ if (['online','away', 'busy'].includes(status)){
 }
 ```
 
-# Loops in JavaScript
+## Loops in JavaScript
 
-## Different types of Loops supported in JavaScript
+### Different types of Loops supported in JavaScript
 
-`Here is sample array of objects`
+**Here is sample array of objects**
 
 ```
 const carShowRoom = [
@@ -264,52 +312,7 @@ let abc = undefined // when value is not defined or assigned
 console.log(typeof undefined); //undefined reason value not assigned
 console.log(typeof null); //is a type
 
-#### Reverse a String
-
-```
-let str = "abhay";
-const reverseString = str.split("").reverse().join("");
-console.log(reverseString);
-```
-
-#### Sum of array elements
-
-```
-const numbers = [1, 3, 4, 5, 6];
-const sum = numbers.reduce((sum, curr) => sum + curr, 0);
-console.log(sum);
-```
-
-#### Largest/Smallest number in array
-
-```
-console.log(Math.max(...numbers));
-console.log(Math.min(...numbers));
-```
-
-#### Remove duplicates from an array
-
-```
-const duplicateNumbers = [2, 3, 5, 5, 6];
-const uniqueNumbers = [...new Set(duplicateNumbers)];
-console.log(uniqueNumbers);
-```
-
-#### Remove All Whitespace from a String in JavaScript
-
-To remove all whitespace from a string in JavaScript, call the replace() method on the string, passing a regular expression that matches any whitespace character, and an empty string as a replacement. For example, str.replace(/\s/g, '') returns a new string with all whitespace removed from str.
-he \s regex metacharacter matches whitespace characters, such as spaces, tabs, and newlines.
-
-We use the g regex flag to specify that all whitespace characters in the string should be matched. Without this flag, only the first whitespace will be matched and replaced:
-
-```
-const str = '1 2 3';
-
-const whitespaceRemoved = str.replace(/\s/g, '');
-console.log(whitespaceRemoved); // 123
-```
-
-#### Use proper variable names
+## Use proper variable names
 
 - Use the specific naming convention, can use camel case naming convention
 
@@ -321,7 +324,7 @@ const firstName='Akash';
 const status = assets.filter(shop=>shop==='open')
 ```
 
-#### JavaScript Good Practice
+## JavaScript Good Practice
 
 👉Use Strict Mode: Always enable strict mode at the top of your scripts or functions. It helps catch common coding mistakes and prevents the use of potentially problematic features.
 
@@ -354,49 +357,6 @@ const status = assets.filter(shop=>shop==='open')
 👉Keep Dependencies Updated: Regularly update your project's dependencies to patch security vulnerabilities and ensure compatibility.
 
 👉Optimize for Performance: Be mindful of performance bottlenecks and optimize critical sections of your code when necessary.
-
-#### If you want to get the text that a user selects or highlights on a web page, there is a useful one-liner for that
-
-```
-const getSelectedText = () => window.getSelection().toString();
-console.log(getSelectedText);
-```
-
-#### There is a method called scrollTo(x,y), it allows you to scroll to a particular set of used coordinates
-
-```
-const scrollToTop = () => window.scrollTo(0,0);
-
-```
-
-#### If you want to have a smooth scrolling animation
-
-```
-const Top = () => window.scrollTo({top:0, behavior:'smooth'});
-
-```
-
-#### If you want to redirect the user to a specified location, you can do something like this
-
-```
-const urlRedirect = url => location.href = url;
-urlRedirect('https://google.co.in');
-
-```
-
-### How JavaScript works
-
-Everything in JS happens inside an Execution context. it is a synchronous single-threaded language.
-
-#### Execution Context : Component where JS is executed. It has
-
-##### Memory or variable Env -
-
-    Here variables are stored as `key:value` pair
-
-##### Code Env or Thread of Execution -
-
-    This is the place where code is executed one line at a time
 
 #### What is block scope and functional scope
 
@@ -565,7 +525,7 @@ returns a double type pseudo-random number, greater than or equal to zero and le
 
 `let num = Math.random() -- return number between 0 and 1, every execution will generate new number`
 
-# Enum
+## Enum
 
 ## nodemailer
 
@@ -820,7 +780,7 @@ uid()
 You can add write uid function in util.js file like
 export const uid = () =>{ } and add import statement `import {uid} from ../utils;` and call uid() function
 
-# Switch Case Statement Simplify using Object Literals
+## Switch Case Statement Simplify using Object Literals
 
 ```
 /*
@@ -899,41 +859,6 @@ If there is only a patch version released then it will be updated to the latest 
 If there is no symbol like "axios": "0.24.0" then exact same version will be installed after running the npm update command.
 
 You can also update the specific npm package by adding the package name after the npm update command gitlike this: npm update axios.
-
-## Things to Keep in mind when naming a variable
-
-- `Names should be self descriptive with enough context so we don't have to comment out code`
-- `Descriptive names are better than comments`
-- `Avoid single letter names`
-- `prefer explicit over implicit names`
-- `Use descriptive loop indexes instead of i, j, k`
-- `Avoid double negatives`
-- `Use verb as a prefix for the function name`
-- `No magic number or magic values, use a variable`
-- `Don't use abbreviations or acronyms without sufficient contexts`
-- `Make variable name as long as necessary if needed but no longer`
-- `A prefix like is, are , or has helps to distinguish a boolean from another variable`
-
-## variable scope->Understanding
-
-```
-/* Declaring a variable in the global scope. its life span is whole program */
-var globalScopeVariable = 7;
-
-function test() {
-  /* Declaring a variable in the function scope. It's life span is in function only*/
-  var functionScopeVariable = 10;
-
-  /* Declaring a variable in the local scope, inside a for loop. It's life span is inside for loop only */
-  for (let index = 0; index < functionScopeVariable; index++) {
-    console.log(index);
-  }
-}
-
-test();
-```
-
-- `console.log(functionScopeVariable); //will throw error - ReferenceError: functionScopeVariable is not defined. Reason we are trying to use this outside of function scope`
 
 ## How To Create Express Server
 
@@ -1431,6 +1356,82 @@ When a method returns a value, you can think of it as giving the value back to y
 #### How to answer THIS in interviews
 
 #### How to explain call bind and apply in interviews
+
+## Coding Problem Using JavaScript
+
+#### Reverse a String
+
+```
+let str = "abhay";
+const reverseString = str.split("").reverse().join("");
+console.log(reverseString);
+```
+
+#### Sum of array elements
+
+```
+const numbers = [1, 3, 4, 5, 6];
+const sum = numbers.reduce((sum, curr) => sum + curr, 0);
+console.log(sum);
+```
+
+#### Largest/Smallest number in array
+
+```
+console.log(Math.max(...numbers));
+console.log(Math.min(...numbers));
+```
+
+#### Remove duplicates from an array
+
+```
+const duplicateNumbers = [2, 3, 5, 5, 6];
+const uniqueNumbers = [...new Set(duplicateNumbers)];
+console.log(uniqueNumbers);
+```
+
+#### Remove All Whitespace from a String in JavaScript
+
+To remove all whitespace from a string in JavaScript, call the replace() method on the string, passing a regular expression that matches any whitespace character, and an empty string as a replacement. For example, str.replace(/\s/g, '') returns a new string with all whitespace removed from str.
+he \s regex metacharacter matches whitespace characters, such as spaces, tabs, and newlines.
+
+We use the g regex flag to specify that all whitespace characters in the string should be matched. Without this flag, only the first whitespace will be matched and replaced:
+
+```
+const str = '1 2 3';
+
+const whitespaceRemoved = str.replace(/\s/g, '');
+console.log(whitespaceRemoved); // 123
+```
+
+### If you want to get the text that a user selects or highlights on a web page, there is a useful one-liner for that
+
+```
+const getSelectedText = () => window.getSelection().toString();
+console.log(getSelectedText);
+```
+
+### There is a method called scrollTo(x,y), it allows you to scroll to a particular set of used coordinates
+
+```
+const scrollToTop = () => window.scrollTo(0,0);
+
+```
+
+### If you want to have a smooth scrolling animation
+
+```
+const Top = () => window.scrollTo({top:0, behavior:'smooth'});
+
+```
+
+### If you want to redirect the user to a specified location, you can do something like this
+
+```
+const urlRedirect = url => location.href = url;
+urlRedirect('https://google.co.in');
+
+```
 
 ### JS Common Interview Questions
 
