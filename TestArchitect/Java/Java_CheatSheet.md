@@ -1,3 +1,4 @@
+
 ## Table of Contents
 
 - [ Java](#[-java)
@@ -124,8 +125,6 @@
 
 # Java
 
-## what is encapsulation and why it is used
-
 ## inheritance
 
 ### What is Inheritance
@@ -192,7 +191,7 @@ It is HAS-A/HAS-AN relationship between two classes.
 
 ### How can we use inheritance in a test automation framework
 
-## what is encapsulation
+## Encapsulation
 
 It is a process of binding data and methods that can control the data together into a single unit (class). The designer of the unit (class) can decide what kind of access it may allow to the outsiders and how that can be achieved. It is hiding of internal data and allows connecting with other components with predefined boundaries and contracts.
 
@@ -719,7 +718,44 @@ TBD
 
 TBD
 
-## Java Interview Questions
+## Java Interview Program
+### Count duplicate character in a given string
+You need to count the chaaracters in a strin (including spec characeters suc as #,$ etc).
+**Solution:**
+    - The first solution, iterate the string characters 
+    - Use a Map to store the characters as keys and the number of occurences as values
+    - if the current character was never added to Map, then add it as (character, 1)
+    - If the current character exists in Map, then simply increase its occurrence by 1.
+
+
+   ``` public static Map<Character,Integer> countDuplicateCharacters(String str){
+        Map<Character,Integer> result = new HashMap<>();
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.toLowerCase().charAt(i);
+            result.compute(ch, (k,v)->(v==null)?1:++v);
+        }
+        return result;
+    }
+```
+
+//compute is a Java method of a Map object, it takes a key and a function as arguments. In this case, the key is ch, and the function is a lambda expression (k,v)->(v==null)?1:++v.
+//The lambda expression checks if the value associated with the key ch in the result map is null. If it is null, it assigns the value 1 to the key. If the value is not null, it increments the value by 1.
+//In other words, this line of code is counting the occurrences of each character in a given string.
+
+   ```public static void main(String[] args) {
+        String str = "Abhay";
+        System.out.println(countDuplicateCharacters(str));
+    }
+```
+### Finding the first non-repeated character
+
+
+### Given two strings s1 and s2, determine if s2 contains a permutation of s1. In other words, return true if one of s1 permutation is a substring of s2, or false otherwise.
+
+Input: s1 = "ab", s2 = "eidbaooo"
+output: true
+
+We need to to find if any permutation of s1 is substring of s2. Sliding window technique: Use a sliding window approach to compare segments of s2 with s1.
 
 ### Write a Java program to reverse a given string
 
