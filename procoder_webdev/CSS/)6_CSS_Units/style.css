@@ -1,19 +1,14 @@
 body {
   margin: 0;
+  width: 400px;
 }
 .box {
   background-color: chartreuse;
   max-width: 50%;
-  padding: 10%;
-  font-size: 200%;
+  padding: 24px;
 }
 
 section {
-  width: 400px;
-  background-color: violet;
-  /* height: 50%; heigh always works in absolute unit like pixels, does not work in percentage */
-  /* height: 25px; */
-  /* padding: 25px; */
-  padding: 10%;
-  /* box-sizing: border-box; */
+  background-color: blueviolet;
+  border: 1vh solid red;
 }

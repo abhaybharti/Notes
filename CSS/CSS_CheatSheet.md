@@ -57,7 +57,6 @@
 
 Cascading Style Sheets allows you to create great-looking web page. It is a rule-based language — you define the rules by specifying groups of styles that should be applied to particular elements or groups of elements on your web page. Example -
 
-
 ```
 h1 {
 color: red;
@@ -577,3 +576,15 @@ display:inline;
 ```
 
 ### CSS Units
+
+**vw** Relative to 1% of the width of the viewport._
+Generally used to set width
+**vh** Relative to 1% of the height of the viewport_
+Generally used to set height.
+
+vh/vw can be used to set width/height any of a element.
+
+`Note` : \* Viewport = the browser window size. If the viewport is 50cm wide, 1vw = 0.5cm.
+
+**em**
+**rem**
