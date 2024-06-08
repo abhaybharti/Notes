@@ -7,7 +7,7 @@
     - [- [ Code Env or Thread of Execution -](#[--[-code-env-or-thread-of-execution--)
   - [ Variables](#[-variables)
   - [ Things to Keep in mind when naming a variable](#[-things-to-keep-in-mind-when-naming-a-variable)
-  - [ variable scope->Understanding](#[-variable-scope->understanding)
+  - [ variable scope-&gt;Understanding](#[-variable-scope->understanding)
   - [ Data Conversion](#[-data-conversion)
   - [ Data Types](#[-data-types)
   - [ If](#[-if)
@@ -49,7 +49,7 @@
   - [ closures](#[-closures)
   - [ Number](#[-number)
   - [ variables](#[-variables)
-  - [ promise & promise API and CallBack adn fetch](#[-promise-&-promise-api-and-callback-adn-fetch)
+  - [ promise &amp; promise API and CallBack adn fetch](#[-promise-&-promise-api-and-callback-adn-fetch)
   - [ call stack](#[-call-stack)
   - [ web APIs](#[-web-apis)
   - [ undefined](#[-undefined)
@@ -115,7 +115,7 @@
   - [ Remote command execution via SSH using NodeJS](#[-remote-command-execution-via-ssh-using-nodejs)
   - [ Create a Unique ID](#[-create-a-unique-id)
   - [ Switch Case Statement Simplify using Object Literals](#[-switch-case-statement-simplify-using-object-literals)
-    - [ We can use an "Object Lookup Map" instead of a "switch" statement for a cleaner syntax. Above switch statement re-written in Object Lookup map format.](#[-we-can-use-an-"object-lookup-map"-instead-of-a-"switch"-statement-for-a-cleaner-syntax.-above-switch-statement-re-written-in-object-lookup-map-format.)
+    - [ We can use an &#34;Object Lookup Map&#34; instead of a &#34;switch&#34; statement for a cleaner syntax. Above switch statement re-written in Object Lookup map format.](#[-we-can-use-an-)
   - [ Meaning of ^ and ~ symbols mentioned in the package.json file for the package version](#[-meaning-of-^-and-~-symbols-mentioned-in-the-package.json-file-for-the-package-version)
   - [ How To Create Express Server](#[-how-to-create-express-server)
   - [ How To Create Server Using Express/NodeJS](#[-how-to-create-server-using-express/nodejs)
@@ -129,10 +129,10 @@
   - [ Mutating Array methods](#[-mutating-array-methods)
     - [ Mutating Array Methods list](#[-mutating-array-methods-list)
 - [ Array -> Filter() method](<#[-array-->-filter()-method>)
-  - [ variable scope->Understanding](#[-variable-scope->understanding)
+  - [ variable scope-&gt;Understanding](#[-variable-scope->understanding)
   - [ Array -> map() method](<#[-array-->-map()-method>)
   - [ Array -> reduce() method](<#[-array-->-reduce()-method>)
-  - [ Array -> Remove Duplicate Values](#[-array-->-remove-duplicate-values)
+  - [ Array -&gt; Remove Duplicate Values](#[-array-->-remove-duplicate-values)
   - [ remove duplicate Using Set](#[-remove-duplicate-using-set)
   - [ remove duplicate Using Array reduce() method](<#[-remove-duplicate-using-array-reduce()-method>)
   - [ remove duplicate Using Array filter() method](<#[-remove-duplicate-using-array-filter()-method>)
@@ -190,7 +190,7 @@ Everything in JS happens inside an Execution context. it is a synchronous single
 
 ##### Memory or variable Env -
 
-    Here variables are stored as `key:value` pair
+    Here variables are stored as`key:value` pair
 
 ##### Code Env or Thread of Execution -
 
@@ -311,9 +311,7 @@ let ab = null // it is a standalone value, its a type. repretensation of empty v
 
 // object
 
-`typeof variable //will show type of variable
-console.log(typeof undefined); //undefined reason value not assigned, is a datatype
-console.log(typeof null); //object, null is an object`
+`typeof variable //will show type of variable console.log(typeof undefined); //undefined reason value not assigned, is a datatype console.log(typeof null); //object, null is an object`
 
 ## If
 
@@ -331,9 +329,7 @@ console.log('Do Something')
 
 **A better approach**
 
-`if (['online','away', 'busy'].indexOf(status)!== -1){
- console.log('Do Something')
-}`
+`if (['online','away', 'busy'].indexOf(status)!== -1){  console.log('Do Something') }`
 
 `Check IndexOf with `~` operator`
 
@@ -659,7 +655,7 @@ let fruits = [1,2,6,9,3,100,40]
 
 ### Check weather passed String is numeric or not
 
-````function isNumeric(value) {
+````function
   return /^-?\d*\.?\d+$/.test(value);
 }```
 
@@ -1616,6 +1612,27 @@ urlRedirect('https://google.co.in');
 ```
 
 ### JS Common Interview Questions
+
+#### Read JSON File in JavaScript
+
+JSON also known as JavaScript Object Notation is a basic or standardized design used for the transportation and storage of data. It is a plain text written in JavaScript Object Notation which is language-independent. It is a lightweight data-interchange format. JSON is a self-describing format and it is easy to understand.
+
+We can read JSON files in JavaScript using the following methods:
+
+- **Method 1. Using Required Module**
+
+```
+const dataJson = require('config.json');
+console.log(typeof dataJson);
+console.log(dataJson);
+```
+
+- **Method 2. Using ES6 Import Module (Web Runtime Environment)**
+
+```import dataJson from 'config.json';
+document.getElementById('main').innerHTML = JSON.stringify(dataJson);
+
+```
 
 ### Data Structure Introduction
 

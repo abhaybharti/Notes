@@ -1,13 +1,69 @@
+## Table of Contents
+
+- [ CSS CheatSheet](#[-css-cheatsheet)
+  - [ What is CSS](#[-what-is-css)
+  - [ Ways to write CSS in a webpage](#[-ways-to-write-css-in-a-webpage)
+  - [ We can add CSS in html file in 3 ways.](#[-we-can-add-css-in-html-file-in-3-ways.)
+  - [ Difference between CSS file in a HTML file using link tag and using @import syntax in CSS file](#[-difference-between-css-file-in-a-html-file-using-link-tag-and-using-@import-syntax-in-css-file)
+  - [ Make your CSS code more readable and less repetitive using the :where() function of css](<#[-make-your-css-code-more-readable-and-less-repetitive-using-the-:where()-function-of-css>)
+  - [ Color and Fonts in CSS](#[-color-and-fonts-in-css)
+  - [ Class and Id in CSS](#[-class-and-id-in-css)
+  - [ Box model in CSS](#[-box-model-in-css)
+  - [- [ margin](#[--[-margin)
+  - [- [ padding](#[--[-padding)
+  - [- [ border vs outline property](#[--[-border-vs-outline-property)
+  - [- [ How to set width/height of an element](#[--[-how-to-set-width/height-of-an-element)
+  - [ Different Padding Definitions](#[-different-padding-definitions)
+  - [ display property](#[-display-property)
+  - [ CASCADING SPECIFICITY INHERITANCE](#[-cascading-specificity-inheritance)
+  - [ Element selectors](#[-element-selectors)
+  - [ Class selectors](#[-class-selectors)
+  - [ ID selectors](#[-id-selectors)
+- [html.html -- ID selector and class selector is used in combination. So total specificity value will be 100+10=110. Even though, it is before #html,its color will be applied reason specificity value is greater.](#[html.html----id-selector-and-class-selector-is-used-in-combination.-so-total-specificity-value-will-be-100+10=110.-even-though,-it-is-before-#html,its-color-will-be-applied-reason-specificity-value-is-greater.)
+  - [ Inline style](#[-inline-style)
+  - [ !important](#[-!important)
+  - [ Color picker eyedropper chrome extension to select colors hex code](#[-color-picker-eyedropper-chrome-extension-to-select-colors-hex-code)
+  - [ CSS Selectors](#[-css-selectors)
+  - [ Element selectors](#[-element-selectors)
+  - [ Class selectors](#[-class-selectors)
+  - [ id selectors](#[-id-selectors)
+- [html {](#[html-{)
+  - [ attribute selectors](#[-attribute-selectors)
+  - [ Combination of selectors](#[-combination-of-selectors)
+  - [ CSS Transitions](#[-css-transitions)
+  - [ How to change an image size on mouse hover without using CSS transitions](#[-how-to-change-an-image-size-on-mouse-hover-without-using-css-transitions)
+  - [ How to change an image size on mouse hover with using CSS transitions](#[-how-to-change-an-image-size-on-mouse-hover-with-using-css-transitions)
+  - [ Categories of CSS Transitions Properties](#[-categories-of-css-transitions-properties)
+  - [ What are the required CSS Transitions properties](#[-what-are-the-required-css-transitions-properties)
+  - [- [ Example of Required CSS Transition Properties](#[--[-example-of-required-css-transition-properties)
+  - [- [ How to transition an element's width within 3 seconds](#[--[-how-to-transition-an-element's-width-within-3-seconds)
+  - [- [ How to transition a font's size within five seconds](#[--[-how-to-transition-a-font's-size-within-five-seconds)
+  - [ What are the two optionals CSS Transitions properties](#[-what-are-the-two-optionals-css-transitions-properties)
+  - [- [ How to transition an element's width with an ease-out speed](#[--[-how-to-transition-an-element's-width-with-an-ease-out-speed)
+  - [- [ How to transition and element's width with a linear speed](#[--[-how-to-transition-and-element's-width-with-a-linear-speed)
+  - [- [ How to transition and element's width with a two-second delay](#[--[-how-to-transition-and-element's-width-with-a-two-second-delay)
+  - [- [ Create a circle using CSS](#[--[-create-a-circle-using-css)
+  - [- [ Create a circle using CSS and and your image](#[--[-create-a-circle-using-css-and-and-your-image)
+  - [- [ How to make an inline element as block level element using CSS](#[--[-how-to-make-an-inline-element-as-block-level-element-using-css)
+  - [- [ How to make an block element as inline level element using CSS](#[--[-how-to-make-an-block-element-as-inline-level-element-using-css)
+  - [- [ How to add height and width in an inline level element](#[--[-how-to-add-height-and-width-in-an-inline-level-element)
+  - [ CSS Units](#[-css-units)
+
+---
+
 # CSS CheatSheet
 
 #### What is CSS
 
 Cascading Style Sheets allows you to create great-looking web page. It is a rule-based language — you define the rules by specifying groups of styles that should be applied to particular elements or groups of elements on your web page. Example -
 
+
+```
 h1 {
 color: red;
 font-size: 5em;
 }
+```
 
 ### Ways to write CSS in a webpage
 
@@ -111,6 +167,10 @@ Box model has following properties:
 - We should never set height/width in pixel #
 - We should use max-width/max-height instead of width/height property
 - Box model starts with content -> padding -> border -> margin. Where content is innermost item.
+
+##### border
+
+border can only be provided in absolute unit (5px) not in % (10%).
 
 ##### margin
 
@@ -517,4 +577,3 @@ display:inline;
 ```
 
 ### CSS Units
-
