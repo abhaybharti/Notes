@@ -1,3 +1,18 @@
+<!-- TOC -->
+* [Docker-Commands](#docker-commands)
+    * [What is Docker](#what-is-docker)
+    * [How to Clear Log Files of A Docker Container](#how-to-clear-log-files-of-a-docker-container)
+    * [How to Install Docker](#how-to-install-docker)
+    * [Docker Image](#docker-image)
+    * [Container](#container)
+    * [DIfference between Virtual Machine & Containers](#difference-between-virtual-machine--containers)
+    * [DockerHub -](#dockerhub--)
+    * [Docker for Selenium](#docker-for-selenium)
+    * [Check running container](#check-running-container)
+    * [How to install docker image](#how-to-install-docker-image)
+    * [How to see installed images](#how-to-see-installed-images)
+<!-- TOC -->
+
 # Docker-Commands
 
 ### What is Docker

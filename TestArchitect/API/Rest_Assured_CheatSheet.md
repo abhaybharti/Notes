@@ -1,6 +1,19 @@
----
-sidebar_position: 1
----
+<!-- TOC -->
+* [Rest-Assured Cheat Sheet](#rest-assured-cheat-sheet)
+    * [Setting up Rest Assured](#setting-up-rest-assured)
+    * [Sending GET requests](#sending-get-requests)
+    * [Sending POST requests](#sending-post-requests)
+    * [Sending PUT requests](#sending-put-requests)
+    * [Sending DELETE requests](#sending-delete-requests)
+    * [Handling response](#handling-response)
+    * [Sending POST requests](#sending-post-requests-1)
+    * [Sending POST requests with File Upload](#sending-post-requests-with-file-upload)
+    * [Authentication](#authentication)
+    * [Handling cookies and headers](#handling-cookies-and-headers)
+    * [Error handling](#error-handling)
+    * [Schema validations](#schema-validations)
+    * [Handling parameters](#handling-parameters)
+<!-- TOC -->
 
 # Rest-Assured Cheat Sheet
 

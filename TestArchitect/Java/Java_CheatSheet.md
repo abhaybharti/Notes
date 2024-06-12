@@ -1,127 +1,126 @@
-
-## Table of Contents
-
-- [ Java](#[-java)
-  - [ what is encapsulation and why it is used](#[-what-is-encapsulation-and-why-it-is-used)
-  - [ inheritance](#[-inheritance)
-  - [ What is Inheritance](#[-what-is-inheritance)
-  - [ why do we need inheritance](#[-why-do-we-need-inheritance)
-  - [ To achieve categorization](#[-to-achieve-categorization)
-  - [ To Achieve modularity](#[-to-achieve-modularity)
-  - [ To Achieve clear representation of concepts and separation of concerns](#[-to-achieve-clear-representation-of-concepts-and-separation-of-concerns)
-  - [ Implementation in Test Automation Framework](#[-implementation-in-test-automation-framework)
-  - [ What are the different type of inheritance](#[-what-are-the-different-type-of-inheritance)
-  - [ Implementation Inheritance (Class Inheritance)](<#[-implementation-inheritance-(class-inheritance)>)
-  - [ Interface Inheritance (Type inheritance)](<#[-interface-inheritance-(type-inheritance)>)
-  - [ How to achieve code reuse using inheritance](#[-how-to-achieve-code-reuse-using-inheritance)
-  - [ Using implementation inheritance](#[-using-implementation-inheritance)
-  - [ Using Composition](#[-using-composition)
-  - [ What are benefits of inheritance](#[-what-are-benefits-of-inheritance)
-  - [ What are pitfalls of inheritance](#[-what-are-pitfalls-of-inheritance)
-  - [ How can we use inheritance in a test automation framework](#[-how-can-we-use-inheritance-in-a-test-automation-framework)
-  - [ what is encapsulation](#[-what-is-encapsulation)
-  - [ why it is needed](#[-why-it-is-needed)
-  - [ How Encapsulation is different from Abstraction](#[-how-encapsulation-is-different-from-abstraction)
-  - [ How to implement Encapsulation](#[-how-to-implement-encapsulation)
-  - [ Benefits of Encapsulation](#[-benefits-of-encapsulation)
-  - [ How to select right access level in the class](#[-how-to-select-right-access-level-in-the-class)
-  - [ Is it possible to access private methods/properties from outside the class](#[-is-it-possible-to-access-private-methods/properties-from-outside-the-class)
-  - [ How to use Encapsulation in a test automation](#[-how-to-use-encapsulation-in-a-test-automation)
-  - [ Abstraction](#[-abstraction)
-  - [ Array Data Structure, Strengths Weaknesses and Big O Complexity Analysis](#[-array-data-structure,-strengths-weaknesses-and-big-o-complexity-analysis)
-  - [ What is an array](#[-what-is-an-array)
-  - [ Strength](#[-strength)
-  - [ Fast Lookups (random access)](<#[-fast-lookups-(random-access)>)
-  - [ Fast appends](#[-fast-appends)
-  - [ Simple Implementation](#[-simple-implementation)
-  - [ Cache Friendliness](#[-cache-friendliness)
-  - [ Weaknesses](#[-weaknesses)
-  - [ Fixed-size](#[-fixed-size)
-  - [ Memory unused or wasted](#[-memory-unused-or-wasted)
-  - [ Size doubling](#[-size-doubling)
-  - [ Costly inserts](#[-costly-inserts)
-  - [ Costly deletes](#[-costly-deletes)
-  - [ Big-O Complexities](#[-big-o-complexities)
-  - [ What is Abstraction](#[-what-is-abstraction)
-  - [ Data Abstraction](#[-data-abstraction)
-  - [ Behavior Abstraction](#[-behavior-abstraction)
-  - [ How abstraction helps](#[-how-abstraction-helps)
-  - [ How abstraction is implemented](#[-how-abstraction-is-implemented)
-  - [ When to use an abstraction class](#[-when-to-use-an-abstraction-class)
-  - [ When to use an interface](#[-when-to-use-an-interface)
-  - [ Example 1 (Selenium Java Binding -> ChromeDriver implementation)](<#[-example-1-(selenium-java-binding-->-chromedriver-implementation)>)
-  - [ Example 2 (Creating test data parser for automation framework)](<#[-example-2-(creating-test-data-parser-for-automation-framework)>)
-  - [ Collection](#[-collection)
-  - [ List](#[-list)
-  - [ ArrayList](#[-arraylist)
-  - [ Why ArrayList is better than Array](#[-why-arraylist-is-better-than-array)
-  - [ Create ArrayList](#[-create-arraylist)
-  - [ Add Element to an ArrayList](#[-add-element-to-an-arraylist)
-  - [ Change Element](#[-change-element)
-  - [ Remove Element](#[-remove-element)
-  - [ Loop ArrayList](#[-loop-arraylist)
-  - [ Sort ArrayList](#[-sort-arraylist)
-  - [ Compare two ArrayList](#[-compare-two-arraylist)
-  - [ How to Swap two elements in ArrayList](#[-how-to-swap-two-elements-in-arraylist)
-  - [ How to convert an array to ArrayList](#[-how-to-convert-an-array-to-arraylist)
-  - [ How to convert ArrayList to string array](#[-how-to-convert-arraylist-to-string-array)
-  - [ Convert HashSet to a List/ArrayList](#[-convert-hashset-to-a-list/arraylist)
-  - [ Convert a LinkedList to ArrayList](#[-convert-a-linkedlist-to-arraylist)
-  - [ How to join/combine two ArrayLists](#[-how-to-join/combine-two-arraylists)
-  - [ How to clone an ArrayList to another ArrayList](#[-how-to-clone-an-arraylist-to-another-arraylist)
-  - [ How to empty an ArrayList](#[-how-to-empty-an-arraylist)
-  - [ ArrayList trimToSize()](<#[-arraylist-trimtosize()>)
-  - [ LinkedList](#[-linkedlist)
-  - [ Vector](#[-vector)
-- [ Set](#[-set)
-  - [ HashSet](#[-hashset)
-  - [ LinkedHashSet](#[-linkedhashset)
-  - [ TreeSet](#[-treeset)
-- [ Map](#[-map)
-  - [ HashMap](#[-hashmap)
-  - [ TreeMap](#[-treemap)
-  - [ LinkedHashMap](#[-linkedhashmap)
-  - [ HashTable](#[-hashtable)
-- [ Iterator/ListIterator](#[-iterator/listiterator)
-  - [ Iterator and Comparator](#[-iterator-and-comparator)
-  - [ Comparable and Comparator](#[-comparable-and-comparator)
-  - [ Java Collection Questions](#[-java-collection-questions)
-  - [ HashMap](#[-hashmap)
-  - [ `1.` How to initialize a map with key as String and value as Integer](#[-`1.`-how-to-initialize-a-map-with-key-as-string-and-value-as-integer)
-  - [ `2.` How to add and remove elements from HashMap](#[-`2.`-how-to-add-and-remove-elements-from-hashmap)
-  - [ `3.` How to iterate through HashMap](#[-`3.`-how-to-iterate-through-hashmap)
-  - [ `4.` Code to print HashMap key/value in console](#[-`4.`-code-to-print-hashmap-key/value-in-console)
-  - [ `5.` Code to compare HashMap where key/values should be same and sequence should also be same](#[-`5.`-code-to-compare-hashmap-where-key/values-should-be-same-and-sequence-should-also-be-same)
-  - [ `6.` Does Hashmap allow duplicate keys and values](#[-`6.`-does-hashmap-allow-duplicate-keys-and-values)
-  - [ `7.` Does Hashmap allow null key and values](#[-`7.`-does-hashmap-allow-null-key-and-values)
-  - [ `8.` Do HashMap is thread safe](#[-`8.`-do-hashmap-is-thread-safe)
-  - [ `9.` Does HashMap maintains insertion order](#[-`9.`-does-hashmap-maintains-insertion-order)
-  - [ `10.` Get all keys in HashMap](#[-`10.`-get-all-keys-in-hashmap)
-  - [ `11.` How to sort HashMap with keys](#[-`11.`-how-to-sort-hashmap-with-keys)
-  - [ `12.` How to sort HashMap with values](#[-`12.`-how-to-sort-hashmap-with-values)
-  - [ Java Interview Questions](#[-java-interview-questions)
-  - [ sidebar_position: 1](#[-sidebar_position:-1)
-- [ Java Interview Questions](#[-java-interview-questions)
-  - [ Write a java program to find out all the highest number in a array whose adjacent right number should be smaller.](#[-write-a-java-program-to-find-out-all-the-highest-number-in-a-array-whose-adjacent-right-number-should-be-smaller.)
-  - [ Write a java program to find highest sum of product of two number in an array.](#[-write-a-java-program-to-find-highest-sum-of-product-of-two-number-in-an-array.)
-  - [ Write a java program to find a count of each character in a given string.](#[-write-a-java-program-to-find-a-count-of-each-character-in-a-given-string.)
-  - [ Write a java program to remove duplicates from a given array.](#[-write-a-java-program-to-remove-duplicates-from-a-given-array.)
-  - [ Write a java program to remove duplicates from a given string.](#[-write-a-java-program-to-remove-duplicates-from-a-given-string.)
-  - [ Write a java program to find a unique characters in a given string.](#[-write-a-java-program-to-find-a-unique-characters-in-a-given-string.)
-  - [ Write a java program to find a given string is a palindrome or not without using third variable.](#[-write-a-java-program-to-find-a-given-string-is-a-palindrome-or-not-without-using-third-variable.)
-  - [ Write a java program to reverse each word in a given string.](#[-write-a-java-program-to-reverse-each-word-in-a-given-string.)
-  - [ Write a java program to rotate/transpose a give matrix into a 90 degree. (Please see attached image for input and output)](<#[-write-a-java-program-to-rotate/transpose-a-give-matrix-into-a-90-degree.-(please-see-attached-image-for-input-and-output)>)
-  - [ Write a java program to insert given table data into a collection and print it. Choose best collection keep in mind time and space complexity. (Please see attached image for input and output).](<#[-write-a-java-program-to-insert-given-table-data-into-a-collection-and-print-it.-choose-best-collection-keep-in-mind-time-and-space-complexity.-(please-see-attached-image-for-input-and-output).>)
-  - [ Compute Sum And Average Of Given Array](#[-compute-sum-and-average-of-given-array)
-  - [ Code to check if a String is null as well as "" value](#[-code-to-check-if-a-string-is-null-as-well-as-""-value)
-- [ Convert String To Boolean](#[-convert-string-to-boolean)
-  - [ Using Boolean.parseBoolean()](<#[-using-boolean.parseboolean()>)
-  - [ Boolean.valueOf()](<#[-boolean.valueof()>)
-  - [ Boolean.getBoolean()](<#[-boolean.getboolean()>)
-  - [ Conclusion Notes](#[-conclusion-notes)
-  - [ Find Second Largest Number In An Array](#[-find-second-largest-number-in-an-array)
-
----
+<!-- TOC -->
+* [Java](#java)
+  * [inheritance](#inheritance)
+    * [What is Inheritance](#what-is-inheritance)
+    * [why do we need inheritance](#why-do-we-need-inheritance)
+      * [To achieve categorization](#to-achieve-categorization)
+      * [To Achieve modularity](#to-achieve-modularity)
+      * [To Achieve clear representation of concepts and separation of concerns](#to-achieve-clear-representation-of-concepts-and-separation-of-concerns)
+      * [Implementation in Test Automation Framework](#implementation-in-test-automation-framework)
+    * [What are the different type of inheritance](#what-are-the-different-type-of-inheritance)
+      * [Implementation Inheritance (Class Inheritance)](#implementation-inheritance-class-inheritance)
+      * [Interface Inheritance (Type inheritance)](#interface-inheritance-type-inheritance)
+    * [How to achieve code reuse using inheritance](#how-to-achieve-code-reuse-using-inheritance)
+      * [Using implementation inheritance](#using-implementation-inheritance)
+      * [Using Composition](#using-composition)
+    * [What are benefits of inheritance](#what-are-benefits-of-inheritance)
+    * [What are pitfalls of inheritance](#what-are-pitfalls-of-inheritance)
+    * [How can we use inheritance in a test automation framework](#how-can-we-use-inheritance-in-a-test-automation-framework)
+  * [Encapsulation](#encapsulation)
+    * [why it is needed](#why-it-is-needed)
+    * [How Encapsulation is different from Abstraction](#how-encapsulation-is-different-from-abstraction)
+    * [How to implement Encapsulation](#how-to-implement-encapsulation)
+    * [Benefits of Encapsulation](#benefits-of-encapsulation)
+    * [How to select right access level in the class](#how-to-select-right-access-level-in-the-class)
+    * [Is it possible to access private methods/properties from outside the class](#is-it-possible-to-access-private-methodsproperties-from-outside-the-class)
+    * [How to use Encapsulation in a test automation](#how-to-use-encapsulation-in-a-test-automation)
+  * [Abstraction](#abstraction)
+  * [Array Data Structure, Strengths Weaknesses and Big O Complexity Analysis](#array-data-structure-strengths-weaknesses-and-big-o-complexity-analysis)
+    * [What is an array](#what-is-an-array)
+    * [Strength](#strength)
+      * [Fast Lookups (random access)](#fast-lookups-random-access)
+      * [Fast appends](#fast-appends)
+      * [Simple Implementation](#simple-implementation)
+      * [Cache Friendliness](#cache-friendliness)
+    * [Weaknesses](#weaknesses)
+      * [Fixed-size](#fixed-size)
+      * [Memory unused or wasted](#memory-unused-or-wasted)
+      * [Size doubling](#size-doubling)
+      * [Costly inserts](#costly-inserts)
+      * [Costly deletes](#costly-deletes)
+      * [Big-O Complexities](#big-o-complexities)
+    * [What is Abstraction](#what-is-abstraction)
+    * [Data Abstraction](#data-abstraction)
+    * [Behavior Abstraction](#behavior-abstraction)
+    * [How abstraction helps](#how-abstraction-helps)
+    * [How abstraction is implemented](#how-abstraction-is-implemented)
+    * [When to use an abstraction class](#when-to-use-an-abstraction-class)
+    * [When to use an interface](#when-to-use-an-interface)
+      * [Example 1 (Selenium Java Binding -> ChromeDriver implementation)](#example-1-selenium-java-binding---chromedriver-implementation)
+      * [Example 2 (Creating test data parser for automation framework)](#example-2-creating-test-data-parser-for-automation-framework)
+  * [Collection](#collection)
+    * [List](#list)
+    * [ArrayList](#arraylist)
+      * [Why ArrayList is better than Array](#why-arraylist-is-better-than-array)
+      * [Create ArrayList](#create-arraylist)
+      * [Add Element to an ArrayList](#add-element-to-an-arraylist)
+      * [Change Element](#change-element)
+      * [Remove Element](#remove-element)
+      * [Loop ArrayList](#loop-arraylist)
+      * [Sort ArrayList](#sort-arraylist)
+      * [Compare two ArrayList](#compare-two-arraylist)
+    * [How to Swap two elements in ArrayList](#how-to-swap-two-elements-in-arraylist)
+    * [How to convert an array to ArrayList](#how-to-convert-an-array-to-arraylist)
+    * [How to convert ArrayList to string array](#how-to-convert-arraylist-to-string-array)
+    * [Convert HashSet to a List/ArrayList](#convert-hashset-to-a-listarraylist)
+    * [Convert a LinkedList to ArrayList](#convert-a-linkedlist-to-arraylist)
+    * [How to join/combine two ArrayLists](#how-to-joincombine-two-arraylists)
+    * [How to clone an ArrayList to another ArrayList](#how-to-clone-an-arraylist-to-another-arraylist)
+    * [How to empty an ArrayList](#how-to-empty-an-arraylist)
+    * [ArrayList trimToSize()](#arraylist-trimtosize)
+  * [LinkedList](#linkedlist)
+  * [Vector](#vector)
+* [Set](#set)
+  * [HashSet](#hashset)
+  * [LinkedHashSet](#linkedhashset)
+  * [TreeSet](#treeset)
+* [Map](#map)
+  * [HashMap](#hashmap)
+  * [TreeMap](#treemap)
+  * [LinkedHashMap](#linkedhashmap)
+  * [HashTable](#hashtable)
+* [Iterator/ListIterator](#iteratorlistiterator)
+  * [Iterator and Comparator](#iterator-and-comparator)
+  * [Comparable and Comparator](#comparable-and-comparator)
+  * [Java Collection Questions](#java-collection-questions)
+    * [HashMap](#hashmap-1)
+      * [`1.` How to initialize a map with key as String and value as Integer](#1-how-to-initialize-a-map-with-key-as-string-and-value-as-integer)
+      * [`2.` How to add and remove elements from HashMap](#2-how-to-add-and-remove-elements-from-hashmap)
+      * [`3.` How to iterate through HashMap](#3-how-to-iterate-through-hashmap)
+      * [`4.` Code to print HashMap key/value in console](#4-code-to-print-hashmap-keyvalue-in-console)
+      * [`5.` Code to compare HashMap where key/values should be same and sequence should also be same](#5-code-to-compare-hashmap-where-keyvalues-should-be-same-and-sequence-should-also-be-same)
+      * [`6.` Does Hashmap allow duplicate keys and values](#6-does-hashmap-allow-duplicate-keys-and-values)
+      * [`7.` Does Hashmap allow null key and values](#7-does-hashmap-allow-null-key-and-values)
+      * [`8.` Do HashMap is thread safe](#8-do-hashmap-is-thread-safe)
+      * [`9.` Does HashMap maintains insertion order](#9-does-hashmap-maintains-insertion-order)
+      * [`10.` Get all keys in HashMap](#10-get-all-keys-in-hashmap)
+      * [`11.` How to sort HashMap with keys](#11-how-to-sort-hashmap-with-keys)
+      * [`12.` How to sort HashMap with values](#12-how-to-sort-hashmap-with-values)
+  * [Java Interview Program](#java-interview-program)
+    * [Count duplicate character in a given string](#count-duplicate-character-in-a-given-string)
+    * [Finding the first non-repeated character](#finding-the-first-non-repeated-character)
+    * [Given two strings s1 and s2, determine if s2 contains a permutation of s1. In other words, return true if one of s1 permutation is a substring of s2, or false otherwise.](#given-two-strings-s1-and-s2-determine-if-s2-contains-a-permutation-of-s1-in-other-words-return-true-if-one-of-s1-permutation-is-a-substring-of-s2-or-false-otherwise)
+    * [Write a Java program to reverse a given string](#write-a-java-program-to-reverse-a-given-string)
+    * [Find the largest element  in an array](#find-the-largest-element--in-an-array)
+    * [Write a java program to find out all the highest number in a array whose adjacent right number should be smaller.](#write-a-java-program-to-find-out-all-the-highest-number-in-a-array-whose-adjacent-right-number-should-be-smaller)
+    * [Write a java program to find highest sum of product of two number in an array.](#write-a-java-program-to-find-highest-sum-of-product-of-two-number-in-an-array)
+    * [Write a java program to find a count of each character in a given string.](#write-a-java-program-to-find-a-count-of-each-character-in-a-given-string)
+    * [Write a java program to remove duplicates from a given array.](#write-a-java-program-to-remove-duplicates-from-a-given-array)
+    * [Write a java program to remove duplicates from a given string.](#write-a-java-program-to-remove-duplicates-from-a-given-string)
+    * [Write a java program to find a unique characters in a given string.](#write-a-java-program-to-find-a-unique-characters-in-a-given-string)
+    * [Write a java program to find a given string is a palindrome or not without using third variable.](#write-a-java-program-to-find-a-given-string-is-a-palindrome-or-not-without-using-third-variable)
+    * [Write a java program to reverse each word in a given string.](#write-a-java-program-to-reverse-each-word-in-a-given-string)
+    * [Write a java program to rotate/transpose a give matrix into a 90 degree. (Please see attached image for input and output)](#write-a-java-program-to-rotatetranspose-a-give-matrix-into-a-90-degree-please-see-attached-image-for-input-and-output)
+    * [Write a java program to insert given table data into a collection and print it. Choose best collection keep in mind time and space complexity. (Please see attached image for input and output).](#write-a-java-program-to-insert-given-table-data-into-a-collection-and-print-it-choose-best-collection-keep-in-mind-time-and-space-complexity-please-see-attached-image-for-input-and-output)
+    * [Compute Sum And Average Of Given Array](#compute-sum-and-average-of-given-array)
+  * [Code to check if a String is null as well as "" value](#code-to-check-if-a-string-is-null-as-well-as--value)
+* [Convert String To Boolean](#convert-string-to-boolean)
+    * [Using Boolean.parseBoolean()](#using-booleanparseboolean)
+    * [Boolean.valueOf()](#booleanvalueof)
+    * [Boolean.getBoolean()](#booleangetboolean)
+    * [Conclusion Notes](#conclusion-notes)
+    * [Find Second Largest Number In An Array](#find-second-largest-number-in-an-array)
+<!-- TOC -->
 
 # Java
 
@@ -718,7 +717,87 @@ TBD
 
 TBD
 
-## Java Interview Program
+## Java Interview Questions
+
+### Write a java program to find out all the highest number in a array whose adjacent right number should be smaller.
+
+Input = [ 1,2,4,3,5,2] Output = [4,5,2]
+
+### Write a java program to find highest sum of product of two number in an array.
+
+Input = [2,3,6,5,8] Output = (8*6)+(5*3)+2 = 65
+Input = [1,1,2,3,2,3,6,5,8] Output = (8*6)+(5*3)+(3\*2)+2+1+1 = 73
+
+```
+Input = [2,3,6,5,8] Output = (8*6)+(5*3)+2 = 65
+Input = [1,1,2,3,2,3,6,5,8] Output = (8*6)+(5*3)+(3*2)+2+1+1 = 73
+
+Solution:
+             import java.util.Arrays;
+public class SampleCodeClass {
+      public static void main(String[] args) {
+//          int[] arr = {2,3,6,5,8};
+            int[] arr = {1,1,2,3,2,3,6,5,8};
+            Arrays.sort( arr );
+            int res = 0;
+            if( arr.length == 2) res = res + (arr[0] * arr[1]);
+            else {
+                   int i = (arr.length-1);
+                   for( ; i>=1; i--) {
+                         if( arr[i] == 1 || arr[i-1] == 1) break;
+                         res = res + ( arr[i-1] * arr[i] );
+                         i--;
+                   }
+                   while( i>=0 ) {
+                         res = res + arr[i];
+                         i--;
+                   }
+            }
+            System.out.println( res );
+      }
+}
+```
+
+### Write a java program to find a count of each character in a given string.
+
+Input = “Automation Testing” Output = a=2,u=1,t=4,o=2,m=1,i=2,n=2,e=1,s=1,g=1
+
+### Write a java program to remove duplicates from a given array.
+
+Input = [2,3,6,5,8,2,3] Output = [2,3,6,5,8]
+
+### Write a java program to remove duplicates from a given string.
+
+Input = “automation” Output = automin
+
+```
+String str="automation";
+
+char[] charArray=str.toCharArray();
+Set<Character> uniqueCharacters=new HashSet<>();
+for(int i=0;i<charArray.length;i++){
+uniqueCharacters.add(charArray[i]);
+}
+
+System.out.println(uniqueCharacters);
+```
+
+### Write a java program to find a unique characters in a given string.
+
+Input = “automation” Output = umin
+Note: Without using any collection.
+
+### Write a java program to find a given string is a palindrome or not without using third variable.
+
+Input = “MADAM” Output = Yes
+
+### Write a java program to reverse each word in a given string.
+
+Input = “I am a automation tester” Output = tester automation a am I
+
+### Write a java program to rotate/transpose a give matrix into a 90 degree. (Please see attached image for input and output)
+
+### Write a java program to insert given table data into a collection and print it. Choose best collection keep in mind time and space complexity. (Please see attached image for input and output).
 ### Count duplicate character in a given string
 You need to count the chaaracters in a strin (including spec characeters suc as #,$ etc).
 **Solution:**
