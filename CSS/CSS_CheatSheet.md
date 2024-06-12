@@ -156,11 +156,30 @@ We can use class & ID of HTML elements to apply css properties.
 
 Box model has following properties:
 
-- content
+- >[!TIP]
+  >content
 - border
-- margin
-- padding
-- display
+ 
+>[!TIP] 
+  > margin 
+- it can be negative value.  
+  ```
+  {margin:0 auto;} specifies:
+
+  top and bottom margins are 0
+  right and left margins are auto
+
+
+  {margin: 10px, 20px, 15px, 5px;} specifies
+  margin-top
+  margin-right
+  margin-bottom
+  margin-left
+  ```
+>[!TIP]
+> padding
+   - it can never to negative value. 
+>[!TIP] display
 
 - We should never set absolute width/length (ex width:500px; height:500px), reason it causes overflow. Which adds scroll bar.
 - We should never set height/width in pixel #
@@ -171,13 +190,8 @@ Box model has following properties:
 
 border can only be provided in absolute unit (5px) not in % (10%).
 
-##### margin
 
-margin can be negative value.
 
-##### padding
-
-padding can never to negative value.
 
 ##### border vs outline property
 
@@ -588,3 +602,24 @@ vh/vw can be used to set width/height any of a element.
 
 **em**
 **rem**
+
+#### pseudo-element
+>[!NOTE]
+> ::after
+The ::after pseudo-element creates an element that is the last child of the selected element. You can use it to add an empty element after the last image.
+Create a new selector using an ::after pseudo-element on the .gallery element. Add a content property set to an empty string "" and 350px set for the width property.
+```
+.gallery::after{
+content:"";
+width:350px;
+}
+```
+
+>[!NOTE]
+> ::not
+```
+div:not(#example) {
+  color: red;
+}
+```
+The above selects all div elements without an id of example.

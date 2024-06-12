@@ -2,5 +2,7 @@
   Position property :- relative
 */
 div {
-  position: ;
+  position: relative;
+  margin: 0 auto;
 }
+
