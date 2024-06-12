@@ -212,10 +212,33 @@ Everything in JS happens inside an Execution context. it is a synchronous single
 - `Make variable name as long as necessary if needed but no longer`
 - `A prefix like is, are , or has helps to distinguish a boolean from another variable`
 
+#### JavaScript datatype
+
+"use strict" //treat all JS code as newer version in whole file
+
+// alert(3+3) // cant use in nodejs, can be used browser. Currently, we are running in nodejs
+let name = "Abhay" //String data types
+let age =18 // number data types
+let isLoggedIn = false //boolean data types -- true/false
+let ab = null // it is a standalone value, its a type. repretensation of empty value
+let abc = undefined // when value is not defined or assigned
+// symbol - used to uniquely define a component
+
+// object
+
+console.log(typeof undefined); //undefined reason value not assigned
+console.log(typeof null); //is a type
+
+## Use proper variable names
+
+- Use the specific naming convention, can use camel case naming convention
+
+
 ### variable scope->Understanding
 
-```
+
 /* Declaring a variable in the global scope. its life span is whole program */
+```
 var globalScopeVariable = 7;
 
 function test() {
@@ -229,11 +252,12 @@ function test() {
 }
 
 test();
+
+
+ `console.log(functionScopeVariable); //will throw error - ReferenceError: functionScopeVariable is not defined. Reason we are trying to use this outside of function scope`
 ```
-
-- `console.log(functionScopeVariable); //will throw error - ReferenceError: functionScopeVariable is not defined. Reason we are trying to use this outside of function scope`
-
-`const accountId = 14456;
+```
+const accountId = 14456;
 let accountEmail = "abhay@gmail.com"
 var accountPassword = "12345"
 accountCity = "Bangalore"
@@ -246,21 +270,21 @@ console.log(accountId);
 let accountState;
 
 console.table([accountId,accountEmail,accountPassword,accountCity,accountState])`
+```
+** Prefer not to use var because of issue in block scope and functional scope**
 
-**Prefer not to use var because of issue in block scope and functional scope**
+```console.log('accountState',accountState);```
 
-`console.log('accountState',accountState);`
-
-## Data Conversion
-
-`let score = true;
+### Data Conversion
+```
+let score = true;
 
 let valueInNumber = Number (score);
 console.log(score);
 console.log(typeof valueInNumber);
 console.log(valueInNumber);`
-
-\* Outcome :
+```
+**Outcome**:
 
 1. if score = 33, output will be number & 33
 2. if score= "33" output will be number & 33
@@ -268,7 +292,7 @@ console.log(valueInNumber);`
 4. if score = null output will be number & 0
 5. if score = undefined output will be number & NaN
 6. if score = true output will be number & 1
-   \*/
+   
 
 **Boolean conversion**
 Boolean(score);
@@ -281,7 +305,7 @@ Boolean(score);
 ### Data Types
 
 **"use strict"** //treat all JS code as newer version in whole file
-
+```
 // alert(3+3) // cant use in nodejs, can be used browser. Currently, we are running in nodejs
 //JavaScript : 7 Primitive Data types
 // 1. String
@@ -301,7 +325,7 @@ let abc = undefined // when value is not defined or assigned
 // 6. null
 let ab = null // it is a standalone value, its a type. repretensation of empty value
 // 7. symbol
-
+```
 //Object Data Type
 // 1. An Object
 // 2. An Array
@@ -309,23 +333,613 @@ let ab = null // it is a standalone value, its a type. repretensation of empty v
 
 // symbol - used to uniquley define a component
 
+### Conversion Operator
+let score = "abh";
+console.log(typeof score);
+console.log(typeof(score));
+let valueInNumber = Number(score)
+// console.log(typeof valueInNumber);
+// console.log(typeof(valueInNumber));
+// console.log(valueInNumber);
+
+//"33" => 33 can be converted easily
+//"33abc" => NaN (Not a number), typeof returns number for this
+//true => 1; false =>0
+
+let isLoggedIn = "Abhay";
+let booleanIsLoggedIn = Boolean(isLoggedIn)
+// console.log(booleanIsLoggedIn);
+// console.log(typeof booleanIsLoggedIn);
+
+//1  in Boolean is => true
+//0 in Boolean is => false
+//"Abhay" in Boolean is => true
+
+let someNumber = 33;
+let stringNumber = String(someNumber)
+// console.log(stringNumber);
+// console.log(typeof stringNumber);
+
+//********Operations ************
+let value =3;
+let negValue = -value;
+// console.log(negValue);
+
+let str1 ="1"
+let str2 = 2
+console.log("1"+2);
+console.log(1+"2");
+console.log("1"+2+2);
+console.log(1+2+"2");
+console.log(+true); //senseless code
+console.log(+""); //senseless code
+
+let num1, num2, num3;
+num1 = num2=num3 = 2+2; //not a good way to write code, foremost focus should be on readability
+
+let gameCounter = 100;
+++gameCounter;
+console.log(++gameCounter); //prefix operator, increases value then print
+console.log(gameCounter++); //postfix operation, prints and then increases values
 // object
 
 `typeof variable //will show type of variable console.log(typeof undefined); //undefined reason value not assigned, is a datatype console.log(typeof null); //object, null is an object`
 
-## If
+### Comparision
+//comparision of same data type is straight forward
+console.log(2>1);
+console.log(2 >=1);
 
-### Multiple ways to write if conditions
+//problem arises when you compare two different data types
+console.log("2">1);
+console.log("02">1);
+console.log("02">2); // always convert data into same data type
+
+console.log("=====null comparision -- should avoid this type of conversion ======");
+console.log(null >0);
+console.log(null === 0);
+console.log(null >=0); // The reason is that an equality check == and comparisions >< >= <= works differently. Comparisions convert null to a number, treating it as 0. Thats why null >=0 is true and null > 0 is false
+
+console.log("=====undefined comparision -- should avoid this type of conversion ======");
+console.log(undefined >0);
+console.log(undefined == 0);
+console.log(undefined >=0); // always returns false
+
+
+//Query -> Comparision & Equality works differently
+// === checks strict comparision
+
+### String
+const name = "Abhay"
+const repoCount = 50;
+console.log(`Hello my name is ${name} and my repo count is ${repoCount}`); //this is called string interpolation, it allows to add methods like ${name.ToUppercase()}
+
+const gameName = new String('Abhay Name'); //another way to declare string
+console.log(gameName);
+console.log(gameName[1]);
+console.log(gameName.__proto__);
+console.log(gameName.length); // get length of string value
+console.log(gameName.toUpperCase());
+console.log(gameName.charAt(1));
+console.log(gameName.indexOf('A'));
+console.log(gameName.substring(0,4));
+console.log(gameName.slice(-3));
+console.log(gameName.trim());
+console.log(gameName.replace('A','T'));
+console.log(gameName.includes("Abhay"));
+console.log(gameName.split(" "));
+
+//To Do - write a blog about string operation method
+
+### Num and Math
+const score = 400
+const balance = new Number(100.05);
+// console.log(typeof score);
+// console.log(typeof balance);
+// console.log(score);
+// console.log(balance.toFixed(2));
+const otherNumber = 1123.8966;
+// console.log(otherNumber.toPrecision(4));
+const hundreds = 10000000
+// console.log(hundreds.toLocaleString('en-IN'));
+//+++++++++++++++++ Maths ++++++++++++++++++
+console.log(Math.abs(-4)); // minus value get converted to 4 (positive value)
+console.log(Math.round(4.6));
+console.log(Math.ceil(4.2)); //take upper value
+console.log(Math.floor(4.9)); // take lower value
+
+let ab =[9,3,7,8,4]
+console.log(Math.min(...ab)); // find lowest value
+console.log(ab.reduce((a,b)=>Math.min(a,b))); //find lowest value
+console.log(Math.random()); //return value between 0 & 1
+console.log(Math.floor((Math.random()*10)+1));
+
+const min = 10;
+const max = 20;
+console.log(Math.floor(Math.random()*(max-min+1))+10) // to get random value between min & max range
+
+### Date
+/*JavaScript Date objects represent a single moment in time in a platform-independent format.
+
+A JavaScript date is fundamentally specified as the time in milliseconds that has elapsed since the epoch, which is defined as the midnight at the beginning of January 1, 1970, UTC (equivalent to the UNIX epoch). This timestamp is timezone-agnostic and uniquely defines an instant in history.*/
+
+let myDate = new Date();
+// console.log(myDate);
+// console.log(typeof myDate);
+// console.log(myDate.toString());
+// console.log(myDate.toLocaleDateString());
+
+let myCreatedDate = new Date(2023,0,23,5,3);
+console.log(myCreatedDate);
+
+let myCreatedDate1 = new Date("2023-01-14"); //YYYY-MM-DD
+console.log(myCreatedDate1.toLocaleDateString());
+
+let myTimeStamp = Date.now();
+console.log(myTimeStamp);
+
+let newDate = new Date();
+console.log(newDate.getMonth());
+console.log(newDate.getDay());
+console.log(newDate.getFullYear());
+
+console.log(newDate.toLocaleDateString("default",{weekday:"long",timezone:"Asia/Kolkata"}));
+
+### Data Type Summary
+
+//1. primitive (when passed, it is passed as value, no reference is provided)
+// 7 types
+//1.1 String
+//1.2 Number
+//1.3 Boolean
+//1.4 null
+//1.5 undefined
+//1.6 Symbol
+//1.7 BigInt (to handle scientific number value, const bigNumber = 12345677777788n)
+
+//2. non-primitive or reference type (can direclty refer memory address)
+//2.1 Array
+const heroes = ["Shaktiman","naagraj"]
+//2.2 Objects (can have mixed data types)
+let myObj = {
+name:"Abhay",
+age:22,
+}
+//2.3 Functions
+const myFunc = function(){
+console.log("hello world");
+}
+console.log(typeof heroes);
+
+//JavaScript is a dynamically typed language which means that data types of variable are determined by the value they hold at runtime and can change throughout the program as we assign different values to them.
+
+//How to define Symbol
+const id = Symbol('123')
+const anotherId =Symbol('123')
+
+console.log(id);
+console.log(id === anotherId); //value is same but returns false
+console.log(typeof id);
+//typeof               results
+/*1. undefined        : "undefined"
+2. Null             : "object"
+3. Boolean          : "boolean"
+4. Number           : "number"
+5. String           : "string"
+6. Object (native      
+   and
+   does implement
+   [[calll]])       : "object"
+7. Object (native     
+   or host
+   and
+   does implement
+   [[calll]])       :"object"
+8. Object (or host     
+   and
+   does implement
+   [[calll]])       : implementation defined except may not be "undefined", "boolean",          
+   "number" or "String"
+   */
+
+//++++++++++++++++++Memory Types+++++++++++++++++++++++++
+//1. Stack Memory
+// all primitive type uses, provides only value
+//2. Heap Memory
+// Non-Primitive types, provides referece
+
+let ytName = "abhay"
+
+## Array
+/*The Array object, as with arrays in other programming languages, enables storing a collection of multiple items under a single variable name, and has members for performing common array operations.
+
+arrays aren't primitives but are instead Array objects:
+
+1. arrays are resizable and can contain a mix of different data types. (When those characteristics are undesirable, use typed arrays instead.)
+2. arrays are not associative arrays and so, array elements cannot be accessed using arbitrary strings as indexes, but must be accessed using nonnegative integers (or their respective string form) as indexes.
+3. arrays are zero-indexed: the first element of an array is at index 0, the second is at index 1, and so on — and the last element is at the value of the array's length property minus 1.
+4. array-copy operations create shallow copies. (All standard built-in copy operations with any JavaScript objects create shallow copies, rather than deep copies).
+   */
+   // const myArray = [1,2,3,4,true,"ABhay"];
+   // console.log(myArray);
+
+const myHeroes = new Array("C","A","B","D");
+// console.log(myHeroes);
+
+//Array Methods
+// myHeroes.push("Dhruva"); //adds at the start of array
+// console.log(myHeroes);
+// myHeroes.pop(); //removes from end of array
+// console.log(myHeroes);
+
+// myHeroes.unshift("Start"); //adds at the beginning of array
+// console.log(myHeroes);
+// myHeroes.shift(); //removes element from start of array
+console.log(myHeroes);
+console.log(myHeroes.includes("A")); //returns true if element is found else false
+console.log(myHeroes.indexOf("B")); //returns index else -1 if element is not found
+console.log('Sort array values : ',myHeroes.sort()); //sort array values
+console.log('Convert array to String : ',myHeroes.toString()); //convert array to string values
+
+const newArra = myHeroes.join();
+console.log(newArra ); //converts array to comma seperate string value. typeof newArra is `string`
+
+//slice & splice
+//slice fetches element from array, does not include last range value, does not modify original array
+//code exmple
+const myArray = [0,1,2,3,4,5,6];
+const b = myArray.slice(1,3);
+console.log("Orignal Array after slice : ",myArray);
+console.log(b);
+
+//splice fetches element from array, includes last range, also modifies original array
+const c = myArray.splice(1,3);
+console.log("original array after splice : ",myArray);
+console.log(c);
+
+//push and concat example
+const marvelHeroes = ["Thor", "IronMan"];
+const marvelHeroes2 = ["Thor", "Zorawar"];
+const DCHeroes = ["Spiderman","Batman"];
+const DCHeroes2 = ["Spiderman","Batman"];
+marvelHeroes.push(DCHeroes); // adds second array as child array, does not merge two array. modifies original array
+console.log(marvelHeroes);
+
+const newarray = marvelHeroes2.concat(DCHeroes2); //merges two arrays, return a new array, does not modify original array
+console.log("Merge Array Using concat Operator : ",newarray);
+
+//conact method is not much used, a better approach is using spread operator
+const newArrayUsingSpread = [...marvelHeroes2,...DCHeroes2];
+console.log("Merge Array Using Spread Operator : ",newArrayUsingSpread);
+
+//How to flat an array
+const anArray = [1,2,3,[4,5,6],7,[6,7,[4,5]]];
+
+const flatArray =anArray.flat(Infinity); // flatten the array till inifinite hierarchy or flatten the arrays into single array
+console.log("Flatten the array : ",flatArray);
+
+//How to check if array
+console.log("isArray : ",Array.isArray("AB"));
+console.log("isArray : ",Array.isArray(flatArray));
+
+//Converts String to array
+console.log("Converts String to array : ",Array.from("AB"));
+
+//Converts variables to array
+let s1 = 300;
+let s2 = 400;
+let s3 = 500;
+console.log("Converts varaible to array : ",Array.of(s1,s2,s3));
+
+// To DO -- read more about array methods
+
+### Objects
+//singleton -> constructor will create singleton object.
+
+
+//Object literals -> when we create object using literals it will not be singleton
+const jsUser = {
+name:"Abhay",
+age: 18,
+"full name":"A B"
+}
+
+console.log(jsUser.name);
+console.log(jsUser["name"]);
+console.log(jsUser["full name"]);
+
+//Update value
+jsUser.name="Pari";
+console.log(jsUser["name"]);
+
+Object.freeze(jsUser); //You can freeze an object, once freezed, value can't be changed
+
+jsUser["name"]="Shanvi";
+console.log(jsUser["name"]);
+
+
+//How to assign and access Symbol
+const mySymbol1 = Symbol("key1");
+const jsUserWithSymbol = {
+name:"Abhay",
+[mySymbol1]:"key1",
+age: 18,
+"full name":"A B"    
+}
+console.log(jsUserWithSymbol);
+
+jsUserWithSymbol.greeting = function(){
+console.log("Hello AB");
+}
+console.log(jsUserWithSymbol.greeting());
+
+jsUserWithSymbol.greeting2 = function(){
+console.log(`Hello JS User , ${this.name}`);
+}
+
+console.log(jsUserWithSymbol.greeting2());
+
+const td = new Object(); //This is a singleton, object is same as created in 03_Objects.js file. Only difference is singleton
+console.log(td);
+
+const regulatedUser = {
+email:"abc@hotmail.com",
+fullname:{
+userfullName:{
+"firstname":"Abhay",
+"secondname":"Bharti"
+}
+}
+}
+
+// console.log(regulatedUser);
+
+// console.log(regulatedUser.fullname.userfullName.firstname);
+
+//Optional chaining -- The optional chaining (?.) operator accesses an object's property or calls a function. If the object accessed or function called using this operator is undefined or null, the expression short circuits and evaluates to undefined instead of throwing an error.
+
+// console.log(regulatedUser?.fullname?.userfullName?.firstname);
+
+const o1 = {1:"a",2:"b"};
+const o2 = {3:"c",4:"d"};
+
+const o3 = {o1,o2}; //This creates object inside object
+// console.log(o3);
+
+//Object.Assign
+const o4 = Object.assign(o1,o2); //will merge two object and return a new object
+// console.log("Using Object.assign Operator : ",o4);
+
+//Better way to do merge two object is spread opertor
+const o5 = {...o1,...o2};
+// console.log("Using Spread Operator : ",o5);
+
+// console.log(Object.keys(o1)); //returns key of object
+// console.log(Object.values(o1)); //retuns value of object
+// console.log(Object.entries(o1)); //retuns array of key/value pair
+
+//hasOwnProperty method returns true if key exists else false
+// console.log(o1.hasOwnProperty('1')); //return true
+// console.log(o1.hasOwnProperty('A')); //return false
+
+//Destructuring Of Objects
+
+const course = {
+name:"Java",
+price: 400
+}
+
+//access value of an Object property using object name.property name
+console.log(course.price);
+const {price} = course;
+console.log("price : ",price); //access value after object destructuring
+const {name:n}=course; //can assign a new name at the time of destructuring
+console.log(n);
+
+//Object desctructuring is useful when passing props to React component
+
+//To Do How to Destrucutre An Array
+
+## Functions
+function hello(){
+console.log("A");
+}
+
+// hello; //This return reference of a function, useful in React component
+// hello() //This statement executes a function
+
+//check for undefined value using if operator
+function userName(name){
+//Check for null and undefined
+if (name === undefined){
+console.log("Enter a username");
+return;
+}
+return `${name} just logged in`
+}
+
+console.log(userName("Abhay"));
+console.log(userName());
+
+// We can use logical Not (!) operator to check for null or undefined value
+function userName2(name){
+//Check for null and undefined
+if (!name ){
+console.log("Enter a username");
+return;
+}
+return `${name} just logged in`
+}
+
+console.log(userName2("Abhay"));
+console.log(userName2());
+
+//To Do - Rest Operator
+function calculateCartPrice(...num){
+return num;
+}
+console.log(calculateCartPrice(100,200,300)); //return an array as [100,200,300]
+
+//Passing Object as a parameter in function
+
+const aObject = {
+name:"Abhay",
+price: 299
+}
+
+function A(anObject){
+console.log(`${anObject.name} and ${anObject.price}`);
+}
+
+A(aObject);
+
+//Passing array to functions
+function returnsSecondValueFromArray(getArray){
+return getArray[1];    
+}
+
+const myArray = [3,4,6,8];
+console.log("passing array as function : ",returnsSecondValueFromArray(myArray)); //pass array as parameters
+console.log("passing array directly as function : ",returnsSecondValueFromArray([8,9,10])); //passing arrays as directly as params
+
+console.log(addOne(6));
+
+//This approach of function declaration, you can call function execution statement before definition is written. This is called Hoisting.
+function addOne(num){
+return num+1;
+}
+
+console.log(addOne(5));
+
+
+//In this approach, function execution statement should be after definition. Otherwise, will throw `Cannot access 'addTwo' before initialization` errror
+const addTwo = function (num){
+return num+2;
+}
+console.log(addTwo(10));
+### Arrow function
+const user = {
+name:"AB",
+price:999,
+welcomeMessage:function(){
+console.log(`${this.name}, welcome to Website`); //this contains all variable of object.
+}
+}
+
+//Note : This context works only inside object, does not work in function.
+console.log(user.welcomeMessage());
+user.name ="Ajay" //change value of name field
+console.log(user.welcomeMessage()); //print updated value
+
+console.log("this in node : ",this); // {} - in node, this prints {}. If you print console.log(this) in chrome browser console, it will prints windows context
+
+function hello(){
+let name = "Abhay";
+console.log("name : ",this.name); //prints undefined (behavior is same in arrow function)
+}
+hello()
+
+//To Do - Why we need arrow function
+
+//If function scope is added in arrow function like {}, means if curly braces is used, you need to use return keyword to return value from function. Otherwise function will not return any value
+const addTwo = (n1,n2) =>{
+return n1+n2;
+}
+console.log("Explicit return ", addTwo(5,7));
+
+//if written like below or like const addThree = (n1,n2,n3) => n1+n2+n3;, will automatically return value. No need to use return keyword. This is called implict arrow function. This is used a lot in ReactJS.
+const addThree = (n1,n2,n3) => (n1+n2+n3);
+console.log("Implicit return",addThree(5,7,2));
+
+
+//Return Object from Arrow function
+const returnObjectFromArrowFunction = (n1,n2) =>
+({name:n1,age:n2}) //to return object, need to wrap object in () braces
+
+
+console.log(returnObjectFromArrowFunction("AB",23));
+
+//Immediately Invoked Function Expression (IIFE)
+
+//name IIFE function
+(function chai(){
+console.log('DB Connected');
+})(); //This will get executed
+
+// Notes :
+// 1. function definition should be wrapper in ()
+// 2. () Should be appended at the end of first braces
+// 3. Should add ; at the end, to end context
+
+//To Do - Why we need IIFE, practical need
+//This helps to avoid pollution due to global scope.
+
+//unname IIFE function
+( ()=>{
+console.log('DB Connected using arrow function');
+})(); //IIFE with arrow function
+
+
+//unname IIFE function with params
+( (name)=>{
+console.log(`${name} DB Connected using arrow function`);
+})("AB"); //IIFE with arrow function
+
+### JS Execution
+//How code execute in JS (Execution Context)
+//Call Stack
+/*
+Global Execution Context
+Function Execution Context
+Eval Execution Context
+*/
+
+//Function code to be shown in execution context
+let v1 = 10;
+let v2 = 20;
+function add(v1,v2){
+let total = v1+v2;
+return total;
+}
+
+let result = add(v1,v2);
+let resultTwo = add(10,15);
+
+/* --- How JS Execution Happends ---
+
+
+1. Global Execution or Environment -> this
+
+2. Memory Phase -> all variables re put at a place
+   v1 = undefined
+   v2 = undefined
+   add -> definition
+   result = undefined
+   resultTwo = undefined
+
+3. Execution Phase
+   v1 = 10
+   v2 = 20
+   add -> new Enviornment + new Execution Context/thread created (Step 1 t 3 will be repeated as many times function is called)
+   */
+
+//How to write code in Chrome browser
+// Sources -> Snippeets -> New Snippet -> file name -> write code in right side pane -> Crtl + S to save file
+
+## Control Flow
+
+### if
+#### Multiple ways to write if conditions
 
 **Classical approach**
 
-`
+```
 const status = 'online'
 
 if (status ==='online' || status === 'away' || status ==='busy'){
 console.log('Do Something')
 }
-`
+```
 
 **A better approach**
 
@@ -347,8 +961,176 @@ if (['online','away', 'busy'].includes(status)){
  console.log('Do Something')
 }
 ```
+### switch
+switch (key) {
+case value:
+
+        break;
+
+    default:
+        break;
+}
+
+
+/*
+#VSCODE tips to copy/paste/delete code using keyboard shortcut
+1. Duplicate a Line/Code Block: place your cursor on a line or select a code block & press [Shift + Alt+ Down Arrow key]. Code will be duplicated.
+2. Delete a Line/Code Block: place your cursor on a line or select a code block & press [Crtl + Shift + k]. Code will be removed.
+3. Paste from history of all Copy/Cut items: There is no inbuilt feature available in #VSCODE. Here is a workaround, install extension #Clipboard Manager. This extension keeps history of copy/cut operation in VS Code. Press [Crtl + Shift + V], it will show history of values, you can select which one you want to paste.
+   */
+
+### Truthy
+//Truthy/Falsy value
+const user = "ABC@ai";
+if (user){
+console.log(`Found user ${user}`);
+}else {
+console.log(`Not Found user `); // this will be printed if user = ""
+}
+
+//falsy values List
+//false,0,-0,BigInt 0n,'', null,undefined, Nan
+
+
+//truthy values List
+//"0",'false',' ',[],{},function()
+
+//How to check truthy for array
+const userArray = [];
+if (userArray.length === 0){ //code to check for truthy value for array, is empty
+console.log("Array is empty");
+}
+
+//How to check truthy for array
+const emptyOb ={};
+if (Object.keys(emptyOb).length ===0){ //get keys list & check if length is zero
+console.log("Object is empty");
+}
+
+
+false == 0  //true
+false == '' //true
+0 == '' //true
+
+//Nullish Coalescing Operator(??)
+//:null undefined - It assigns whatever first valid value is found
+
+let val;
+val = null ?? 10;
+console.log(val);
+val = 5 ?? 10;
+console.log(val);
+val = undefined ?? 15;
+console.log(val);
+
+val = undefined ?? null??20;
+console.log(val);
+
+//Ternary Operator
+//test condition? true:false
+const price =100;
+price >=80?console.log("less than 80"):console.log('More than 80');
 
 ## Loops in JavaScript
+
+const arr = [1,2,3,5,6]
+
+//ForOF to iterate on an array
+for (const num of arr) {
+console.log(num); //print all values ofn an array
+}
+
+const h = "hello";
+for (const char of h) {
+console.log(char); //print all character of a string
+}
+
+//JavaScript Map
+//To Do - What is Map
+const myMap = new Map();
+myMap.set('A',1);
+myMap.set('B',3);
+myMap.set('C',5);
+console.log(myMap); //prints map -> Map(3) { 'A' => 1, 'B' => 3, 'C' => 5 }
+
+//Iterater an Map & destructure array returned for each key/value pair, [key,val] is destructuring map key/value to key & val
+for (const [key,val] of myMap) {
+console.log(`key : ${key} -:- val : ${val}`);
+}
+
+//Note : When we run a forof loop on Map, each element is returned as an array. We need to do it in two step,
+// 1. iterate through Map key/value pair using forof
+// 2. Desctructure each array (containing key/value pair) in two key & value
+// 3. Above approach can't be used on Object, forOf can't be used on Map
+// 4. for of loop is used on Array/Map
+
+//How to iterate an Object
+const myObj = {
+k:"one",
+l:"two"
+}
+//We need ForIn to iteration over object & access value
+for (const key in myObj) {
+console.log(`key :  ${key} : value : ${myObj[key]}`); //print all values
+}
+
+//Note : We can use ForIn on array, can't use on Map. Map is not an iterable.
+
+//ForIn on array
+const anAray = [1,2,3,6];
+for (const key in anAray) {
+console.log(anAray[key]);
+}
+
+//ForEach Example
+const mArray = ["J", "k","L"];
+//foreach with normal function
+mArray.forEach(function(item){
+console.log(item); //print all values of array, we can write any logic code within cury{} braces
+})
+
+//foreach with arrow function
+mArray.forEach((item)=>{
+console.log(item);
+})
+//Using external or another function
+
+console.log("--------------");
+function printMe(item){
+console.log(item);
+}
+
+mArray.forEach(printMe)
+
+//foreach has access to item, index & full array
+mArray.forEach((item,index,arr)=>{
+console.log(item,index,arr);
+})
+
+
+//Array Of Objects
+
+const mCode = [
+{name:"JS",file:'.js'},
+{name:"Java",file:'.java'},
+{name:"python",file:'.py'}
+]
+
+mCode.forEach((item)=>{
+console.log(item.name,item.file);
+})
+
+//Notes - foreach does not return any value, better usable methods are filter/map/reduce
+
+//How to return value using ForEach
+const myNums = [1,2,3,4,5,6,7,8,9,10];
+const newNums = [];
+myNums.forEach((num)=>{
+if (num > 4){
+newNums.push(num)
+}
+})
+console.log(newNums);
 
 ### Different types of Loops supported in JavaScript
 
@@ -473,34 +1255,7 @@ whatever is given to console.log, should get displayed as output.
 print multiple values in table
 console.table([accountId,accountEmail,accountPassword,accountCity])
 
-#### JavaScript datatype
 
-"use strict" //treat all JS code as newer version in whole file
-
-// alert(3+3) // cant use in nodejs, can be used browser. Currently, we are running in nodejs
-let name = "Abhay" //String data types
-let age =18 // number data types
-let isLoggedIn = false //boolean data types -- true/false
-let ab = null // it is a standalone value, its a type. repretensation of empty value
-let abc = undefined // when value is not defined or assigned
-// symbol - used to uniquely define a component
-
-// object
-
-console.log(typeof undefined); //undefined reason value not assigned
-console.log(typeof null); //is a type
-
-## Use proper variable names
-
-- Use the specific naming convention, can use camel case naming convention
-
-```
-const f ="akash";
-const akos = assets.filter(a=>a.type=='open')
-
-const firstName='Akash';
-const status = assets.filter(shop=>shop==='open')
-```
 
 ## JavaScript Good Practice
 
@@ -562,7 +1317,34 @@ https://www.linkedin.com/posts/saboor-malik-993b03202_75-useful-javascript-code-
 
 ### map
 
+//map -- The map() method of Array instances creates a new array populated with the results of calling a provided function on every element in the calling array.
+```
+const myNums = [1,2,3,4,5,6,7,8,9,10];
+let newNums = myNums.map((num)=>num+10) //will iterate all element & add value 10
+console.log(newNums);
+```
+//To Do -- difference between filter and amp
+
+// Note - map should be preferred instead of foreach if ask is to iterate all element & perform some operation
+
+//function Chaining
+```
+const m = myNums.map((num)=>num*10).map((num)=>num+1).filter((num)=>num>40);
+console.log(m);
+```
 ### filter
+//filter -- The filter() method is an iterative method. It calls a provided callbackFn function once for each element in an array, and constructs a new array of all the values for which callbackFn returns a truthy value. Array elements which do not pass the callbackFn test are not included in the new array.
+
+```
+const myNums = [1,2,3,4,5,6,7,8,9,10];
+let newMyNums = myNums.filter((num)=>num<4) //you can write condition here. If condition is wrapped inside {}, return keyword needs to be provided
+console.log(newMyNums);
+
+newMyNumsTwo = myNums.filter((num)=>{return num<4})
+console.log(newMyNumsTwo);
+```
+
+
 
 ### loops
 
@@ -583,12 +1365,256 @@ https://www.linkedin.com/posts/saboor-malik-993b03202_75-useful-javascript-code-
 ### currying
 
 ### closures
+```
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Closure</title>
+  </head>
+  <body>
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+  </body>
+  <script>
+    function outer() {
+      let name = "Mozilla"; //name is a local variable created by init
+      function inner() {
+        //inner() is the inner function, that forms the closure
+        console.log("Inner function", name); //use variable declared in the parent function
+        let secret = "my123"; // this will be accessible only inside this method
+      }
+      function innerTwo() {
+        //inner() is the inner function, that forms the closure
+        console.log("InnerTwo function", name); //use variable declared in the parent function
+      }
+      return inner; //when you return reference of inner function, it sends inner function reference + lexical scope of outer function
+      inner();
+      innerTwo();
+    }
+    outer();
+    //console.log("Too Outer",name); // will throw error, not available in outer context
+  </script>
 
-### Number
+  <script>
+    //closure practical or real world example
 
-### variables
+    function clickHandler(color) {
+      console.log(color);
+      return function () {
+        console.log(`innerfunction ${color}`);
+        document.body.style.backgroundColor = `${color}`;
+      };
+    }
+    document.getElementById("orange").onclick = clickHandler("orange");
+    document.getElementById("green").onclick = clickHandler("green");
+  </script>
+</html>
+```
 
-### promise & promise API and CallBack adn fetch
+## promise
+
+The Promise object represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
+
+### A Promise is in one of these states:
+
+`pending`: initial state, neither fulfilled nor rejected.
+
+`fulfilled`: meaning that the operation was completed successfully.
+
+`rejected`: meaning that the operation failed.
+
+![alt text](./promise.png "Promise Diagram")
+
+https://www.youtube.com/watch?v=_TjtAyMkiTI promises starts at 5:39
+
+### API Request
+```
+<!-- Notes - What is API, Hit api using XHR  -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="background-color: #212121">
+    <!-- 
+    0. UNSENT client has been created. open() not called yet 
+    1. OPENED open() has been called 
+    2. HEADERS_RECEIVED send() has been called, and headers and
+    status are available 
+    3. LOADING Downloading; responseText holds partial data.
+    4. DONE The operation is complete. -->
+    <button id="showcard">Show Card</button>
+    <div id="showdetails"></div>
+  </body>
+  <script>
+    let followersCount;
+    let profileImage;
+    let followerSpan;
+    let imageTag;
+    const getData = document.querySelector("#showcard");
+    const showDetails = document.querySelector("#showdetails");
+    getData.addEventListener("click", () => {
+      getGitHubProfileData();
+    });
+
+    function getGitHubProfileData() {
+      const requestUrl = "https://api.github.com/users/abhaybharti";
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", requestUrl);
+      xhr.onreadystatechange = function () {
+        console.log("xhr.readyState", xhr.readyState);
+        if (xhr.readyState === 4) {
+          //console.log("xhr.responseText", this.responseText);
+          const data = JSON.parse(this.responseText);
+          followersCount = data.followers;
+
+          if (document.getElementsByTagName("p").length > 0) {
+            document.getElementsByTagName("p")[0].innerHTML = followersCount;
+          } else {
+            followerSpan = document.createElement("p");
+            showDetails.appendChild(followerSpan);
+            followerSpan.innerHTML = followersCount;
+          }
+
+          if (document.getElementsByTagName("img").length > 0) {
+            profileImage = data.avatar_url;
+            imageTag.setAttribute("src", profileImage);
+          } else {
+            profileImage = data.avatar_url;
+            imageTag = document.createElement("img");
+            imageTag.setAttribute("src", profileImage);
+            showDetails.appendChild(imageTag);
+          }
+        }
+      };
+      console.log("xhr.readyState outside", xhr.readyState);
+      xhr.send();
+    }
+  </script>
+</html>
+
+```
+```
+const promiseOne = new Promise(function (resolve, reject) {
+//Do an async task
+//DB calls, cryptography, network
+setTimeout(function () {
+console.log("Async task is completed");
+resolve();
+}, 1000);
+});
+
+promiseOne.then(function () {
+console.log("Promise consumed");
+});
+
+//2nd promise
+new Promise(function (resolve, reject) {
+setTimeout(function () {
+console.log("Async task 2");
+resolve();
+}, 1000);
+}).then(function () {
+console.log("Async 2 resolved");
+});
+
+//3rd promise -- pass data through resolve
+const promiseThree = new Promise(function (resolve, reject) {
+setTimeout(function () {
+resolve({ username: "chai", email: "chai@gmail.com" });
+}, 1000);
+});
+
+promiseThree.then(function (user) {
+console.log(user);
+});
+
+//4th Promise
+
+const promiseFour = new Promise(function (resolve, reject) {
+setTimeout(function () {
+let error = true;
+if (!error) {
+resolve({ username: "hitesh", email: "123" });
+} else {
+reject("ERROR: Something went wrong");
+}
+}, 1000);
+});
+
+promiseFour
+.then((user) => {
+console.log(user);
+return user.username;
+})
+.then((username) => {
+console.log(username);
+})
+.catch((error) => {
+console.log(error);
+})
+.finally(() => {
+console.log("Finally block -- THe promise is finally resolved or rejected");
+});
+
+//promise 5
+const promiseFive = new Promise((resolve, reject) => {
+setTimeout(() => {
+let error = true;
+if (!error) {
+resolve({ username: "javascript", email: "123" });
+} else {
+reject("ERROR: JS went wrong");
+}
+}, 1000);
+});
+
+async function consumePromiseFive() {
+try {
+const response = await promiseFive;
+console.log(response);
+} catch (error) {
+console.log(error);
+}
+}
+
+consumePromiseFive();
+
+//promise 6
+async function getAllUsers() {
+try {
+const response = await fetch("https://jsonplaceholder.typicode.com/users");
+//console.log(response);
+const data = await response.json();
+console.log(data);
+} catch (error) {
+console.log("E:", error);
+}
+}
+getAllUsers();
+
+console.log("----------------------------------");
+// fetch with then/catch
+fetch("https://api.github.com/users/abhaybharti")
+.then((response) => {
+return response.json();
+})
+.then((data) => {
+console.log(data);
+})
+.catch((error) => {
+console.log(error);
+});
+
+//To Do - read more about fetch api
+// Micro task queue or priority queue  contains fetch request. It gets added on top of call stack.
+
+```
+
 
 ### call stack
 
@@ -601,7 +1627,237 @@ https://www.linkedin.com/posts/saboor-malik-993b03202_75-useful-javascript-code-
 ### data types
 
 ### event loop
+## JavaScript is a
 
+- synchronous language (every thing happens in sequence)
+- Single threaded
+
+## Execution Context
+
+- execute one line of code at a Time (each operation waits for the last one to complete before executing next line)
+- console.log("hello") -- 1
+- console.log("hello") -- 2
+  Call Stack Memory Heap
+
+//Above is behavior of default engine of JavaScript
+
+## Blocking Code
+
+- Block the flow of program
+- Read file sync
+
+## Non Blocking Code
+
+- Does not load block execution
+- Read file Async
+
+This diagram is explained at time stamp 4:10 in video https://www.youtube.com/watch?v=_TjtAyMkiTI
+
+![alt text](./EventLoop.png "Event Loop")
+
+JavaScript engine is made up of Call stack & Memory Heap.
+
+Task Queue in JS Engine in Event loop
+
+```
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Events</title>
+  </head>
+  <body style="background-color: #414141; color: aliceblue">
+    <h2>Amazing Image</h2>
+    <div>
+      <ul id="images">
+        <li>
+          <img
+            width="200px"
+            id="photoshop"
+            src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt="photoshop"
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="japan"
+            src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="river"
+            src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="owl"
+            src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="prayer"
+            src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <a style="color: aliceblue" href="https://google.com" id="google"
+            >Google</a
+          >
+        </li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    const owl = document.querySelector("#owl");
+    //Note - addEventListener - takes 3 arguments, 1. event name 2. action on event, 3. true/false - false is default value
+    //Note - read more about events on javascript events mdn
+    //type, timestamp, defaultPrevented, target, toElement, srcElement, currentTarget, clientX, clientY,screenX, screenY, altKey,ctrlKey,shiftKey,keyCode
+    // owl.addEventListener(
+    //   "click",
+    //   (event) => {
+    //     console.log(event);
+    //     console.log("owl clicked");
+    //     event.stopPropagation(); // This stops event to be sent to parent element
+    //   },
+    //   false
+    // );
+
+    document.querySelector("#images").addEventListener(
+      "click",
+      (event) => {
+        console.log("clicked inside the ul");
+      },
+      false
+    );
+
+    //Note - What is propagation
+    //Event Bubbling : gets triggered when false is passed as 3rd argument. first child (owl) element click will be run, then parent element click event will be run. event.stopPropagation() is called to stop parent element click event to be triggered, only child element click event will be triggered.
+    //Event Capturing: gets triggered when true is passed as third paramter. Parent element event will be executed first, child element event will be run 2nd.
+
+    //Note - event.preventDefault(); disable default behavior like click on google is not loading new url
+    document.querySelector("#google").addEventListener(
+      "click",
+      (event) => {
+        console.log("Google clicked");
+        event.preventDefault();
+        event.stopPropagation(); // stop event bubbling means image element (parent element) click event will not be triggered
+      },
+      false
+    );
+
+    document.querySelector("#images").addEventListener(
+      "click",
+      (event) => {
+        console.log(event.target.parentNode);
+        console.log(event.target.tagName);
+        //remove element if user clicks on Image. if user clicks on other element, do not remove
+        if (event.target.tagName === "IMG") {
+          console.log(event.target.id);
+          let removeIt = event.target.parentNode;
+          removeIt.remove(); //remove child directly
+          //removeIt.parentNode.removeChild(removeIt); //go to parent node and remove child
+        }
+      },
+      false
+    );
+  </script>
+</html>
+
+```
+
+```
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Chai aur JavaScript</h1>
+    <button id="stop">Stop</button>
+    <button id="start">Start</button>
+  </body>
+  <script>
+    const sayDate = function (str) {
+      console.log(str, Date.now());
+    };
+
+    let intervalId;
+
+    document.querySelector("#start").addEventListener("click", () => {
+      console.log("printing started");
+      intervalId = setInterval(sayDate, 1000, "hi");
+    });
+
+    document.querySelector("#stop").addEventListener("click", () => {
+      console.log("printing stopped");
+      clearInterval(intervalId);
+    });
+  </script>
+</html>
+
+```
+
+```
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Chai aur Code</h1>
+    <button id="stop">Stop</button>
+  </body>
+  <script>
+    const sayHi = function () {
+      console.log("Best JS Series");
+    };
+
+    const changeText = function () {
+      document.querySelector("h1").innerHTML = "Best JS Series";
+    };
+
+    setTimeout(sayHi, 2000);
+    //setTimeout, setInterval are not JavaScript core function, they are part of browser API
+    const changeMe = setTimeout(changeText, 2000);
+
+    //setTimeout takes two things, 1. handler (a function without name) 2. time in milliseconds. It runs only one time.
+    // setTimeout(function () {
+    //   console.log("Hitesh");
+    // }, 1000);
+
+    //setInterval takes two things, 1. handler (a function without name) 2. time in milliseconds. It runs at the interval of given time.
+    // setInterval(function () {
+    //   console.log("Hitesh");
+    // }, 1000);
+
+    //handle is a function which has no name.
+
+    //clearTimeout() -- take reference of setTimeOut() function. It stops execution of setTimeOut() function
+    //Stop timeout  using clearTimeout
+    document.querySelector("#stop").addEventListener("click", () => {
+      console.log("changeMe");
+      clearTimeout(changeMe);
+    });
+  </script>
+</html>
+
+```
 ### statements
 
 ### asynchrony
@@ -672,6 +1928,39 @@ let fruits = [1,2,6,9,3,100,40]
 
 ### reduce method
 
+//reduce -- To Do -- read more on reduce function
+//reduce is used frequently in react
+```
+const m =[1,3,4];
+let initialVal = 0;
+let newM = m.reduce((accumulate,currVal)=>{
+console.log(`accumulate : ${accumulate} :  currVal : ${currVal}`);
+return accumulate+currVal;
+},initialVal)
+
+console.log(newM);
+
+//count total price in shoppingCart
+const shoppingCart = [
+{
+courese: "JS",
+price: 100
+},
+{
+courese: "React",
+price: 200
+},
+{
+courese: "Redux",
+price: 300
+}
+]
+
+let totalPrice = shoppingCart.reduce((total,item)=>{
+return total+item.price
+},0)
+console.log(totalPrice);
+```
 ### handling events or event listener and event bubbling and event capturing
 
 ### setTimeout and setInterval
@@ -1544,6 +2833,28 @@ let str = "abhay";
 const reverseString = str.split("").reverse().join("");
 console.log(reverseString);
 ```
+```
+//Reverse words in a sentence
+
+function reverseWords(value){
+//Step 1 : replace multiple whitespace with a single whitespace
+//Step 2 : split string based on single whitespace & store output in array
+let strTemp = value.replaceAll(/\s+/g," ").split(" ");
+let result = "";
+
+//Step 3 : Run a for loop & copy each element to string variable "result"
+for (let iLoop = strTemp.length-1;iLoop>=0;iLoop-- ){
+result = result.concat(strTemp[iLoop]," ");
+}
+//trim spaces and return value
+return result.trim();
+
+}
+
+console.log(reverseWords("Shanvi is an engineer"))
+console.log(reverseWords("Shanvi    can code")) //sentence with multiple whitespace
+console.log(reverseWords("Shanvi   polyglot    programmer"))
+```
 
 #### Sum of array elements
 
@@ -1635,6 +2946,38 @@ document.getElementById('main').innerHTML = JSON.stringify(dataJson);
 ```
 
 ### Data Structure Introduction
+#### map
+```
+const mapOne = new Map(); //declare a map
+
+//set value in map
+mapOne.set('a',1);
+mapOne.set('b',2);
+mapOne.set('c',3);
+
+//access value from map
+console.log(mapOne.get('a'));
+console.log(mapOne.get('b'));
+console.log(mapOne.get('c'));
+
+//size of map
+console.log('size : ', mapOne.size);
+
+//delete key/value from map
+mapOne.delete('a');
+
+//size of map
+console.log('size after delete : ',mapOne.size);
+
+//ToDo
+// difference between map and object
+```
+#### set
+```
+//declare set
+const setOne = new Set([1,2,3]);
+```
+
 
 #### Stack
 
@@ -1663,3 +3006,346 @@ document.getElementById('main').innerHTML = JSON.stringify(dataJson);
 #### Quick Sort
 
 #### Selection Sort
+
+## class and OOPs
+
+### OOPs
+
+it is a programming paradigm.
+
+### Object
+```
+function multiplyBy5(num) {
+this.num = num;
+return num * 5;
+}
+multiplyBy5.power = 2;
+console.log(multiplyBy5(5));
+console.log(multiplyBy5.power);
+console.log(multiplyBy5.prototype);
+
+function createUser(username, price) {
+this.username = username; //this sets current context
+this.price = price;
+}
+
+createUser.prototype.increment = function () {
+this.price++;
+};
+
+createUser.prototype.printMee = function () {
+console.log(`price is ${this.price}`);
+};
+const chai = new createUser("chai", 25);
+const tea = new createUser("tea", 250);
+
+chai.printMee();
+chai.increment();
+
+/*
+Here is what happens behind the scenes when the new keyword is used:
+
+A new object is created: the new keyword initiates the creation of a new JavaScript object.
+
+A prototype is linked: The newly created object gets linked to the prototype property of the
+constructor function. This means that it has access to properties and methods defined on the constructor's prototype.
+
+The constructor is called: The constructor function is called with the specified arguments and this is bound to the newly
+created object. If no explicit return value is specified from the constructor. JavaScript assumes this, the newly
+created object, to be the intended return value.
+
+The new object is returned: After the constructor function has  been called, if it does not return a non-primitive
+value (object, array, function etc), the newly created object is returned.
+
+*/
+
+```
+- collection of properties and methods
+-
+
+### Why use OOP
+
+### parts of OOP
+
+### Object literal
+
+```
+//what is object literal
+const user = {
+username: "hitesh",
+loginCount: 8,
+signedIn: true,
+getUserDetail: function () {
+//console.log("Got user details from database");
+//console.log(`UserName : ${this.username}`);
+console.log(this);
+},
+};
+// console.log(user.loginCount);
+// console.log(user.getUserDetail());
+//console.log(this); // {}
+
+function User(username, loginCount, isLoggedIn) {
+this.username = username;
+this.loginCount = loginCount;
+this.isLoggedIn = isLoggedIn;
+this.greetings = function () {
+console.log(`Welcome ${this.username}`);
+};
+return this; //not mandatory to write this. JavaScript implicitly returns
+}
+
+//new keyword generates a new empty  object
+const userOne = new User("Abhay", 12, true);
+const userTwo = new User("Ajay", 8, true);
+console.log(userOne.constructor);
+console.log(userOne instanceof User); //return true
+// console.log(userTwo);
+//Prototypal inheritance
+```
+
+
+
+- Constructor function
+### Prototype
+```
+let myName = "Abhay     ";
+console.log(myName.length);
+
+let myHeroes = ["thor", "spiderman"];
+
+let heroPower = {
+thor: "hammer",
+spiderman: "sling",
+getSpiderPower: function () {
+console.log(`Spidy power is ${this.spiderman}`);
+},
+};
+
+//added a new property in Object, now this is available in all objects/array
+Object.prototype.hitesh = function () {
+console.log(`hitesh is present in all object`);
+};
+heroPower.hitesh();
+myHeroes.hitesh();
+
+Array.prototype.heyHitesh = function () {
+console.log(`Hitesh says hello`);
+};
+myHeroes.heyHitesh();
+//heroPower.heyHitesh();  heyHitesh is defined at array level, can't be accessed at object level
+
+//inheritance
+
+const user = {
+name: "chai",
+email: "chai@gmail.com",
+};
+const Teacher = {
+makeVideo: true,
+};
+
+const TeachingSupport = {
+isAvailable: false,
+};
+const TASupport = {
+makeAssignment: "JS Assignment",
+fullTime: true,
+__proto__: TeachingSupport,
+};
+
+//Teacher.__proto__ = User; //old/outdated approach
+
+//modern syntax
+Object.setPrototypeOf(TeachingSupport, Teacher);
+
+let anotherUserName = "ChaiAutCode      ";
+String.prototype.trueLength = function () {
+console.log(`${this}`);
+console.log(`True length is : ${this.trim().length}`);
+};
+anotherUserName.trueLength();
+"abhay".trueLength();
+```
+- Classes
+- Instances (new, this)
+
+### 4 pillars
+
+- Abstraction
+- Encapsulation
+- Inheritance
+- Polymorphism
+
+## DOM
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chai Aur Code</title>
+  </head>
+  <body style="background-color: #212121; color: #fff">
+    <ul class="language">
+      <li>JavaScript</li>
+    </ul>
+  </body>
+  <script>
+    // function add language as list item
+    // Parameters:
+    // - langName: The name of the language to be added.
+    // Returns: None
+    function addLanguage(text) {
+      const li = document.createElement("li");
+      const parentUl = document.querySelector(".language");
+      li.innerHTML = `${text}`;
+      parentUl.appendChild(li);
+    }
+    addLanguage("Python");
+    addLanguage("English");
+
+    // function add language as list item in optimized way
+    // Parameters:
+    // - langName: The name of the language to be added.
+    // Returns: None
+    function addOptimizedLanguage(langName) {
+      const li = document.createElement("li"); //create element
+      li.appendChild(document.createTextNode(langName)); //preferred way to add element
+      document.querySelector(".language").appendChild(li); //append to UL to display on HTML page
+    }
+    addOptimizedLanguage("Abhaya");
+
+    //Edit
+    //Find element using CSS locator
+    //update/replace value
+    const secondLang = document.querySelector("li:nth-child(2)");
+    secondLang.innerHTML = "Loto";
+
+    //Optimized way of editing value
+    const newLi = document.createElement("li");
+    newLi.textContent = "Hindi";
+    secondLang.replaceWith(newLi);
+
+    //Remove
+    //Find element using CSS locator
+    //remove() method
+    const lastLang = document.querySelector("li:last-child");
+    lastLang.remove();
+  </script>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Learning</title>
+    <style>
+      .bg-black {
+        background-color: black;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Difference between innerText and textContent
+    title.textContent - returns all text including hidden text
+    title.innerText - returns only visible text
+    title.innerHTML - returns text along with HTML tags of child element
+
+    querySelector - supports all css locator
+    -->
+    <div class="bg-black">
+      <h1 id="title" class="heading">
+        DOM Learning on Chai aur Code
+        <span style="display: none">text text</span>
+      </h1>
+      <h2>Lorem ipsum dolor sit amet </h2>
+      <h2>Lorem ipsum dolor sit amet </h2>
+      <h2>Lorem ipsum dolor sit amet </h2>
+      <h2>Lorem ipsum dolor sit amet </h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem nihil,
+        maiores suscipit dolor error ad ratione dicta deleniti saepe quidem quia
+        numquam voluptatum similique quae in soluta reiciendis molestias
+        expedita!
+      </p>
+
+      <ul>
+        <li class="list-item">one</li>
+        <li class="list-item">two</li>
+        <li class="list-item">three</li>
+        <li class="list-item">four</li>
+      </ul>
+    </div>
+  </body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chai Aut Code</title>
+  </head>
+  <body style="background-color: #212121; color: #fff"></body>
+  <script>
+    let h1 = document.createElement("h1");
+    h1.innerHTML = "My Element";
+
+    h1.className = "main";
+    h1.id = Math.round(Math.random() * 10 + 1);
+    console.log(h1);
+    h1.setAttribute("title", "My Title");
+    h1.style.color = "red";
+    h1.style.backgroundColor = "green";
+    h1.style.padding = "12px";
+
+    const addText = document.createTextNode("Chai aur code");
+
+    //attaching to element
+    h1.appendChild(addText);
+    
+    //appending to body
+    document.body.appendChild(h1);
+  </script>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="background-color: #212121; color: #ffff">
+    <div class="parent">
+      <!-- This is a comment -->
+      <div class="day">Monday</div>
+      <div class="day">Tuesday</div>
+      <div class="day">Wednesday</div>
+      <div class="day">Thursday</div>
+    </div>
+  </body>
+  <script>
+    const parent = document.querySelector(".parent");
+    //console.log(parent);
+    //console.log(parent.children); //return html collection of children
+    //console.log(parent.children[1].innerHTML); //return element at index 1 of html collection
+
+    //Navigate to all child nodes
+    // for (let index = 0; index < parent.children.length; index++) {
+    //   console.log(parent.children[index].innerHTML);
+    // }
+    parent.children[1].style.color = "orange";
+    //console.log(parent.firstElementChild);
+    //console.log(parent.lastElementChild);
+
+    const dayOne = document.querySelector(".day");
+    //console.log(dayOne);
+    //console.log(dayOne.parentElement);
+    //console.log("NODES : ", parent.childNodes);
+  </script>
+</html>
+
+
