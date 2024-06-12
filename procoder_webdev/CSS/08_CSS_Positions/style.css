@@ -1,8 +1,46 @@
 /* default position of all elements including body is static 
   Position property :- relative
 */
+
+body {
+  margin-top: 0px;
+}
 div {
   position: relative;
   margin: 0 auto;
+  background-color: chartreuse;
+  /* top: 50px; */
+  /* inset: 10px; */
+  /* bottom: 50px;
+  left: 50px;
+  right: 100px; */
+}
+ul {
+  background-color: brown;
+  height: 200px;
+  /* overflow: scroll; */
+  position: relative;
+  margin-top: 20px;
+}
+.css-element {
+  background-color: aquamarine;
+  /* position: absolute; */
+  /* inset: 50px; */
+}
+.js-element {
+  position: fixed;
+  background-color: darkorange;
+}
+.html-element {
+  position: sticky;
+  background-color: blueviolet;
+}
+main {
+  overflow-y: scroll;
 }
 
+header {
+  position: sticky;
+  background-color: greenyellow;
+  top: 2px;
+}

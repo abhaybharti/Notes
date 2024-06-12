@@ -235,6 +235,18 @@ By default form element remains empty, it is a block level element.
 </html>
 ```
 
+### Submit the form submit to https://freecodecamp.org/practice-project/accessibility-quiz
+
+```
+<form action="https://freecodecamp.org/practice-project/accessibility-quiz" method="post">
+        <section></section>
+
+</form>
+```
+
+> [!NOTE] >`action` contains URL where request will be submitted
+> `method` is used to specify type of request like `POST/GET/PUT` etc
+
 `OQ`
 Why do we need HTML form
 

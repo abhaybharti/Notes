@@ -156,13 +156,15 @@ We can use class & ID of HTML elements to apply css properties.
 
 Box model has following properties:
 
-- >[!TIP]
-  >content
+- > [!TIP]
+  > content
 - border
- 
->[!TIP] 
-  > margin 
-- it can be negative value.  
+
+> [!TIP]
+> margin
+
+- it can be negative value.
+
   ```
   {margin:0 auto;} specifies:
 
@@ -176,10 +178,12 @@ Box model has following properties:
   margin-bottom
   margin-left
   ```
->[!TIP]
-> padding
-   - it can never to negative value. 
->[!TIP] display
+
+  > [!TIP]
+  > padding
+
+  - it can never to negative value.
+    > [!TIP] display
 
 - We should never set absolute width/length (ex width:500px; height:500px), reason it causes overflow. Which adds scroll bar.
 - We should never set height/width in pixel #
@@ -189,9 +193,6 @@ Box model has following properties:
 ##### border
 
 border can only be provided in absolute unit (5px) not in % (10%).
-
-
-
 
 ##### border vs outline property
 
@@ -604,10 +605,12 @@ vh/vw can be used to set width/height any of a element.
 **rem**
 
 #### pseudo-element
->[!NOTE]
+
+> [!NOTE]
 > ::after
-The ::after pseudo-element creates an element that is the last child of the selected element. You can use it to add an empty element after the last image.
-Create a new selector using an ::after pseudo-element on the .gallery element. Add a content property set to an empty string "" and 350px set for the width property.
+> The ::after pseudo-element creates an element that is the last child of the selected element. You can use it to add an empty element after the last image.
+> Create a new selector using an ::after pseudo-element on the .gallery element. Add a content property set to an empty string "" and 350px set for the width property.
+
 ```
 .gallery::after{
 content:"";
@@ -615,11 +618,148 @@ width:350px;
 }
 ```
 
->[!NOTE]
+> [!NOTE]
 > ::not
+
 ```
 div:not(#example) {
   color: red;
 }
 ```
+
 The above selects all div elements without an id of example.
+
+### position
+
+default position of all elements including body is static. It works like margin property.
+`static:` default property.
+
+`relative:` can move element based on top/bottom/left/right values. In this, when you add top etc property, element is moved from wherever it was.
+
+`absolute:` Element remains at same place, does not acquire any space on page. Immediate element gets placed one place before. Element will be visible on UI but won't take space on page. width is adjusted to content length. In this, when you add top etc property, element is moved based on viewport.
+
+`fixed:` attached to viewport.
+
+`sticky:` behaves like relative. used to make header or navigation bar. example of sticky to make header stick to top.
+
+```
+header {
+  position: sticky;
+  background-color: greenyellow;
+  top: 0;
+}
+```
+
+example:
+
+```{
+position  : relative;
+}
+
+div {
+  position: relative;
+  top:50px;
+  bottom: 50px;
+  left: 50px;
+  right:100px;
+}
+```
+
+It has top,right,bottom,left property.
+top: If you add value in top (10px;) property, gap will be created from top.
+right : If you add value in right (10px;) property, gap will be created from right.
+bottom: If you add value in bottom (10px;) property, gap will be created from bottom.
+left: If you add value in left (10px;) property, gap will be created from left.
+
+> [!TIP]
+> if element goes out of viewport, adds scroll bar. This behavior is applicable only in left property, for other 3 property type, scroll bar does not get added.
+> inset: 10px; in case you don't want to write all four properties. Use inset, it adds 10px to all four properties.
+> Elements moves only when position:relative is used.
+> Element does not move when position:static is used.
+
+### Transform, Translate and Transition
+
+> [!NOTE] `opacity`: makes element transparent
+
+```
+.box {
+  background-color: rgba(36, 128, 0, 0.6);
+  width: 100px;
+  height: 100px;
+
+  opacity: 0.5;
+}
+```
+
+> [!NOTE] `transform`: makes element background color transparent
+
+```
+.box {
+ background-color: rgba(36, 128, 0, 0.6);
+ width: 100px;
+ height: 100px;
+ transform: scale(5);
+ transform-origin: 0 0;
+ }
+```
+
+> [!NOTE] `rotate`: rotate element clockwise and anticlockwise
+
+```
+.box {
+  background-color: rgba(36, 128, 0, 0.6);
+  width: 50px;
+  height: 50px;
+  transform: rotate(45deg);
+}
+```
+
+> [!NOTE] `translate`: moves element on x and y axis. It does not pushes any other content. It may override other elements.
+
+```
+.box {
+  background-color: rgba(36, 128, 0, 0.6);
+  width: 50px;
+  height: 50px;
+  transform: translate(-50% -50%);
+}
+```
+
+> [!NOTE] `box-shadow`: adds shadow to element.
+
+```
+.box {
+  background-color: rgba(36, 128, 0, 0.6);
+  width: 50px;
+  height: 50px;
+  box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.8);
+  box-shadow: 10px 10px 0px 10px rgba(255, 0, 0, 0.9);
+  <!-- 4th value i.e. spread radius, it increases length of shadow -->
+}
+```
+
+> [!NOTE] `background-image`: adds background image.
+
+```
+.box {
+  background-color: rgba(36, 128, 0, 0.6);
+  width: 200px;
+  height: 200px;
+  background-image: url("https://images.unsplash.com/photo-1717960432608-b6faf49eaeb3?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4fHx8ZW58MHx8fHx8");
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: 2px 2px;
+}
+```
+
+> [!NOTE] `transform`: transform element.
+
+```
+.box:hover {
+  box-shadow: 4px 4px 16px 8px rgba(255, 0, 0, 0.9);
+  text-shadow: 1px 1px #ff0000;
+  background-color: blueviolet;
+  transform: rotate(5deg);
+  transition: transform 200ms;
+}
+```
