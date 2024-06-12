@@ -488,3 +488,31 @@ Example : Authorization details
 ### End Point Request URL can be constructed as below
 
 Base URL/resource/(Query/Path)Parameters
+
+## Rate Limit
+
+## Real Life Examples
+
+1. Have you ever come across HTTP response code 429 (Too many request) from an API
+2. Do you know you can post maximum 200 tweet per 15 minute on twitter
+3. Do you know Google docs has a quota of 300 read request per minute for every user?
+
+Every application that you are using, building or testing has test limits built as a part of its system design strategy
+
+### Basic Introduction
+
+1. A rate limit strategy is used to control the rate of traffic sent by a client to our servers. The most common reason for rate limiting is to improve the availability of API-based service
+2. A number of algorithm like Token bucket, Leaky bucket, Fixed window, Sliding window can be used to implement rate limiting
+
+### Advantage/Use Cases
+
+1. Security - Rate limiting is a useful component in an effective DDoS attach mitigation strategy
+2. Managing policies for different use tier(paid/unpaid) etc for ex - limits on using Postman Mock API hit for a free user per month
+3. Avoiding excess costs - if your system is using costly 3rd party API, but the budget for the resource usage is limited
+4. To ensure system stability on heavy load days i.e. ingest only as much as you can digest (Ex. Black Friday sale)
+
+### What's in it for testers
+
+1. Most importantly, Do test your system's rate limiting logic
+2. Security tests/checking resilience from some known attacks
+3. A major risk is third party costs and rate limits
