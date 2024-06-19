@@ -18,6 +18,23 @@
     * [Date](#date)
     * [Data Type Summary](#data-type-summary)
   * [Array](#array)
+    * [Array Methods](#array-methods)
+      * [push](#push)
+      * [pop()](#pop)
+      * [unshift](#unshift)
+      * [shift](#shift)
+      * [includes](#includes)
+      * [indexOf](#indexof)
+      * [sort](#sort-)
+      * [toString](#tostring)
+      * [join](#join)
+      * [slice](#slice-)
+      * [splice](#splice)
+      * [push and concat example](#push-and-concat-example)
+      * [How to flat an array](#how-to-flat-an-array)
+      * [How to check if array](#how-to-check-if-array)
+      * [Converts String to array](#converts-string-to-array)
+      * [Converts variables to array](#converts-variables-to-array)
     * [Objects](#objects)
   * [Functions](#functions)
     * [Arrow function](#arrow-function)
@@ -87,10 +104,6 @@
     * [pure function](#pure-function)
     * [lexical scoping](#lexical-scoping)
     * [arrow function](#arrow-function-1)
-    * [array functions](#array-functions)
-      * [Break the array](#break-the-array)
-      * [Sort String Array](#sort-string-array)
-      * [Sort Number Array](#sort-number-array)
     * [Check weather passed String is numeric or not](#check-weather-passed-string-is-numeric-or-not)
     * [string methods](#string-methods)
     * [named imports](#named-imports)
@@ -157,17 +170,29 @@
       * [Remove duplicates from an array of objects by multiple properties](#remove-duplicates-from-an-array-of-objects-by-multiple-properties)
   * [How to make arrays mutable](#how-to-make-arrays-mutable)
     * [Array](#array-1)
-  * [Interview PreParation](#interview-preparation)
-    * [JS Common Questions](#js-common-questions)
-      * [How to explain Event loop and async js](#how-to-explain-event-loop-and-async-js)
-      * [How to explain Hoisting and temporal dead zone](#how-to-explain-hoisting-and-temporal-dead-zone)
-      * [How to explain scope and scope chain](#how-to-explain-scope-and-scope-chain)
-      * [How to explain prototypal inheritance and chaining](#how-to-explain-prototypal-inheritance-and-chaining)
-      * [How to explain promises and queues](#how-to-explain-promises-and-queues)
-      * [How to explain async await in interviews](#how-to-explain-async-await-in-interviews)
-      * [How to answer closure and lexical scoping](#how-to-answer-closure-and-lexical-scoping)
-      * [How to answer THIS in interviews](#how-to-answer-this-in-interviews)
-      * [How to explain call bind and apply in interviews](#how-to-explain-call-bind-and-apply-in-interviews)
+  * [JavaScript Interview Question](#javascript-interview-question)
+    * [What is JavaScript and what are its key features?](#what-is-javascript-and-what-are-its-key-features)
+    * [What is the difference between null and undefined in JavaScript?](#what-is-the-difference-between-null-and-undefined-in-javascript)
+    * [Explain the concept of closures in JavaScript and provide an example.](#explain-the-concept-of-closures-in-javascript-and-provide-an-example)
+    * [What is the difference between let, const, and var in JavaScript for declaring variables?](#what-is-the-difference-between-let-const-and-var-in-javascript-for-declaring-variables)
+    * [What is the Event Loop in JavaScript and how does it work?](#what-is-the-event-loop-in-javascript-and-how-does-it-work)
+    * [How does prototypal inheritance work in JavaScript?](#how-does-prototypal-inheritance-work-in-javascript)
+    * [Explain the concept of hoisting in JavaScript.](#explain-the-concept-of-hoisting-in-javascript)
+    * [What are arrow functions in JavaScript? How do they differ from regular functions?](#what-are-arrow-functions-in-javascript-how-do-they-differ-from-regular-functions)
+    * [What are Promises in JavaScript and how do they handle asynchronous operations?](#what-are-promises-in-javascript-and-how-do-they-handle-asynchronous-operations)
+    * [How does the this keyword work in JavaScript? Provide examples of different contexts where this can be used.](#how-does-the-this-keyword-work-in-javascript-provide-examples-of-different-contexts-where-this-can-be-used)
+    * [Explain the concept of event delegation in JavaScript.](#explain-the-concept-of-event-delegation-in-javascript)
+    * [What is the purpose of using the bind, call, and apply methods in JavaScript?](#what-is-the-purpose-of-using-the-bind-call-and-apply-methods-in-javascript)
+    * [What is the difference between synchronous and asynchronous JavaScript?](#what-is-the-difference-between-synchronous-and-asynchronous-javascript)
+    * [How to explain Event loop and async js](#how-to-explain-event-loop-and-async-js)
+    * [How to explain Hoisting and temporal dead zone](#how-to-explain-hoisting-and-temporal-dead-zone)
+    * [How to explain scope and scope chain](#how-to-explain-scope-and-scope-chain)
+    * [How to explain prototypal inheritance and chaining](#how-to-explain-prototypal-inheritance-and-chaining)
+    * [How to explain promises and queues](#how-to-explain-promises-and-queues)
+    * [How to explain async await in interviews](#how-to-explain-async-await-in-interviews)
+    * [How to answer closure and lexical scoping](#how-to-answer-closure-and-lexical-scoping)
+    * [How to answer THIS in interviews](#how-to-answer-this-in-interviews)
+    * [How to explain call bind and apply in interviews](#how-to-explain-call-bind-and-apply-in-interviews)
   * [Coding Problem Using JavaScript](#coding-problem-using-javascript)
       * [Reverse a String](#reverse-a-string)
       * [Sum of array elements](#sum-of-array-elements)
@@ -207,7 +232,6 @@
     * [4 pillars](#4-pillars)
   * [DOM](#dom)
 <!-- TOC -->
-
 
 # JavaScript
 
@@ -262,11 +286,10 @@ console.log(typeof null); //is a type
 
 - Use the specific naming convention, can use camel case naming convention
 
-
 ### variable scope->Understanding
 
-
 /* Declaring a variable in the global scope. its life span is whole program */
+
 ```
 var globalScopeVariable = 7;
 
@@ -285,6 +308,7 @@ test();
 
  `console.log(functionScopeVariable); //will throw error - ReferenceError: functionScopeVariable is not defined. Reason we are trying to use this outside of function scope`
 ```
+
 ```
 const accountId = 14456;
 let accountEmail = "abhay@gmail.com"
@@ -300,11 +324,13 @@ let accountState;
 
 console.table([accountId,accountEmail,accountPassword,accountCity,accountState])`
 ```
+
 ** Prefer not to use var because of issue in block scope and functional scope**
 
 ```console.log('accountState',accountState);```
 
 ### Data Conversion
+
 ```
 let score = true;
 
@@ -313,6 +339,7 @@ console.log(score);
 console.log(typeof valueInNumber);
 console.log(valueInNumber);`
 ```
+
 **Outcome**:
 
 1. if score = 33, output will be number & 33
@@ -321,7 +348,6 @@ console.log(valueInNumber);`
 4. if score = null output will be number & 0
 5. if score = undefined output will be number & NaN
 6. if score = true output will be number & 1
-   
 
 **Boolean conversion**
 Boolean(score);
@@ -334,6 +360,7 @@ Boolean(score);
 ### Data Types
 
 **"use strict"** //treat all JS code as newer version in whole file
+
 ```
 // alert(3+3) // cant use in nodejs, can be used browser. Currently, we are running in nodejs
 //JavaScript : 7 Primitive Data types
@@ -355,6 +382,7 @@ let abc = undefined // when value is not defined or assigned
 let ab = null // it is a standalone value, its a type. repretensation of empty value
 // 7. symbol
 ```
+
 //Object Data Type
 // 1. An Object
 // 2. An Array
@@ -363,6 +391,7 @@ let ab = null // it is a standalone value, its a type. repretensation of empty v
 // symbol - used to uniquley define a component
 
 ### Conversion Operator
+
 let score = "abh";
 console.log(typeof score);
 console.log(typeof(score));
@@ -380,7 +409,7 @@ let booleanIsLoggedIn = Boolean(isLoggedIn)
 // console.log(booleanIsLoggedIn);
 // console.log(typeof booleanIsLoggedIn);
 
-//1  in Boolean is => true
+//1 in Boolean is => true
 //0 in Boolean is => false
 //"Abhay" in Boolean is => true
 
@@ -415,6 +444,7 @@ console.log(gameCounter++); //postfix operation, prints and then increases value
 `typeof variable //will show type of variable console.log(typeof undefined); //undefined reason value not assigned, is a datatype console.log(typeof null); //object, null is an object`
 
 ### Comparision
+
 //comparision of same data type is straight forward
 console.log(2>1);
 console.log(2 >=1);
@@ -427,21 +457,23 @@ console.log("02">2); // always convert data into same data type
 console.log("=====null comparision -- should avoid this type of conversion ======");
 console.log(null >0);
 console.log(null === 0);
-console.log(null >=0); // The reason is that an equality check == and comparisions >< >= <= works differently. Comparisions convert null to a number, treating it as 0. Thats why null >=0 is true and null > 0 is false
+console.log(null >=0); // The reason is that an equality check == and comparisions >< >= <= works differently.
+Comparisions convert null to a number, treating it as 0. Thats why null >=0 is true and null > 0 is false
 
 console.log("=====undefined comparision -- should avoid this type of conversion ======");
 console.log(undefined >0);
 console.log(undefined == 0);
 console.log(undefined >=0); // always returns false
 
-
 //Query -> Comparision & Equality works differently
 // === checks strict comparision
 
 ### String
+
 const name = "Abhay"
 const repoCount = 50;
-console.log(`Hello my name is ${name} and my repo count is ${repoCount}`); //this is called string interpolation, it allows to add methods like ${name.ToUppercase()}
+console.log(`Hello my name is ${name} and my repo count is ${repoCount}`); //this is called string interpolation, it
+allows to add methods like ${name.ToUppercase()}
 
 const gameName = new String('Abhay Name'); //another way to declare string
 console.log(gameName);
@@ -461,6 +493,7 @@ console.log(gameName.split(" "));
 //To Do - write a blog about string operation method
 
 ### Num and Math
+
 const score = 400
 const balance = new Number(100.05);
 // console.log(typeof score);
@@ -488,9 +521,12 @@ const max = 20;
 console.log(Math.floor(Math.random()*(max-min+1))+10) // to get random value between min & max range
 
 ### Date
+
 /*JavaScript Date objects represent a single moment in time in a platform-independent format.
 
-A JavaScript date is fundamentally specified as the time in milliseconds that has elapsed since the epoch, which is defined as the midnight at the beginning of January 1, 1970, UTC (equivalent to the UNIX epoch). This timestamp is timezone-agnostic and uniquely defines an instant in history.*/
+A JavaScript date is fundamentally specified as the time in milliseconds that has elapsed since the epoch, which is
+defined as the midnight at the beginning of January 1, 1970, UTC (equivalent to the UNIX epoch). This timestamp is
+timezone-agnostic and uniquely defines an instant in history.*/
 
 let myDate = new Date();
 // console.log(myDate);
@@ -540,7 +576,8 @@ console.log("hello world");
 }
 console.log(typeof heroes);
 
-//JavaScript is a dynamically typed language which means that data types of variable are determined by the value they hold at runtime and can change throughout the program as we assign different values to them.
+//JavaScript is a dynamically typed language which means that data types of variable are determined by the value they
+hold at runtime and can change throughout the program as we assign different values to them.
 
 //How to define Symbol
 const id = Symbol('123')
@@ -549,8 +586,9 @@ const anotherId =Symbol('123')
 console.log(id);
 console.log(id === anotherId); //value is same but returns false
 console.log(typeof id);
-//typeof               results
+//typeof results
 /*1. undefined        : "undefined"
+
 2. Null             : "object"
 3. Boolean          : "boolean"
 4. Number           : "number"
@@ -580,40 +618,103 @@ console.log(typeof id);
 let ytName = "abhay"
 
 ## Array
-/*The Array object, as with arrays in other programming languages, enables storing a collection of multiple items under a single variable name, and has members for performing common array operations.
+
+The Array object, as with arrays in other programming languages, enables storing a collection of multiple items under a
+single variable name, and has members for performing common array operations.
 
 arrays aren't primitives but are instead Array objects:
 
-1. arrays are resizable and can contain a mix of different data types. (When those characteristics are undesirable, use typed arrays instead.)
-2. arrays are not associative arrays and so, array elements cannot be accessed using arbitrary strings as indexes, but must be accessed using nonnegative integers (or their respective string form) as indexes.
-3. arrays are zero-indexed: the first element of an array is at index 0, the second is at index 1, and so on — and the last element is at the value of the array's length property minus 1.
-4. array-copy operations create shallow copies. (All standard built-in copy operations with any JavaScript objects create shallow copies, rather than deep copies).
-   */
-   // const myArray = [1,2,3,4,true,"ABhay"];
-   // console.log(myArray);
+1. arrays are resizable and can contain a mix of different data types. (When those characteristics are undesirable, use
+   typed arrays instead.)
+2. arrays are not associative arrays and so, array elements cannot be accessed using arbitrary strings as indexes, but
+   must be accessed using non-negative integers (or their respective string form) as indexes.
+3. arrays are zero-indexed: the first element of an array is at index 0, the second is at index 1, and so on — and the
+   last element is at the value of the array's length property minus 1.
+4. array-copy operations create shallow copies. (All standard built-in copy operations with any JavaScript objects
+   create shallow copies, rather than deep copies).
 
-const myHeroes = new Array("C","A","B","D");
-// console.log(myHeroes);
 
-//Array Methods
-// myHeroes.push("Dhruva"); //adds at the start of array
-// console.log(myHeroes);
-// myHeroes.pop(); //removes from end of array
-// console.log(myHeroes);
+```
+ //Declare an array
+  const myArray = [1,2,3,4,true,"ABhay"];
+  console.log(myArray);
+  
+  myArray[1] = 10 //valid operation although array is decalrad as const
+  myArray = [2,3,4] //Invalid operation reason myArray is declared as const
 
-// myHeroes.unshift("Start"); //adds at the beginning of array
-// console.log(myHeroes);
-// myHeroes.shift(); //removes element from start of array
-console.log(myHeroes);
+  const myHeroes = new Array("C","A","B","D");
+  console.log(myHeroes);
+  
+  let ab= [1,2,3,"B"];
+  ab[1] = 5;
+  ab = [4,5,7] //valid operation reason array is declareda let
+  console.log(ab);
+ ```
+
+### Array Methods
+
+#### push
+This method adds element at the end of current array. It modifies the original array.
+```
+ ab.push("Dhruva"); 
+ console.log(ab);
+ //output : [ 1, 2, 'Dhurva' ]
+ ```
+#### pop()
+This method removes last element from original array and returns value. It modifies the original array.
+```
+ ab.pop(); 
+ let temp = ab.pop() 
+ console.log(ab); // [1,2]
+ console.log(temo); //Dhruva
+```
+
+#### unshift
+This method adds new element at the beginning of array
+```
+ ab.unshift("Start"); 
+ console.log(ab); // [ 'A', 1, 2 ]
+ ```
+
+#### shift
+This method removes first element from original array and returns value. It modifies the original array.
+``` 
+let temp = ab.shift(); 
+console.log(ab); // [1,2]
+console.log(ab); // A
+```
+#### includes
+
 console.log(myHeroes.includes("A")); //returns true if element is found else false
+
+
+marks.includes(120) //check if this value is in array
+
+
+#### indexOf
 console.log(myHeroes.indexOf("B")); //returns index else -1 if element is not found
+marks.indexOf(12) //returns index of element from array
+
+#### sort 
 console.log('Sort array values : ',myHeroes.sort()); //sort array values
+
+ `Sort String Array`
+
+let fruits = ["Banana","Apple"]
+fruits.sort() //return sorted array
+
+ `Sort Number Array`
+
+let fruits = [1,2,6,9,3,100,40]
+
+#### toString
 console.log('Convert array to String : ',myHeroes.toString()); //convert array to string values
 
+#### join
 const newArra = myHeroes.join();
 console.log(newArra ); //converts array to comma seperate string value. typeof newArra is `string`
 
-//slice & splice
+#### slice 
 //slice fetches element from array, does not include last range value, does not modify original array
 //code exmple
 const myArray = [0,1,2,3,4,5,6];
@@ -621,12 +722,18 @@ const b = myArray.slice(1,3);
 console.log("Orignal Array after slice : ",myArray);
 console.log(b);
 
+#### splice
 //splice fetches element from array, includes last range, also modifies original array
 const c = myArray.splice(1,3);
 console.log("original array after splice : ",myArray);
 console.log(c);
 
-//push and concat example
+`Break the array`
+
+marks.slice(2,5)
+
+
+#### push and concat example
 const marvelHeroes = ["Thor", "IronMan"];
 const marvelHeroes2 = ["Thor", "Zorawar"];
 const DCHeroes = ["Spiderman","Batman"];
@@ -634,37 +741,102 @@ const DCHeroes2 = ["Spiderman","Batman"];
 marvelHeroes.push(DCHeroes); // adds second array as child array, does not merge two array. modifies original array
 console.log(marvelHeroes);
 
-const newarray = marvelHeroes2.concat(DCHeroes2); //merges two arrays, return a new array, does not modify original array
+const newarray = marvelHeroes2.concat(DCHeroes2); //merges two arrays, return a new array, does not modify original
+array
 console.log("Merge Array Using concat Operator : ",newarray);
 
 //conact method is not much used, a better approach is using spread operator
 const newArrayUsingSpread = [...marvelHeroes2,...DCHeroes2];
 console.log("Merge Array Using Spread Operator : ",newArrayUsingSpread);
 
-//How to flat an array
+#### How to flat an array
 const anArray = [1,2,3,[4,5,6],7,[6,7,[4,5]]];
 
-const flatArray =anArray.flat(Infinity); // flatten the array till inifinite hierarchy or flatten the arrays into single array
+const flatArray =anArray.flat(Infinity); // flatten the array till inifinite hierarchy or flatten the arrays into single
+array
 console.log("Flatten the array : ",flatArray);
 
-//How to check if array
+#### How to check if array
 console.log("isArray : ",Array.isArray("AB"));
 console.log("isArray : ",Array.isArray(flatArray));
 
-//Converts String to array
+#### Converts String to array
 console.log("Converts String to array : ",Array.from("AB"));
 
-//Converts variables to array
+#### Converts variables to array
+```
 let s1 = 300;
 let s2 = 400;
 let s3 = 500;
 console.log("Converts varaible to array : ",Array.of(s1,s2,s3));
+```
 
+
+
+### Mutating Array methods
+
+Mutating array methods are one who mutate (Mutation is basically changing the array itself instead of returning a new
+array with the new changes) the original array right away, when executed.
+
+It helps in following -
+
+- `Avoid accidentally mutating : ` The original array should not be mutated right away
+- `Do Easier mind map : `
+- `These mutating methods need to be executed first`
+
+#### Mutating Array Methods list
+
+- `.copywithin() : ` use this to copy elements from within the array. It then replaces the pre-existing elements
+  accordingly.
+- .splice()
+- .fill()
+- .pop() - removes the last element from the array. This run on O(1) time .
+- .push() - Adds elements to the end of array. This run on O(1) time .
+- .reverse() -
+- .sort()
+- .unshift() - Adds element to the beginning of an array. This runs in O(n) time reason have to duplicate/move the
+  entire array.
+- .shift() - removes first element from the array. This runs in O(n) time reason have to duplicate/move the entire
+  array.
+
+```
+//How to filter below array which has 'world' in it
+
+/* Creating an array of strings. */
+var wordsArray = [
+  "hello-world",
+  "hello1-world",
+  "hello-we-world",
+  "hello-hello",
+  "jello-bello",
+];
+
+
+/* Filtering the array and returning the array which has the text "world" in it. */
+var newArray = wordsArray.filter((wordHavingTextAsWorld) =>
+  wordHavingTextAsWorld.includes("world")
+);
+
+//or with return statement
+newArray = wordsArray.filter((wordHavingTextAsWorld) => {
+  return wordHavingTextAsWorld.includes("world");
+});
+
+/* Printing the array which has the text "world" in it. */
+console.log(newArray);
+
+
+//Output ->
+ //[ 'hello-world', 'hello1-world', 'hello-we-world' ]
+
+```
+
+# Array -> Filter() method
 // To DO -- read more about array methods
 
 ### Objects
-//singleton -> constructor will create singleton object.
 
+//singleton -> constructor will create singleton object.
 
 //Object literals -> when we create object using literals it will not be singleton
 const jsUser = {
@@ -685,7 +857,6 @@ Object.freeze(jsUser); //You can freeze an object, once freezed, value can't be 
 
 jsUser["name"]="Shanvi";
 console.log(jsUser["name"]);
-
 
 //How to assign and access Symbol
 const mySymbol1 = Symbol("key1");
@@ -708,7 +879,8 @@ console.log(`Hello JS User , ${this.name}`);
 
 console.log(jsUserWithSymbol.greeting2());
 
-const td = new Object(); //This is a singleton, object is same as created in 03_Objects.js file. Only difference is singleton
+const td = new Object(); //This is a singleton, object is same as created in 03_Objects.js file. Only difference is
+singleton
 console.log(td);
 
 const regulatedUser = {
@@ -725,7 +897,9 @@ userfullName:{
 
 // console.log(regulatedUser.fullname.userfullName.firstname);
 
-//Optional chaining -- The optional chaining (?.) operator accesses an object's property or calls a function. If the object accessed or function called using this operator is undefined or null, the expression short circuits and evaluates to undefined instead of throwing an error.
+//Optional chaining -- The optional chaining (?.) operator accesses an object's property or calls a function. If the
+object accessed or function called using this operator is undefined or null, the expression short circuits and evaluates
+to undefined instead of throwing an error.
 
 // console.log(regulatedUser?.fullname?.userfullName?.firstname);
 
@@ -770,6 +944,7 @@ console.log(n);
 //To Do How to Destrucutre An Array
 
 ## Functions
+
 function hello(){
 console.log("A");
 }
@@ -829,24 +1004,28 @@ return getArray[1];
 
 const myArray = [3,4,6,8];
 console.log("passing array as function : ",returnsSecondValueFromArray(myArray)); //pass array as parameters
-console.log("passing array directly as function : ",returnsSecondValueFromArray([8,9,10])); //passing arrays as directly as params
+console.log("passing array directly as function : ",returnsSecondValueFromArray([8,9,10])); //passing arrays as directly
+as params
 
 console.log(addOne(6));
 
-//This approach of function declaration, you can call function execution statement before definition is written. This is called Hoisting.
+//This approach of function declaration, you can call function execution statement before definition is written. This is
+called Hoisting.
 function addOne(num){
 return num+1;
 }
 
 console.log(addOne(5));
 
-
-//In this approach, function execution statement should be after definition. Otherwise, will throw `Cannot access 'addTwo' before initialization` errror
+//In this approach, function execution statement should be after definition. Otherwise, will
+throw `Cannot access 'addTwo' before initialization` errror
 const addTwo = function (num){
 return num+2;
 }
 console.log(addTwo(10));
+
 ### Arrow function
+
 const user = {
 name:"AB",
 price:999,
@@ -860,7 +1039,8 @@ console.log(user.welcomeMessage());
 user.name ="Ajay" //change value of name field
 console.log(user.welcomeMessage()); //print updated value
 
-console.log("this in node : ",this); // {} - in node, this prints {}. If you print console.log(this) in chrome browser console, it will prints windows context
+console.log("this in node : ",this); // {} - in node, this prints {}. If you print console.log(this) in chrome browser
+console, it will prints windows context
 
 function hello(){
 let name = "Abhay";
@@ -870,21 +1050,21 @@ hello()
 
 //To Do - Why we need arrow function
 
-//If function scope is added in arrow function like {}, means if curly braces is used, you need to use return keyword to return value from function. Otherwise function will not return any value
+//If function scope is added in arrow function like {}, means if curly braces is used, you need to use return keyword to
+return value from function. Otherwise function will not return any value
 const addTwo = (n1,n2) =>{
 return n1+n2;
 }
 console.log("Explicit return ", addTwo(5,7));
 
-//if written like below or like const addThree = (n1,n2,n3) => n1+n2+n3;, will automatically return value. No need to use return keyword. This is called implict arrow function. This is used a lot in ReactJS.
+//if written like below or like const addThree = (n1,n2,n3) => n1+n2+n3;, will automatically return value. No need to
+use return keyword. This is called implict arrow function. This is used a lot in ReactJS.
 const addThree = (n1,n2,n3) => (n1+n2+n3);
 console.log("Implicit return",addThree(5,7,2));
-
 
 //Return Object from Arrow function
 const returnObjectFromArrowFunction = (n1,n2) =>
 ({name:n1,age:n2}) //to return object, need to wrap object in () braces
-
 
 console.log(returnObjectFromArrowFunction("AB",23));
 
@@ -908,13 +1088,13 @@ console.log('DB Connected');
 console.log('DB Connected using arrow function');
 })(); //IIFE with arrow function
 
-
 //unname IIFE function with params
 ( (name)=>{
 console.log(`${name} DB Connected using arrow function`);
 })("AB"); //IIFE with arrow function
 
 ### JS Execution
+
 //How code execute in JS (Execution Context)
 //Call Stack
 /*
@@ -936,7 +1116,6 @@ let resultTwo = add(10,15);
 
 /* --- How JS Execution Happends ---
 
-
 1. Global Execution or Environment -> this
 
 2. Memory Phase -> all variables re put at a place
@@ -949,7 +1128,8 @@ let resultTwo = add(10,15);
 3. Execution Phase
    v1 = 10
    v2 = 20
-   add -> new Enviornment + new Execution Context/thread created (Step 1 t 3 will be repeated as many times function is called)
+   add -> new Enviornment + new Execution Context/thread created (Step 1 t 3 will be repeated as many times function is
+   called)
    */
 
 //How to write code in Chrome browser
@@ -958,6 +1138,7 @@ let resultTwo = add(10,15);
 ## Control Flow
 
 ### if
+
 #### Multiple ways to write if conditions
 
 **Classical approach**
@@ -972,7 +1153,7 @@ console.log('Do Something')
 
 **A better approach**
 
-`if (['online','away', 'busy'].indexOf(status)!== -1){  console.log('Do Something') }`
+`if (['online','away', 'busy'].indexOf(status)!== -1){ console.log('Do Something') }`
 
 `Check IndexOf with `~` operator`
 
@@ -990,7 +1171,9 @@ if (['online','away', 'busy'].includes(status)){
  console.log('Do Something')
 }
 ```
+
 ### switch
+
 switch (key) {
 case value:
 
@@ -998,17 +1181,23 @@ case value:
 
     default:
         break;
-}
 
+}
 
 /*
 #VSCODE tips to copy/paste/delete code using keyboard shortcut
-1. Duplicate a Line/Code Block: place your cursor on a line or select a code block & press [Shift + Alt+ Down Arrow key]. Code will be duplicated.
-2. Delete a Line/Code Block: place your cursor on a line or select a code block & press [Crtl + Shift + k]. Code will be removed.
-3. Paste from history of all Copy/Cut items: There is no inbuilt feature available in #VSCODE. Here is a workaround, install extension #Clipboard Manager. This extension keeps history of copy/cut operation in VS Code. Press [Crtl + Shift + V], it will show history of values, you can select which one you want to paste.
+
+1. Duplicate a Line/Code Block: place your cursor on a line or select a code block &
+   press [Shift + Alt+ Down Arrow key]. Code will be duplicated.
+2. Delete a Line/Code Block: place your cursor on a line or select a code block & press [Crtl + Shift + k]. Code will be
+   removed.
+3. Paste from history of all Copy/Cut items: There is no inbuilt feature available in #VSCODE. Here is a workaround,
+   install extension #Clipboard Manager. This extension keeps history of copy/cut operation in VS Code.
+   Press [Crtl + Shift + V], it will show history of values, you can select which one you want to paste.
    */
 
 ### Truthy
+
 //Truthy/Falsy value
 const user = "ABC@ai";
 if (user){
@@ -1019,7 +1208,6 @@ console.log(`Not Found user `); // this will be printed if user = ""
 
 //falsy values List
 //false,0,-0,BigInt 0n,'', null,undefined, Nan
-
 
 //truthy values List
 //"0",'false',' ',[],{},function()
@@ -1036,8 +1224,7 @@ if (Object.keys(emptyOb).length ===0){ //get keys list & check if length is zero
 console.log("Object is empty");
 }
 
-
-false == 0  //true
+false == 0 //true
 false == '' //true
 0 == '' //true
 
@@ -1082,7 +1269,8 @@ myMap.set('B',3);
 myMap.set('C',5);
 console.log(myMap); //prints map -> Map(3) { 'A' => 1, 'B' => 3, 'C' => 5 }
 
-//Iterater an Map & destructure array returned for each key/value pair, [key,val] is destructuring map key/value to key & val
+//Iterater an Map & destructure array returned for each key/value pair, [key,val] is destructuring map key/value to
+key & val
 for (const [key,val] of myMap) {
 console.log(`key : ${key} -:- val : ${val}`);
 }
@@ -1135,7 +1323,6 @@ mArray.forEach(printMe)
 mArray.forEach((item,index,arr)=>{
 console.log(item,index,arr);
 })
-
 
 //Array Of Objects
 
@@ -1284,41 +1471,52 @@ whatever is given to console.log, should get displayed as output.
 print multiple values in table
 console.table([accountId,accountEmail,accountPassword,accountCity])
 
-
-
 ## JavaScript Good Practice
 
-👉Use Strict Mode: Always enable strict mode at the top of your scripts or functions. It helps catch common coding mistakes and prevents the use of potentially problematic features.
+👉Use Strict Mode: Always enable strict mode at the top of your scripts or functions. It helps catch common coding
+mistakes and prevents the use of potentially problematic features.
 
-👉Declare Variables Properly: Always use `let`, `const`, or `var` to declare variables. Avoid relying on implicit global variables.
+👉Declare Variables Properly: Always use `let`, `const`, or `var` to declare variables. Avoid relying on implicit global
+variables.
 
-👉Avoid Global Variables:Minimize the use of global variables to prevent unintended interactions between different parts of your code.
+👉Avoid Global Variables:Minimize the use of global variables to prevent unintended interactions between different parts
+of your code.
 
-👉Use Descriptive Variable and Function Names: Choose meaningful names for variables and functions. This improves code readability and makes it easier to understand your code's purpose.
+👉Use Descriptive Variable and Function Names: Choose meaningful names for variables and functions. This improves code
+readability and makes it easier to understand your code's purpose.
 
-👉Comment Your Code: Add comments to explain complex sections of your code, especially if it's not immediately obvious what the code does.
+👉Comment Your Code: Add comments to explain complex sections of your code, especially if it's not immediately obvious
+what the code does.
 
-👉Indentation and Formatting: Maintain consistent indentation and formatting. This makes your code easier to read and reduces the risk of syntax errors.
+👉Indentation and Formatting: Maintain consistent indentation and formatting. This makes your code easier to read and
+reduces the risk of syntax errors.
 
-👉Avoid Magic Numbers and Strings: Replace magic numbers and strings with named constants or variables to make your code more maintainable.
+👉Avoid Magic Numbers and Strings: Replace magic numbers and strings with named constants or variables to make your code
+more maintainable.
 
-👉Error Handling: Implement proper error handling using `try...catch` blocks to gracefully handle exceptions and prevent crashes.
+👉Error Handling: Implement proper error handling using `try...catch` blocks to gracefully handle exceptions and prevent
+crashes.
 
 👉Use Functions for Code Reusability: Write functions to encapsulate and reuse code. Avoid duplicating code blocks.
 
-👉Check Types and Use Type Coercion Wisely: Be aware of JavaScript's type system, and use `typeof`, `instanceof`, or functions like `isNaN()` to validate data types before operations.
+👉Check Types and Use Type Coercion Wisely: Be aware of JavaScript's type system, and use `typeof`, `instanceof`, or
+functions like `isNaN()` to validate data types before operations.
 
-👉Avoid Asynchronous Callback Hell: Use promises, async/await, or libraries like `async.js` to manage asynchronous code and avoid deeply nested callback structures.
+👉Avoid Asynchronous Callback Hell: Use promises, async/await, or libraries like `async.js` to manage asynchronous code
+and avoid deeply nested callback structures.
 
-👉Test Your Code: Implement unit tests and automated testing frameworks like Jest to catch bugs early and ensure your code behaves as expected.
+👉Test Your Code: Implement unit tests and automated testing frameworks like Jest to catch bugs early and ensure your
+code behaves as expected.
 
 👉Code Reviews: Encourage code reviews within your team. Fresh perspectives can help identify potential issues.
 
 👉Use a Linter: Employ a JavaScript linter like ESLint to enforce coding standards and catch common mistakes.
 
-👉Keep Dependencies Updated: Regularly update your project's dependencies to patch security vulnerabilities and ensure compatibility.
+👉Keep Dependencies Updated: Regularly update your project's dependencies to patch security vulnerabilities and ensure
+compatibility.
 
-👉Optimize for Performance: Be mindful of performance bottlenecks and optimize critical sections of your code when necessary.
+👉Optimize for Performance: Be mindful of performance bottlenecks and optimize critical sections of your code when
+necessary.
 
 #### What is block scope and functional scope
 
@@ -1346,23 +1544,31 @@ https://www.linkedin.com/posts/saboor-malik-993b03202_75-useful-javascript-code-
 
 ### map
 
-//map -- The map() method of Array instances creates a new array populated with the results of calling a provided function on every element in the calling array.
+//map -- The map() method of Array instances creates a new array populated with the results of calling a provided
+function on every element in the calling array.
+
 ```
 const myNums = [1,2,3,4,5,6,7,8,9,10];
 let newNums = myNums.map((num)=>num+10) //will iterate all element & add value 10
 console.log(newNums);
 ```
+
 //To Do -- difference between filter and amp
 
 // Note - map should be preferred instead of foreach if ask is to iterate all element & perform some operation
 
 //function Chaining
+
 ```
 const m = myNums.map((num)=>num*10).map((num)=>num+1).filter((num)=>num>40);
 console.log(m);
 ```
+
 ### filter
-//filter -- The filter() method is an iterative method. It calls a provided callbackFn function once for each element in an array, and constructs a new array of all the values for which callbackFn returns a truthy value. Array elements which do not pass the callbackFn test are not included in the new array.
+
+//filter -- The filter() method is an iterative method. It calls a provided callbackFn function once for each element in
+an array, and constructs a new array of all the values for which callbackFn returns a truthy value. Array elements which
+do not pass the callbackFn test are not included in the new array.
 
 ```
 const myNums = [1,2,3,4,5,6,7,8,9,10];
@@ -1372,8 +1578,6 @@ console.log(newMyNums);
 newMyNumsTwo = myNums.filter((num)=>{return num<4})
 console.log(newMyNumsTwo);
 ```
-
-
 
 ### loops
 
@@ -1394,6 +1598,7 @@ console.log(newMyNumsTwo);
 ### currying
 
 ### closures
+
 ```
 <!DOCTYPE html>
 <html lang="en">
@@ -1459,6 +1664,7 @@ The Promise object represents the eventual completion (or failure) of an asynchr
 https://www.youtube.com/watch?v=_TjtAyMkiTI promises starts at 5:39
 
 ### API Request
+
 ```
 <!-- Notes - What is API, Hit api using XHR  -->
 <!DOCTYPE html>
@@ -1527,6 +1733,7 @@ https://www.youtube.com/watch?v=_TjtAyMkiTI promises starts at 5:39
 </html>
 
 ```
+
 ```
 const promiseOne = new Promise(function (resolve, reject) {
 //Do an async task
@@ -1644,7 +1851,6 @@ console.log(error);
 
 ```
 
-
 ### call stack
 
 ### web APIs
@@ -1656,6 +1862,7 @@ console.log(error);
 ### data types
 
 ### event loop
+
 ## JavaScript is a
 
 - synchronous language (every thing happens in sequence)
@@ -1887,6 +2094,7 @@ Task Queue in JS Engine in Event loop
 </html>
 
 ```
+
 ### statements
 
 ### asynchrony
@@ -1915,28 +2123,7 @@ Task Queue in JS Engine in Event loop
 
 ### arrow function
 
-### array functions
 
-var marks = [20,45,37,100]
-marks.push(65) //will add element at end
-marks.pop() //will remove element at end
-marks.shift() //will remove element at start
-marks.unshift() //will add element at start
-marks.indexOf(12) //returns index of element from array
-marks.includes(120) //check if this value is in array
-
-#### Break the array
-
-marks.slice(2,5)
-
-#### Sort String Array
-
-let fruits = ["Banana","Apple"]
-fruits.sort() //return sorted array
-
-#### Sort Number Array
-
-let fruits = [1,2,6,9,3,100,40]
 
 ### Check weather passed String is numeric or not
 
@@ -1959,6 +2146,7 @@ let fruits = [1,2,6,9,3,100,40]
 
 //reduce -- To Do -- read more on reduce function
 //reduce is used frequently in react
+
 ```
 const m =[1,3,4];
 let initialVal = 0;
@@ -1990,6 +2178,7 @@ return total+item.price
 },0)
 console.log(totalPrice);
 ```
+
 ### handling events or event listener and event bubbling and event capturing
 
 ### setTimeout and setInterval
@@ -2012,7 +2201,8 @@ console.log(totalPrice);
 
 ### Random Number
 
-`True Random Number`: are generated based on external factors e.g. generating randomness using surroundings noise. It is time consuming to generate.
+`True Random Number`: are generated based on external factors e.g. generating randomness using surroundings noise. It is
+time consuming to generate.
 `Pseudo Random Number`: are generated based on an algorithm and seed value. can be used in cryptography e.g. OTP
 
 #### Math.random()
@@ -2137,7 +2327,8 @@ console.log(getMarkRange("B"));
 
 ## Array Destructuring using rest syntax
 
-Array destructuring is flexible. It uses less space, and even allows you to ignore values. You can even get the remaining elements as a new array.
+Array destructuring is flexible. It uses less space, and even allows you to ignore values. You can even get the
+remaining elements as a new array.
 Instead of accessing elements individually, one by one, you can get multiple at once.
 
 ```
@@ -2328,7 +2519,8 @@ console.log(getMarkRange("B"));
 
 ## Meaning of ^ and ~ symbols mentioned in the package.json file for the package version
 
-Whenever we install any npm package, a new entry is added in the dependencies or devDependencies section of the package.json file in the following format:
+Whenever we install any npm package, a new entry is added in the dependencies or devDependencies section of the
+package.json file in the following format:
 
 ```
 "dependencies": {
@@ -2344,17 +2536,21 @@ The version number 0.24.0 is a combination of 3 digits separated by the dot oper
 <ul>Third value (c in a.b.c) specifies the patch version which usually contains bug fixes.</ul>
 </ol>
 
-`^` : This symbol means when we want to update all the packages mentioned in package.json, using npm update, it will update to only patch and minor released version.
+`^` : This symbol means when we want to update all the packages mentioned in package.json, using npm update, it will
+update to only patch and minor released version.
 
 So if your current version is 0.24.0 and there is a minor version released so the package will be updated to 0.25.0.
 
 If there is only a patch version released then it will be updated to the latest available patch version like 0.24.1.
 
-`~`: This symbol means the package will be updated to only patch releases when we run the npm update command i.e only the last digit so from 0.24.0 to 0.24.1 or 0.24.2 but not 0.25.0 or 1.24.0
+`~`: This symbol means the package will be updated to only patch releases when we run the npm update command i.e only
+the last digit so from 0.24.0 to 0.24.1 or 0.24.2 but not 0.25.0 or 1.24.0
 
-If there is no symbol like "axios": "0.24.0" then exact same version will be installed after running the npm update command.
+If there is no symbol like "axios": "0.24.0" then exact same version will be installed after running the npm update
+command.
 
-You can also update the specific npm package by adding the package name after the npm update command gitlike this: npm update axios.
+You can also update the specific npm package by adding the package name after the npm update command gitlike this: npm
+update axios.
 
 ## How To Create Express Server
 
@@ -2422,7 +2618,8 @@ App running on port 5000.
 ## Different ways to fetch data from API
 
 - using **fetch** API
-  This method accept URI to the data. To do this, first create a function fetchData(), it will call fetch() method with provided URL, then convert the result to JSON Object.
+  This method accept URI to the data. To do this, first create a function fetchData(), it will call fetch() method with
+  provided URL, then convert the result to JSON Object.
 
   ```
   const fetchData = () =>{
@@ -2480,67 +2677,12 @@ const Days = Object.freeze({
 })
 ```
 
-## Array method()
 
-## Mutating Array methods
-
-Mutating array methods are one who mutate (Mutation is basically changing the array itself instead of returning a new array with the new changes) the original array right away, when executed.
-
-It helps in following -
-
-- `Avoid accidentally mutating : ` The original array should not be mutated right away
-- `Do Easier mind map : `
-- `These mutating methods need to be executed first`
-
-#### Mutating Array Methods list
-
-- `.copywithin() : ` use this to copy elements from within the array. It then replaces the pre-existing elements accordingly.
-- .splice()
-- .fill()
-- .pop() - removes the last element from the array. This run on O(1) time .
-- .push() - Adds elements to the end of array. This run on O(1) time .
-- .reverse() -
-- .sort()
-- .unshift() - Adds element to the beginning of an array. This runs in O(n) time reason have to duplicate/move the entire array.
-- .shift() - removes first element from the array. This runs in O(n) time reason have to duplicate/move the entire array.
-
-```
-//How to filter below array which has 'world' in it
-
-/* Creating an array of strings. */
-var wordsArray = [
-  "hello-world",
-  "hello1-world",
-  "hello-we-world",
-  "hello-hello",
-  "jello-bello",
-];
-
-
-/* Filtering the array and returning the array which has the text "world" in it. */
-var newArray = wordsArray.filter((wordHavingTextAsWorld) =>
-  wordHavingTextAsWorld.includes("world")
-);
-
-//or with return statement
-newArray = wordsArray.filter((wordHavingTextAsWorld) => {
-  return wordHavingTextAsWorld.includes("world");
-});
-
-/* Printing the array which has the text "world" in it. */
-console.log(newArray);
-
-
-//Output ->
- //[ 'hello-world', 'hello1-world', 'hello-we-world' ]
-
-```
-
-# Array -> Filter() method
 
 ## variable scope->Understanding
 
-Filter() method creates a new array from existing array with elements that pass a test provided by a function. It does not execute the function for empty elements. It method does not change the original array.
+Filter() method creates a new array from existing array with elements that pass a test provided by a function. It does
+not execute the function for empty elements. It method does not change the original array.
 
 ```
 //How to filter below array which has 'world' in it
@@ -2779,7 +2921,8 @@ How it works
 const newMap = new Map(newArray);
 ```
 
-- Because the keys of a Map object are unique, creating a Map from the array of array removes the duplicate object by key (id in this case).
+- Because the keys of a Map object are unique, creating a Map from the array of array removes the duplicate object by
+  key (id in this case).
 
 ```dotnetcli
 const iterator = newMap.values();
@@ -2819,19 +2962,24 @@ use of the .length property of an array - this returns the number of elements in
 
 `arrayName[arrayName.length - 1]` //update last element of an array
 
-A **method** in JavaScript is a function that's associated with certain values or objects. An example **.log()** method, which is part of the console object.
+A **method** in JavaScript is a function that's associated with certain values or objects. An example **.log()** method,
+which is part of the console object.
 
-**.push()** This method allows you to "push" a value to the end of an array. Here is an example to add the number 12 to the end of an array:
+**.push()** This method allows you to "push" a value to the end of an array. Here is an example to add the number 12 to
+the end of an array:
 
 `arrayName.push(12);`
 
-It returns the new length of the array, after adding the value you give it. If existing length was 2, after above push() operation, it will return value 3 which is new length of array.
+It returns the new length of the array, after adding the value you give it. If existing length was 2, after above push()
+operation, it will return value 3 which is new length of array.
 
 **.pop()** This method removes the last element from an array and returns that element.
 
-When a method returns a value, you can think of it as giving the value back to you, making it available for use in other parts of your code.
+When a method returns a value, you can think of it as giving the value back to you, making it available for use in other
+parts of your code.
 
 ## JavaScript Interview Question
+
 ### What is JavaScript and what are its key features?
 
 ### What is the difference between null and undefined in JavaScript?
@@ -2885,6 +3033,7 @@ let str = "abhay";
 const reverseString = str.split("").reverse().join("");
 console.log(reverseString);
 ```
+
 ```
 //Reverse words in a sentence
 
@@ -2933,10 +3082,13 @@ console.log(uniqueNumbers);
 
 #### Remove All Whitespace from a String in JavaScript
 
-To remove all whitespace from a string in JavaScript, call the replace() method on the string, passing a regular expression that matches any whitespace character, and an empty string as a replacement. For example, str.replace(/\s/g, '') returns a new string with all whitespace removed from str.
+To remove all whitespace from a string in JavaScript, call the replace() method on the string, passing a regular
+expression that matches any whitespace character, and an empty string as a replacement. For example, str.replace(
+/\s/g, '') returns a new string with all whitespace removed from str.
 he \s regex metacharacter matches whitespace characters, such as spaces, tabs, and newlines.
 
-We use the g regex flag to specify that all whitespace characters in the string should be matched. Without this flag, only the first whitespace will be matched and replaced:
+We use the g regex flag to specify that all whitespace characters in the string should be matched. Without this flag,
+only the first whitespace will be matched and replaced:
 
 ```
 const str = '1 2 3';
@@ -2978,7 +3130,9 @@ urlRedirect('https://google.co.in');
 
 #### Read JSON File in JavaScript
 
-JSON also known as JavaScript Object Notation is a basic or standardized design used for the transportation and storage of data. It is a plain text written in JavaScript Object Notation which is language-independent. It is a lightweight data-interchange format. JSON is a self-describing format and it is easy to understand.
+JSON also known as JavaScript Object Notation is a basic or standardized design used for the transportation and storage
+of data. It is a plain text written in JavaScript Object Notation which is language-independent. It is a lightweight
+data-interchange format. JSON is a self-describing format and it is easy to understand.
 
 We can read JSON files in JavaScript using the following methods:
 
@@ -2998,7 +3152,9 @@ document.getElementById('main').innerHTML = JSON.stringify(dataJson);
 ```
 
 ### Data Structure Introduction
+
 #### map
+
 ```
 const mapOne = new Map(); //declare a map
 
@@ -3024,12 +3180,13 @@ console.log('size after delete : ',mapOne.size);
 //ToDo
 // difference between map and object
 ```
+
 #### set
+
 ```
 //declare set
 const setOne = new Set([1,2,3]);
 ```
-
 
 #### Stack
 
@@ -3066,6 +3223,7 @@ const setOne = new Set([1,2,3]);
 it is a programming paradigm.
 
 ### Object
+
 ```
 function multiplyBy5(num) {
 this.num = num;
@@ -3112,6 +3270,7 @@ value (object, array, function etc), the newly created object is returned.
 */
 
 ```
+
 - collection of properties and methods
 -
 
@@ -3156,10 +3315,10 @@ console.log(userOne instanceof User); //return true
 //Prototypal inheritance
 ```
 
-
-
 - Constructor function
+
 ### Prototype
+
 ```
 let myName = "Abhay     ";
 console.log(myName.length);
@@ -3219,6 +3378,7 @@ console.log(`True length is : ${this.trim().length}`);
 anotherUserName.trueLength();
 "abhay".trueLength();
 ```
+
 - Classes
 - Instances (new, this)
 
@@ -3230,6 +3390,7 @@ anotherUserName.trueLength();
 - Polymorphism
 
 ## DOM
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -3283,6 +3444,7 @@ anotherUserName.trueLength();
     //remove() method
     const lastLang = document.querySelector("li:last-child");
     lastLang.remove();
+
   </script>
 </html>
 
@@ -3330,6 +3492,7 @@ anotherUserName.trueLength();
         <li class="list-item">four</li>
       </ul>
     </div>
+
   </body>
 </html>
 
@@ -3360,6 +3523,7 @@ anotherUserName.trueLength();
     
     //appending to body
     document.body.appendChild(h1);
+
   </script>
 </html>
 
@@ -3397,5 +3561,6 @@ anotherUserName.trueLength();
     //console.log(dayOne);
     //console.log(dayOne.parentElement);
     //console.log("NODES : ", parent.childNodes);
+
   </script>
 </html>

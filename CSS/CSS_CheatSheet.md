@@ -279,8 +279,6 @@ Note:
 2. We should avoid using `!important`, it becomes difficult to apply other styles.
 3. We can club multiple id to increase specificity value like #html#html --> 200 value
 
-### Color picker eyedropper chrome extension to select colors hex code
-
 ### CSS Selectors
 
 #### Element selectors
@@ -763,3 +761,9 @@ left: If you add value in left (10px;) property, gap will be created from left.
   transition: transform 200ms;
 }
 ```
+
+## Chrome Browser Extension
+
+### Color picker eyedropper chrome extension to select colors hex code
+
+### measure it
