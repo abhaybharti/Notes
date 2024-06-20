@@ -684,84 +684,151 @@ console.log(ab); // [1,2]
 console.log(ab); // A
 ```
 #### includes
+It checks for given value in array and returns true if element is found else false.
 
+```
 console.log(myHeroes.includes("A")); //returns true if element is found else false
-
-
 marks.includes(120) //check if this value is in array
+```
 
 
 #### indexOf
-console.log(myHeroes.indexOf("B")); //returns index else -1 if element is not found
-marks.indexOf(12) //returns index of element from array
+It checks for given value in array and returns element index from array else -1 if element is not found.
+```
+let ab = ['B',1,2];
+console.log(myHeroes.indexOf("B")); //index : 0
+console.log(myHeroes.indexOf("3")); //index : -1
+
+```
 
 #### sort 
+This method sorts array values.
+```
 console.log('Sort array values : ',myHeroes.sort()); //sort array values
+```
 
  `Sort String Array`
-
+```
 let fruits = ["Banana","Apple"]
 fruits.sort() //return sorted array
-
+```
  `Sort Number Array`
+```
+let fruits = [1,2,6,9,3,100,40] //return sorted array
+```
 
-let fruits = [1,2,6,9,3,100,40]
+>![CAUTION]
+> Sorting does not give correct result when array has number as well as string values.
 
 #### toString
-console.log('Convert array to String : ',myHeroes.toString()); //convert array to string values
-
+It is a generic method applicable to all objects and convert an object's value to string. The values are separated by commas.
+```
+let ab = ["ab","bc","da",10,5];
+console.log('Convert array to String : ',myHeroes.toString()); //10,5, ab,bc,dc
+```
 #### join
-const newArra = myHeroes.join();
-console.log(newArra ); //converts array to comma seperate string value. typeof newArra is `string`
+join() method can only be used on array. It joins the array elements and returns a string. The values are seperated by the commas (by default), using `join()` method. We can also specify separator.
 
+```
+const newArra = ab.join();
+console.log(newArra ); //10,5,ab,ca,da
+
+const newArra = ab.join(|); //replace the default separator
+console.log(newArra ); //10|5|ab|ca|da : converts array to pipe operarot seperator value, typeOf new Array is `string`
+```
 #### slice 
-//slice fetches element from array, does not include last range value, does not modify original array
-//code exmple
+slice() method returns selected elements in an array, as a new array. It selects from a given startNum, up to a(not inclusive) given end.
+It does not change the original method.
+We can use slice() method to create a new array from existing array and without impacting original array.
+
+```
 const myArray = [0,1,2,3,4,5,6];
 const b = myArray.slice(1,3);
-console.log("Orignal Array after slice : ",myArray);
-console.log(b);
-
+console.log("Orignal Array after slice : ",myArray); //original array after slice : [0,1,2,3,4,5,6] : no impact on original array
+console.log('newArray' , b); // [1,3] : start from index : 1 and ends at 2 (not including index: 3)
+```
 #### splice
-//splice fetches element from array, includes last range, also modifies original array
-const c = myArray.splice(1,3);
-console.log("original array after splice : ",myArray);
-console.log(c);
+splice fetches elements from array, includes last range, also modifies original array. This can be used to cut number of elements from original array. 
+We can use splice() method to create a new array from existing array and also remove the element in original array.
+
+```
+const myArray = [0,1,2,3,4,5,6];
+const c = myArray.splice(1,3); //extract elements from index:1 to index:3
+console.log("original array after splice : ",myArray); //[0,4,5,6] : left with rest of element
+console.log('new Array : ',c); //new array : [1,2,3] from existing
 
 `Break the array`
-
 marks.slice(2,5)
+```
 
+#### push and concat operation on array
+`Problem Description`: You have two arrays
 
-#### push and concat example
+```
 const marvelHeroes = ["Thor", "IronMan"];
 const marvelHeroes2 = ["Thor", "Zorawar"];
 const DCHeroes = ["Spiderman","Batman"];
 const DCHeroes2 = ["Spiderman","Batman"];
+```
+
+`Use Case 1 : ` Merge two arrays, no impact on original array
+
+```
 marvelHeroes.push(DCHeroes); // adds second array as child array, does not merge two array. modifies original array
-console.log(marvelHeroes);
+console.log(marvelHeroes); //output : ['Thor', 'IronMan',['Spiderman','Batman']]
+```
 
-const newarray = marvelHeroes2.concat(DCHeroes2); //merges two arrays, return a new array, does not modify original
-array
-console.log("Merge Array Using concat Operator : ",newarray);
+`Use Case 2 : ` Merge two arrays, no impact on original array
 
-//conact method is not much used, a better approach is using spread operator
+```
+marvelHeroes.push(DCHeroes); // merge two array. modifies original array
+console.log(marvelHeroes); //output : ['Thor', 'IronMan','Spiderman','Batman']
+```
+
+
+>[!CAUTION]
+> concat() method is not much used, a better approach is using spread operator
+
+```
 const newArrayUsingSpread = [...marvelHeroes2,...DCHeroes2];
-console.log("Merge Array Using Spread Operator : ",newArrayUsingSpread);
+console.log("Merge Array Using Spread Operator : ",newArrayUsingSpread); //output : ['Thor', 'IronMan','Spiderman','Batman']
+```
 
-#### How to flat an array
+#### How to flat an array using flat()
+Flattening an array is the process of taking nested array elements and basically putting them all into one "flat" array.
+
+`Use Case 1` : flat() method flattens upto one level deep
+```
 const anArray = [1,2,3,[4,5,6],7,[6,7,[4,5]]];
-
-const flatArray =anArray.flat(Infinity); // flatten the array till inifinite hierarchy or flatten the arrays into single
+const flatArray =anArray.flat(); // [1,2,3,4,5,6,7,6,7,[4,5]] : 2nd level nested array is not flatten
 array
 console.log("Flatten the array : ",flatArray);
+```
 
-#### How to check if array
+`Use Case 2` : flat() method flattens upto any level of deep nesting using `infinity` keyword 
+```
+const anArray = [1,2,3,[4,5,6],7,[6,7,[4,5]]];
+const flatArray =anArray.flat(Infinity); // flatten the array till inifinite hierarchy or flatten the arrays into single
+array
+console.log("Flatten the array : ",flatArray); // [1,2,3,4,5,6,7,6,7,4,5]
+```
+
+#### How to check if array isArray()
+`isArray()` method returns true if an object is an array otherwise false.
+```
 console.log("isArray : ",Array.isArray("AB"));
 console.log("isArray : ",Array.isArray(flatArray));
+```
 
-#### Converts String to array
-console.log("Converts String to array : ",Array.from("AB"));
+#### Converts String to array using Array.from()
+Array.from() method returns an array from an object with length property.
+
+>[!CAUTION]
+> If you use Array.from() on an array, will return `undefined`
+
+```
+console.log("Converts String to array : ",Array.from("ABC")); //Converts String to Array : ['A','B','C']
+```
 
 #### Converts variables to array
 ```
@@ -770,8 +837,6 @@ let s2 = 400;
 let s3 = 500;
 console.log("Converts varaible to array : ",Array.of(s1,s2,s3));
 ```
-
-
 
 ### Mutating Array methods
 
@@ -831,8 +896,21 @@ console.log(newArray);
 
 ```
 
-# Array -> Filter() method
-// To DO -- read more about array methods
+### filter()
+
+The `filter()` method is an iterative method. It calls a provided callbackFn function once for each element in
+an array, and constructs a new array of all the values for which callbackFn returns a truthy value. Array elements which
+do not pass the callbackFn test are not included in the new array.
+
+```
+const myNums = [1,2,3,4,5,6,7,8,9,10];
+let newMyNums = myNums.filter((num)=>num<4) //you can write condition here. If condition is wrapped inside {}, return keyword needs to be provided
+console.log(newMyNums);
+
+newMyNumsTwo = myNums.filter((num)=>{return num<4})
+console.log(newMyNumsTwo);
+```
+
 
 ### Objects
 
@@ -1564,20 +1642,6 @@ const m = myNums.map((num)=>num*10).map((num)=>num+1).filter((num)=>num>40);
 console.log(m);
 ```
 
-### filter
-
-//filter -- The filter() method is an iterative method. It calls a provided callbackFn function once for each element in
-an array, and constructs a new array of all the values for which callbackFn returns a truthy value. Array elements which
-do not pass the callbackFn test are not included in the new array.
-
-```
-const myNums = [1,2,3,4,5,6,7,8,9,10];
-let newMyNums = myNums.filter((num)=>num<4) //you can write condition here. If condition is wrapped inside {}, return keyword needs to be provided
-console.log(newMyNums);
-
-newMyNumsTwo = myNums.filter((num)=>{return num<4})
-console.log(newMyNumsTwo);
-```
 
 ### loops
 
