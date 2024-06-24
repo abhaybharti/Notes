@@ -4,7 +4,26 @@
 
 - NodeJs
 - Aqua/IntelliJ/Visual Studio Code
-- @playwright/test package (npm init playwright@latest)
+- @playwright/test package (`npm init playwright@latest`)
+
+  - What is installed
+
+        - playwright.config.ts
+        - package.json
+        - package-lock.json
+        - tests/
+            - example.spec.ts
+        - tests-examples/
+            - demo-todo-app.spec.ts
+
+> ![NOTES]
+> The `playwright.config.js/ts` is where you can add configuration for Playwright including modifying which browsers you would like to run Playwright on.
+
+## How to run Example Test
+
+`npx playwright test`
+
+## npm vs npx - what's the difference
 
 ## Why playwright
 
@@ -37,3 +56,7 @@ Runs the tests in debug mode.
 
 `npx playwright codegen`
 Auto generate tests with Codegen.
+
+```
+
+```
