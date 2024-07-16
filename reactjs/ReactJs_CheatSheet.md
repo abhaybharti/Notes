@@ -979,6 +979,45 @@ This code defines a React component that allow users to input the name
 
 ### React Fragments: Explain what React Fragments are and why they are useful. Discuss scenarios where Fragments are necessary and how they help avoid unnecessary wrapper elements in the DOM.
 
+### How to call useState() method in onChange() like this onChange = {()=>setSecondQues(event.target.value)}
+
+- The code onChange = {()=>setSecondQues(event.target.value)} is an example of setting up an event handler in React for an onChange event, typically used with form elements like input fields. Let's break down what this code does and explain each part of it.
+
+**Explanation:**
+**onChange Event:**
+
+The onChange event in React is used to capture user input from form elements. It is triggered whenever the value of an input element changes (e.g., when a user types in a text field).
+Arrow Function ()=>:
+
+**The arrow function ()=>** creates an anonymous function that doesn't take any arguments. This function is executed every time the onChange event occurs.
+
+**_setSecondQues Function:_**
+
+This is presumably a state setter function created using the useState hook in React. It's used to update the state variable secondQues.
+event:
+
+**_The event_** parameter represents the event object, which contains information about the event that occurred. It is implicitly passed to event handler functions in JavaScript.
+event.target.value:
+
+**The event.target** refers to the element that triggered the event (e.g., an input field). The value property of this element contains the current value of the input field.
+
+```
+const [secondQues, setSecondQues] = useState("");
+
+<input
+              className="bg-blue-200"
+              width={100}
+              placeholder="Enter your Answer" onChange = {()=>setSecondQues(event.target.value)}
+            ></input>
+```
+
+**Why Use Arrow Function Inside onChange:**
+**Binding event:** The arrow function allows you to directly access the event object. Using an inline arrow function is a common pattern for passing the event object to the handler.
+
+**Simplicity:** It provides a concise way to handle state updates directly within the JSX, making the code easier to read and understand.
+
+**Scope Handling:** Arrow functions do not create their own this context, so they inherit this from the surrounding scope, which can be beneficial in certain situations. However, in this specific example, this is not a primary concern.
+
 ### Question: How can you optimize React performance using code splitting?
 
 `Answer`: Code splitting involves breaking your application into smaller chunks (bundling) and loading them on demand. React.lazy and Suspense are used to achieve code splitting, which can significantly reduce the initial loading time of your application.
