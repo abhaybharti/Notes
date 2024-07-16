@@ -1,105 +1,12 @@
-<!-- TOC -->
-* [Namaste React Web Series -> Episode 1 -> Inception](#namaste-react-web-series---episode-1---inception)
-    * [Inject/Add ReactJS Add in your project](#injectadd-reactjs-add-in-your-project)
-      * [Adding ReactJS in HTML File](#adding-reactjs-in-html-file)
-      * [Adding ReactJS Node_Modules](#adding-reactjs-node_modules)
-* [Namaste React Web Series -> Episode 2 - Igniting our App](#namaste-react-web-series---episode-2---igniting-our-app)
-    * [NPM](#npm)
-    * [Build Your Project / Run your project](#build-your-project--run-your-project)
-    * [Bundler](#bundler)
-      * [parcel Advantages](#parcel-advantages)
-    * [package.json](#packagejson)
-    * [package-lock.json](#package-lockjson)
-    * [node_modules](#node_modules)
-    * [Difference between npm & npx](#difference-between-npm--npx)
-      * [Browser scripts cannot have imports or exports.](#browser-scripts-cannot-have-imports-or-exports)
-      * [How to make application support for older browser](#how-to-make-application-support-for-older-browser)
-      * [babel](#babel)
-      * [babel-plugin-transform-remove-console](#babel-plugin-transform-remove-console)
-      * [CDN (Content Deilvery Network)](#cdn-content-deilvery-network)
-      * [What is crossorigin attribute](#what-is-crossorigin-attribute)
-      * [JSX](#jsx)
-    * [React Component](#react-component)
-      * [1. Functional - New way of writing, it is nothing but a normal JavaScript function](#1-functional---new-way-of-writing-it-is-nothing-but-a-normal-javascript-function)
-        * [react element -> one tag is named as react element](#react-element---one-tag-is-named-as-react-element)
-      * [2. Class based component - Old way of writing, important for older codes & interviews](#2-class-based-component---old-way-of-writing-important-for-older-codes--interviews)
-      * [How to call react element/component](#how-to-call-react-elementcomponent)
-      * [Further Reading](#further-reading)
-      * [react component in detail](#react-component-in-detail)
-      * [JSX Rules](#jsx-rules)
-      * [JSX Rules](#jsx-rules-1)
-      * [Local images](#local-images)
-      * [props -> Passing data to Component](#props---passing-data-to-component)
-      * [Iterate Over a Array and pass each element to React Component](#iterate-over-a-array-and-pass-each-element-to-react-component)
-      * [Each child in a list should have a unique "key" prop](#each-child-in-a-list-should-have-a-unique-key-prop)
-      * [Do not use index as react keys](#do-not-use-index-as-react-keys)
-      * [React Hooks](#react-hooks)
-      * [React Folder Structure](#react-folder-structure)
-      * [export default](#export-default)
-      * [named export / named import](#named-export--named-import)
-      * [How do we import](#how-do-we-import)
-      * [React Reconciliation Algorithm (also known as React Fiber)](#react-reconciliation-algorithm-also-known-as-react-fiber)
-    * [Useful Chrome Extension](#useful-chrome-extension)
-      * [Web Developer](#web-developer)
-      * [JSON Formatter](#json-formatter)
-      * [ColorZilla](#colorzilla)
-      * [CSS Viewer](#css-viewer)
-      * [Wappalyzer](#wappalyzer)
-      * [Lighthouse](#lighthouse)
-      * [Viewport Resizer](#viewport-resizer)
-      * [User-Agent Switcher](#user-agent-switcher)
-      * [Lorem Ipsum Generator](#lorem-ipsum-generator)
-      * [Octotree](#octotree)
-  * [Chapter 11](#chapter-11)
-    * [Higher Order Component](#higher-order-component)
-    * [Controlled and Uncontrolled Components](#controlled-and-uncontrolled-components)
-    * [Lifting the State up (very important)](#lifting-the-state-up-very-important)
-    * [Intro to React Dev Tools](#intro-to-react-dev-tools)
-    * [Props Drilling](#props-drilling)
-    * [React Context API](#react-context-api)
-      * [Create Context API](#create-context-api)
-      * [How to access MyContext in your component](#how-to-access-mycontext-in-your-component)
-  * [Chapter 12](#chapter-12)
-    * [Redux Toolkit](#redux-toolkit)
-      * [Code to Configure and Create Redux Store](#code-to-configure-and-create-redux-store)
-      * [Code to create a Redux Slice](#code-to-create-a-redux-slice)
-      * [Dispatch Actions to the Redux Store](#dispatch-actions-to-the-redux-store)
-    * [react-redux package](#react-redux-package)
-    * [Redux Store, Actions/Reducers, useSelector, useDispatch.](#redux-store-actionsreducers-useselector-usedispatch)
-    * [Interview Questions around Redux](#interview-questions-around-redux)
-    * [Best practices while using Redux](#best-practices-while-using-redux)
-    * [Redux Dev tools](#redux-dev-tools)
-  * [Chapter 13](#chapter-13)
-    * [Introduction to Jest, React Testing Library](#introduction-to-jest-react-testing-library)
-    * [Importance of Testing](#importance-of-testing)
-    * [Types of Testing (for Developers)](#types-of-testing-for-developers)
-    * [Setting up Testing environment in our React application](#setting-up-testing-environment-in-our-react-application)
-    * [Writing basic test cases](#writing-basic-test-cases)
-    * [Explaining Render, Query, Assertion concept](#explaining-render-query-assertion-concept)
-    * [Writing Unit Test cases for various components](#writing-unit-test-cases-for-various-components)
-    * [Writing Integration tests for various features](#writing-integration-tests-for-various-features)
-    * [What is React?](#what-is-react)
-    * [limitations of React?](#limitations-of-react)
-    * [advantages of using React?](#advantages-of-using-react)
-    * [useState() and useEffect() in React?](#usestate-and-useeffect-in-react)
-    * [How to prevent re-renders in React?](#how-to-prevent-re-renders-in-react)
-    * [Form-Handing & Validation techniques?](#form-handing--validation-techniques)
-    * [What is the application of lazy loading?](#what-is-the-application-of-lazy-loading)
-    * [What is the benefit of error boundaries?](#what-is-the-benefit-of-error-boundaries)
-    * [SSR and its benefits in React applications](#ssr-and-its-benefits-in-react-applications)
-    * [different ways to style a React component?](#different-ways-to-style-a-react-component)
-    * [Use cases of useEffect() in different scenarios](#use-cases-of-useeffect-in-different-scenarios)
-    * [differences between functional & class components?](#differences-between-functional--class-components)
-    * [differences b/w useMemo() and useCallback() in React](#differences-bw-usememo-and-usecallback-in-react)
-    * [differences b/w controlled & uncontrolled components?](#differences-bw-controlled--uncontrolled-components)
-    * [How to re-render the view when the browser is resized?](#how-to-re-render-the-view-when-the-browser-is-resized)
-    * [asynchronous operations with async/await and Promises?](#asynchronous-operations-with-asyncawait-and-promises)
-    * [How to pass data b/w sibling components using React router?](#how-to-pass-data-bw-sibling-components-using-react-router)
-<!-- TOC -->
-
 # Namaste React Web Series -> Episode 1 -> Inception
 
 ### Inject/Add ReactJS Add in your project
+
+#### Introduction to JSX
+
+#### React Component
+
+#### Component State and Props
 
 #### Adding ReactJS in HTML File
 
@@ -342,6 +249,12 @@ Install this npm package & create a file .babelrc & add following code
 }
 ```
 
+#### Env
+
+#### Prettier
+
+#### linter
+
 #### CDN (Content Deilvery Network)
 
 CDN is a network of servers that deliveres content to users. Both React and ReactDOm are available over a CDN.
@@ -363,7 +276,7 @@ TO Read - https://www.youtube.com/watch?v=tcLW5d0KAYE
 
 ### React Component
 
-#### 1. Functional - New way of writing, it is nothing but a normal JavaScript function
+#### 1. Functional Component - New way of writing, it is nothing but a normal JavaScript function
 
 name of component starts with capital letter
 
@@ -469,21 +382,21 @@ root.render(<heading/>)
 
 - component should start with capital letter
 - JSX syntax (return html)
-    - to make our lives easier
-    - calling function the hood
+  - to make our lives easier
+  - calling function the hood
 
 #### JSX Rules
 
 - return single element
-    - semantics section/article
-    - Fragment - let's us group elements without adding extra nodes
+  - semantics section/article
+  - Fragment - let's us group elements without adding extra nodes
 
 #### JSX Rules
 
 - React Developer tools browser extension -
-    - Once this plugin is installed
-    - Open react app in browser
-    - Open developer tools & look for tab `components`
+  - Once this plugin is installed
+  - Open react app in browser
+  - Open developer tools & look for tab `components`
 
 #### Local images
 
@@ -901,6 +814,8 @@ This code defines a React component that allow users to input the name
 
 ## Chapter 13
 
+### Writing Unit Test cases for various components
+
 ### Introduction to Jest, React Testing Library
 
 ### Importance of Testing
@@ -913,9 +828,9 @@ This code defines a React component that allow users to input the name
 
 ### Explaining Render, Query, Assertion concept
 
-### Writing Unit Test cases for various components
-
 ### Writing Integration tests for various features
+
+### Mocking Data
 
 ### What is React?
 
@@ -1034,6 +949,8 @@ This code defines a React component that allow users to input the name
 
 ### What are the different ways to style components in React?
 
+### Server Side Rendering
+
 ### What are the key considerations when implementing a scalable React application?
 
 ### Describe the concept of reusability, modularity, testablity in React components.
@@ -1045,6 +962,10 @@ This code defines a React component that allow users to input the name
 ### Component Lifecycle Methods: Describe the different lifecycle methods in React and their order of execution. Explain when and how to use methods such as componentDidMount, componentDidUpdate, and componentWillUnmount.
 
 ### React Hooks: Discuss the purpose of React Hooks and explain how they replace class components in React. Describe common hooks such as useState, useEffect, and useContext and their usage.
+
+### Custom Hooks
+
+### Synthetic Events
 
 ### Event Handling: Explain how event handling works in React, including how to bind event handlers, pass arguments to event handlers, and handle events in class components vs. functional components.
 

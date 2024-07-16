@@ -517,6 +517,20 @@ further reading - https://www.freecodecamp.org/news/css-transition-vs-css-animat
 
 ```
 
+### All element states - active, hover
+
+### Media Queries
+
+### Pre-Processors - SCSS or LESS
+
+### mixins
+
+### CSS constants
+
+### BEM (Block Element Modifier)
+
+### Import
+
 ##### Create a circle using CSS
 
 .one {
@@ -626,6 +640,8 @@ div:not(#example) {
 ```
 
 The above selects all div elements without an id of example.
+
+#### pseudo-classes
 
 ### position
 
