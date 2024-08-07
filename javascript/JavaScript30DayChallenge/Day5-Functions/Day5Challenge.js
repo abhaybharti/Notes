@@ -6,9 +6,9 @@ console.log("Task 1");
 //This approach of writing function is called as function declaration
 function findOddEven(number) {
   if (number % 2 === 0) {
-    console.log(${number} is even);
+    console.log(`${number} is even`);
   } else {
-    console.log(${number} is odd);
+    console.log(`${number} is odd`);
   }
 }
 
@@ -73,7 +73,7 @@ console.log(multiplyTwoNum(10));
 
 console.log("Task 8");
 function greetMessage(name, age = 20) {
-  return Hello ${name} and age : ${age};
+  return `Hello ${name} and age : ${age}`;
 }
 
 console.log(greetMessage("Abhay", 40));
