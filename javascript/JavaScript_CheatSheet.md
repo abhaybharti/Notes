@@ -1,238 +1,3 @@
-<!-- TOC -->
-* [JavaScript](#javascript)
-  * [How JavaScript works](#how-javascript-works)
-      * [Execution Context : Component where JS is executed. It has](#execution-context--component-where-js-is-executed-it-has)
-        * [Memory or variable Env -](#memory-or-variable-env--)
-        * [Code Env or Thread of Execution -](#code-env-or-thread-of-execution--)
-  * [Variables](#variables)
-    * [Things to Keep in mind when naming a variable](#things-to-keep-in-mind-when-naming-a-variable)
-      * [JavaScript datatype](#javascript-datatype)
-  * [Use proper variable names](#use-proper-variable-names)
-    * [variable scope->Understanding](#variable-scope-understanding)
-    * [Data Conversion](#data-conversion)
-    * [Data Types](#data-types)
-    * [Conversion Operator](#conversion-operator)
-    * [Comparision](#comparision)
-    * [String](#string)
-    * [Num and Math](#num-and-math)
-    * [Date](#date)
-    * [Data Type Summary](#data-type-summary)
-  * [Array](#array)
-    * [Array Methods](#array-methods)
-      * [push](#push)
-      * [pop()](#pop)
-      * [unshift](#unshift)
-      * [shift](#shift)
-      * [includes](#includes)
-      * [indexOf](#indexof)
-      * [sort](#sort-)
-      * [toString](#tostring)
-      * [join](#join)
-      * [slice](#slice-)
-      * [splice](#splice)
-      * [push and concat example](#push-and-concat-example)
-      * [How to flat an array](#how-to-flat-an-array)
-      * [How to check if array](#how-to-check-if-array)
-      * [Converts String to array](#converts-string-to-array)
-      * [Converts variables to array](#converts-variables-to-array)
-    * [Objects](#objects)
-  * [Functions](#functions)
-    * [Arrow function](#arrow-function)
-    * [JS Execution](#js-execution)
-  * [Control Flow](#control-flow)
-    * [if](#if)
-      * [Multiple ways to write if conditions](#multiple-ways-to-write-if-conditions)
-    * [switch](#switch)
-    * [Truthy](#truthy)
-  * [Loops in JavaScript](#loops-in-javascript)
-    * [Different types of Loops supported in JavaScript](#different-types-of-loops-supported-in-javascript)
-    * [Using For Loop](#using-for-loop)
-      * [Output:](#output)
-    * [Using ForEach](#using-foreach)
-      * [Output:](#output-1)
-    * [Using ForOff](#using-foroff)
-      * [Output:](#output-2)
-    * [Using while loop](#using-while-loop)
-      * [Output:](#output-3)
-    * [Using Do while loop](#using-do-while-loop)
-      * [Output:](#output-4)
-    * [Using Map](#using-map)
-      * [Output:](#output-5)
-      * [What is console.log](#what-is-consolelog)
-  * [JavaScript Good Practice](#javascript-good-practice)
-      * [What is block scope and functional scope](#what-is-block-scope-and-functional-scope)
-      * [Why should not use `var`](#why-should-not-use-var)
-      * [What is undefined in JavaScript](#what-is-undefined-in-javascript)
-    * [set](#set)
-    * [null](#null)
-    * [map](#map)
-    * [filter](#filter)
-    * [loops](#loops)
-    * [String](#string-1)
-    * [BigInt](#bigint)
-    * [Object](#object)
-    * [Reflect](#reflect)
-    * [scopes](#scopes)
-    * [Symbol](#symbol)
-    * [Boolean](#boolean)
-    * [currying](#currying)
-    * [closures](#closures)
-  * [promise](#promise)
-    * [A Promise is in one of these states:](#a-promise-is-in-one-of-these-states)
-    * [API Request](#api-request)
-    * [call stack](#call-stack)
-    * [web APIs](#web-apis)
-    * [undefined](#undefined)
-    * [deep copy](#deep-copy)
-    * [data types](#data-types-1)
-    * [event loop](#event-loop)
-  * [JavaScript is a](#javascript-is-a)
-  * [Execution Context](#execution-context)
-  * [Blocking Code](#blocking-code)
-  * [Non Blocking Code](#non-blocking-code)
-    * [statements](#statements)
-    * [asynchrony](#asynchrony)
-    * [async - await](#async---await)
-    * [conditionals](#conditionals)
-    * [map method](#map-method)
-    * [shallow copy](#shallow-copy)
-    * [destructuring](#destructuring)
-      * [Object Destructuring](#object-destructuring)
-      * [Array Destructuring](#array-destructuring)
-      * [Rest Operator](#rest-operator)
-      * [Spread Operator](#spread-operator)
-    * [pure function](#pure-function)
-    * [lexical scoping](#lexical-scoping)
-    * [arrow function](#arrow-function-1)
-    * [Check weather passed String is numeric or not](#check-weather-passed-string-is-numeric-or-not)
-    * [string methods](#string-methods)
-    * [named imports](#named-imports)
-    * [default imports](#default-imports)
-    * [reduce method](#reduce-method)
-    * [handling events or event listener and event bubbling and event capturing](#handling-events-or-event-listener-and-event-bubbling-and-event-capturing)
-    * [setTimeout and setInterval](#settimeout-and-setinterval)
-    * [forEach method](#foreach-method)
-    * [template literals](#template-literals)
-    * [normal functions](#normal-functions)
-    * [spread operators](#spread-operators)
-    * [promise chaining](#promise-chaining)
-    * [optional chaining](#optional-chaining)
-    * [conditional operator](#conditional-operator)
-    * [function expressions](#function-expressions)
-    * [Random Number](#random-number)
-      * [Math.random()](#mathrandom)
-  * [Enum](#enum)
-  * [nodemailer](#nodemailer)
-    * [Send email through outlook using nodemailer](#send-email-through-outlook-using-nodemailer)
-    * [Send email through gmail using nodemailer](#send-email-through-gmail-using-nodemailer)
-    * [Send Email From Your App Without a Backend](#send-email-from-your-app-without-a-backend)
-  * [Database Connection](#database-connection)
-  * [PostGresSQLConnection](#postgressqlconnection)
-    * [Install following package](#install-following-package)
-    * [Create a JS file like queries.js and Add following import statement](#create-a-js-file-like-queriesjs-and-add-following-import-statement)
-    * [Create Connection With PostGresSQL DB](#create-connection-with-postgressql-db)
-    * [Get Data from postgres table](#get-data-from-postgres-table)
-    * [Export above created function, so that you could import in other JS file](#export-above-created-function-so-that-you-could-import-in-other-js-file)
-  * [Using Object Literals Instead of Switch Case](#using-object-literals-instead-of-switch-case)
-      * [function to getMarkRange() using switch case](#function-to-getmarkrange-using-switch-case)
-      * [function to getMarkRange() using Object literal](#function-to-getmarkrange-using-object-literal)
-  * [rest syntax](#rest-syntax)
-  * [Array Destructuring using rest syntax](#array-destructuring-using-rest-syntax)
-  * [Receiving Data using rest syntax](#receiving-data-using-rest-syntax)
-  * [Object Destructuring using rest syntax](#object-destructuring-using-rest-syntax)
-  * [Spreading data](#spreading-data)
-  * [Spreading into a function call turns Array elements into function call arguments](#spreading-into-a-function-call-turns-array-elements-into-function-call-arguments)
-  * [Remote command execution via SSH using NodeJS](#remote-command-execution-via-ssh-using-nodejs)
-    * [Create a Unique ID](#create-a-unique-id)
-  * [Switch Case Statement Simplify using Object Literals](#switch-case-statement-simplify-using-object-literals)
-      * [We can use an "Object Lookup Map" instead of a "switch" statement for a cleaner syntax. Above switch statement re-written in Object Lookup map format.](#we-can-use-an-object-lookup-map-instead-of-a-switch-statement-for-a-cleaner-syntax-above-switch-statement-re-written-in-object-lookup-map-format)
-  * [Meaning of ^ and ~ symbols mentioned in the package.json file for the package version](#meaning-of--and--symbols-mentioned-in-the-packagejson-file-for-the-package-version)
-  * [How To Create Express Server](#how-to-create-express-server)
-  * [How To Create Server Using Express/NodeJS](#how-to-create-server-using-expressnodejs)
-    * [Install following package](#install-following-package-1)
-    * [Add following at start of file (create a JS file like index.js)](#add-following-at-start-of-file-create-a-js-file-like-indexjs)
-    * [Open CMD prompt](#open-cmd-prompt)
-  * [Fetch Data from API](#fetch-data-from-api)
-  * [Different ways to fetch data from API](#different-ways-to-fetch-data-from-api)
-    * [Create ENUM in JavaScript](#create-enum-in-javascript)
-  * [Array method()](#array-method)
-  * [Mutating Array methods](#mutating-array-methods)
-      * [Mutating Array Methods list](#mutating-array-methods-list)
-* [Array -> Filter() method](#array---filter-method)
-  * [variable scope->Understanding](#variable-scope-understanding-1)
-  * [Array -> map() method](#array---map-method)
-  * [Array -> reduce() method](#array---reduce-method)
-    * [Array -> Remove Duplicate Values](#array---remove-duplicate-values)
-      * [remove duplicate Using Set](#remove-duplicate-using-set)
-      * [remove duplicate Using Array reduce() method](#remove-duplicate-using-array-reduce-method)
-      * [remove duplicate Using Array filter() method](#remove-duplicate-using-array-filter-method)
-      * [Remove duplicates from an array of objects by one property](#remove-duplicates-from-an-array-of-objects-by-one-property)
-      * [Remove duplicates from an array of objects by multiple properties](#remove-duplicates-from-an-array-of-objects-by-multiple-properties)
-  * [How to make arrays mutable](#how-to-make-arrays-mutable)
-    * [Array](#array-1)
-  * [JavaScript Interview Question](#javascript-interview-question)
-    * [What is JavaScript and what are its key features?](#what-is-javascript-and-what-are-its-key-features)
-    * [What is the difference between null and undefined in JavaScript?](#what-is-the-difference-between-null-and-undefined-in-javascript)
-    * [Explain the concept of closures in JavaScript and provide an example.](#explain-the-concept-of-closures-in-javascript-and-provide-an-example)
-    * [What is the difference between let, const, and var in JavaScript for declaring variables?](#what-is-the-difference-between-let-const-and-var-in-javascript-for-declaring-variables)
-    * [What is the Event Loop in JavaScript and how does it work?](#what-is-the-event-loop-in-javascript-and-how-does-it-work)
-    * [How does prototypal inheritance work in JavaScript?](#how-does-prototypal-inheritance-work-in-javascript)
-    * [Explain the concept of hoisting in JavaScript.](#explain-the-concept-of-hoisting-in-javascript)
-    * [What are arrow functions in JavaScript? How do they differ from regular functions?](#what-are-arrow-functions-in-javascript-how-do-they-differ-from-regular-functions)
-    * [What are Promises in JavaScript and how do they handle asynchronous operations?](#what-are-promises-in-javascript-and-how-do-they-handle-asynchronous-operations)
-    * [How does the this keyword work in JavaScript? Provide examples of different contexts where this can be used.](#how-does-the-this-keyword-work-in-javascript-provide-examples-of-different-contexts-where-this-can-be-used)
-    * [Explain the concept of event delegation in JavaScript.](#explain-the-concept-of-event-delegation-in-javascript)
-    * [What is the purpose of using the bind, call, and apply methods in JavaScript?](#what-is-the-purpose-of-using-the-bind-call-and-apply-methods-in-javascript)
-    * [What is the difference between synchronous and asynchronous JavaScript?](#what-is-the-difference-between-synchronous-and-asynchronous-javascript)
-    * [How to explain Event loop and async js](#how-to-explain-event-loop-and-async-js)
-    * [How to explain Hoisting and temporal dead zone](#how-to-explain-hoisting-and-temporal-dead-zone)
-    * [How to explain scope and scope chain](#how-to-explain-scope-and-scope-chain)
-    * [How to explain prototypal inheritance and chaining](#how-to-explain-prototypal-inheritance-and-chaining)
-    * [How to explain promises and queues](#how-to-explain-promises-and-queues)
-    * [How to explain async await in interviews](#how-to-explain-async-await-in-interviews)
-    * [How to answer closure and lexical scoping](#how-to-answer-closure-and-lexical-scoping)
-    * [How to answer THIS in interviews](#how-to-answer-this-in-interviews)
-    * [How to explain call bind and apply in interviews](#how-to-explain-call-bind-and-apply-in-interviews)
-  * [Coding Problem Using JavaScript](#coding-problem-using-javascript)
-      * [Reverse a String](#reverse-a-string)
-      * [Sum of array elements](#sum-of-array-elements)
-      * [Largest/Smallest number in array](#largestsmallest-number-in-array)
-      * [Remove duplicates from an array](#remove-duplicates-from-an-array)
-      * [Remove All Whitespace from a String in JavaScript](#remove-all-whitespace-from-a-string-in-javascript)
-    * [If you want to get the text that a user selects or highlights on a web page, there is a useful one-liner for that](#if-you-want-to-get-the-text-that-a-user-selects-or-highlights-on-a-web-page-there-is-a-useful-one-liner-for-that)
-    * [There is a method called scrollTo(x,y), it allows you to scroll to a particular set of used coordinates](#there-is-a-method-called-scrolltoxy-it-allows-you-to-scroll-to-a-particular-set-of-used-coordinates)
-    * [If you want to have a smooth scrolling animation](#if-you-want-to-have-a-smooth-scrolling-animation)
-    * [If you want to redirect the user to a specified location, you can do something like this](#if-you-want-to-redirect-the-user-to-a-specified-location-you-can-do-something-like-this)
-    * [JS Common Interview Questions](#js-common-interview-questions)
-      * [Read JSON File in JavaScript](#read-json-file-in-javascript)
-    * [Data Structure Introduction](#data-structure-introduction)
-      * [map](#map-1)
-      * [set](#set-1)
-      * [Stack](#stack)
-      * [Queue](#queue)
-      * [Linked List](#linked-list)
-      * [Binary Trees](#binary-trees)
-      * [Recursion](#recursion)
-      * [Graph](#graph)
-      * [Dynamic Programming](#dynamic-programming)
-      * [Amortized space time complexity practice](#amortized-space-time-complexity-practice)
-    * [Sorting Algorithm](#sorting-algorithm)
-      * [Bubble sort](#bubble-sort)
-      * [Insertion sort](#insertion-sort)
-      * [Merge Sort](#merge-sort)
-      * [Quick Sort](#quick-sort)
-      * [Selection Sort](#selection-sort)
-  * [class and OOPs](#class-and-oops)
-    * [OOPs](#oops)
-    * [Object](#object-1)
-    * [Why use OOP](#why-use-oop)
-    * [parts of OOP](#parts-of-oop)
-    * [Object literal](#object-literal)
-    * [Prototype](#prototype)
-    * [4 pillars](#4-pillars)
-  * [DOM](#dom)
-<!-- TOC -->
-
 # JavaScript
 
 ## How JavaScript works
@@ -288,7 +53,7 @@ console.log(typeof null); //is a type
 
 ### variable scope->Understanding
 
-/* Declaring a variable in the global scope. its life span is whole program */
+/_ Declaring a variable in the global scope. its life span is whole program _/
 
 ```
 var globalScopeVariable = 7;
@@ -327,7 +92,7 @@ console.table([accountId,accountEmail,accountPassword,accountCity,accountState])
 
 ** Prefer not to use var because of issue in block scope and functional scope**
 
-```console.log('accountState',accountState);```
+`console.log('accountState',accountState);`
 
 ### Data Conversion
 
@@ -418,7 +183,7 @@ let stringNumber = String(someNumber)
 // console.log(stringNumber);
 // console.log(typeof stringNumber);
 
-//********Operations ************
+//**\*\*\*\***Operations ****\*\*\*\*****
 let value =3;
 let negValue = -value;
 // console.log(negValue);
@@ -478,7 +243,7 @@ allows to add methods like ${name.ToUppercase()}
 const gameName = new String('Abhay Name'); //another way to declare string
 console.log(gameName);
 console.log(gameName[1]);
-console.log(gameName.__proto__);
+console.log(gameName.**proto**);
 console.log(gameName.length); // get length of string value
 console.log(gameName.toUpperCase());
 console.log(gameName.charAt(1));
@@ -514,19 +279,19 @@ let ab =[9,3,7,8,4]
 console.log(Math.min(...ab)); // find lowest value
 console.log(ab.reduce((a,b)=>Math.min(a,b))); //find lowest value
 console.log(Math.random()); //return value between 0 & 1
-console.log(Math.floor((Math.random()*10)+1));
+console.log(Math.floor((Math.random()\*10)+1));
 
 const min = 10;
 const max = 20;
-console.log(Math.floor(Math.random()*(max-min+1))+10) // to get random value between min & max range
+console.log(Math.floor(Math.random()\*(max-min+1))+10) // to get random value between min & max range
 
 ### Date
 
-/*JavaScript Date objects represent a single moment in time in a platform-independent format.
+/\*JavaScript Date objects represent a single moment in time in a platform-independent format.
 
 A JavaScript date is fundamentally specified as the time in milliseconds that has elapsed since the epoch, which is
 defined as the midnight at the beginning of January 1, 1970, UTC (equivalent to the UNIX epoch). This timestamp is
-timezone-agnostic and uniquely defines an instant in history.*/
+timezone-agnostic and uniquely defines an instant in history.\*/
 
 let myDate = new Date();
 // console.log(myDate);
@@ -587,27 +352,27 @@ console.log(id);
 console.log(id === anotherId); //value is same but returns false
 console.log(typeof id);
 //typeof results
-/*1. undefined        : "undefined"
+/\*1. undefined : "undefined"
 
-2. Null             : "object"
-3. Boolean          : "boolean"
-4. Number           : "number"
-5. String           : "string"
-6. Object (native      
+2. Null : "object"
+3. Boolean : "boolean"
+4. Number : "number"
+5. String : "string"
+6. Object (native  
    and
    does implement
-   [[calll]])       : "object"
-7. Object (native     
+   [[calll]]) : "object"
+7. Object (native  
    or host
    and
    does implement
-   [[calll]])       :"object"
-8. Object (or host     
+   [[calll]]) :"object"
+8. Object (or host  
    and
    does implement
-   [[calll]])       : implementation defined except may not be "undefined", "boolean",          
+   [[calll]]) : implementation defined except may not be "undefined", "boolean",  
    "number" or "String"
-   */
+   \*/
 
 //++++++++++++++++++Memory Types+++++++++++++++++++++++++
 //1. Stack Memory
@@ -633,57 +398,67 @@ arrays aren't primitives but are instead Array objects:
 4. array-copy operations create shallow copies. (All standard built-in copy operations with any JavaScript objects
    create shallow copies, rather than deep copies).
 
-
 ```
  //Declare an array
   const myArray = [1,2,3,4,true,"ABhay"];
   console.log(myArray);
-  
+
   myArray[1] = 10 //valid operation although array is decalrad as const
   myArray = [2,3,4] //Invalid operation reason myArray is declared as const
 
   const myHeroes = new Array("C","A","B","D");
   console.log(myHeroes);
-  
+
   let ab= [1,2,3,"B"];
   ab[1] = 5;
   ab = [4,5,7] //valid operation reason array is declareda let
   console.log(ab);
- ```
+```
 
 ### Array Methods
 
 #### push
+
 This method adds element at the end of current array. It modifies the original array.
+
 ```
- ab.push("Dhruva"); 
+ ab.push("Dhruva");
  console.log(ab);
  //output : [ 1, 2, 'Dhurva' ]
- ```
-#### pop()
-This method removes last element from original array and returns value. It modifies the original array.
 ```
- ab.pop(); 
- let temp = ab.pop() 
+
+#### pop()
+
+This method removes last element from original array and returns value. It modifies the original array.
+
+```
+ ab.pop();
+ let temp = ab.pop()
  console.log(ab); // [1,2]
  console.log(temo); //Dhruva
 ```
 
 #### unshift
+
 This method adds new element at the beginning of array
+
 ```
- ab.unshift("Start"); 
+ ab.unshift("Start");
  console.log(ab); // [ 'A', 1, 2 ]
- ```
+```
 
 #### shift
+
 This method removes first element from original array and returns value. It modifies the original array.
-``` 
-let temp = ab.shift(); 
+
+```
+let temp = ab.shift();
 console.log(ab); // [1,2]
 console.log(ab); // A
 ```
+
 #### includes
+
 It checks for given value in array and returns true if element is found else false.
 
 ```
@@ -691,9 +466,10 @@ console.log(myHeroes.includes("A")); //returns true if element is found else fal
 marks.includes(120) //check if this value is in array
 ```
 
-
 #### indexOf
+
 It checks for given value in array and returns element index from array else -1 if element is not found.
+
 ```
 let ab = ['B',1,2];
 console.log(myHeroes.indexOf("B")); //index : 0
@@ -701,32 +477,41 @@ console.log(myHeroes.indexOf("3")); //index : -1
 
 ```
 
-#### sort 
+#### sort
+
 This method sorts array values.
+
 ```
 console.log('Sort array values : ',myHeroes.sort()); //sort array values
 ```
 
- `Sort String Array`
+`Sort String Array`
+
 ```
 let fruits = ["Banana","Apple"]
 fruits.sort() //return sorted array
 ```
- `Sort Number Array`
+
+`Sort Number Array`
+
 ```
 let fruits = [1,2,6,9,3,100,40] //return sorted array
 ```
 
->![CAUTION]
+> ![CAUTION]
 > Sorting does not give correct result when array has number as well as string values.
 
 #### toString
+
 It is a generic method applicable to all objects and convert an object's value to string. The values are separated by commas.
+
 ```
 let ab = ["ab","bc","da",10,5];
 console.log('Convert array to String : ',myHeroes.toString()); //10,5, ab,bc,dc
 ```
+
 #### join
+
 join() method can only be used on array. It joins the array elements and returns a string. The values are seperated by the commas (by default), using `join()` method. We can also specify separator.
 
 ```
@@ -736,7 +521,9 @@ console.log(newArra ); //10,5,ab,ca,da
 const newArra = ab.join(|); //replace the default separator
 console.log(newArra ); //10|5|ab|ca|da : converts array to pipe operarot seperator value, typeOf new Array is `string`
 ```
-#### slice 
+
+#### slice
+
 slice() method returns selected elements in an array, as a new array. It selects from a given startNum, up to a(not inclusive) given end.
 It does not change the original method.
 We can use slice() method to create a new array from existing array and without impacting original array.
@@ -747,8 +534,10 @@ const b = myArray.slice(1,3);
 console.log("Orignal Array after slice : ",myArray); //original array after slice : [0,1,2,3,4,5,6] : no impact on original array
 console.log('newArray' , b); // [1,3] : start from index : 1 and ends at 2 (not including index: 3)
 ```
+
 #### splice
-splice fetches elements from array, includes last range, also modifies original array. This can be used to cut number of elements from original array. 
+
+splice fetches elements from array, includes last range, also modifies original array. This can be used to cut number of elements from original array.
 We can use splice() method to create a new array from existing array and also remove the element in original array.
 
 ```
@@ -762,6 +551,7 @@ marks.slice(2,5)
 ```
 
 #### push and concat operation on array
+
 `Problem Description`: You have two arrays
 
 ```
@@ -785,8 +575,7 @@ marvelHeroes.push(DCHeroes); // merge two array. modifies original array
 console.log(marvelHeroes); //output : ['Thor', 'IronMan','Spiderman','Batman']
 ```
 
-
->[!CAUTION]
+> [!CAUTION]
 > concat() method is not much used, a better approach is using spread operator
 
 ```
@@ -795,9 +584,11 @@ console.log("Merge Array Using Spread Operator : ",newArrayUsingSpread); //outpu
 ```
 
 #### How to flat an array using flat()
+
 Flattening an array is the process of taking nested array elements and basically putting them all into one "flat" array.
 
 `Use Case 1` : flat() method flattens upto one level deep
+
 ```
 const anArray = [1,2,3,[4,5,6],7,[6,7,[4,5]]];
 const flatArray =anArray.flat(); // [1,2,3,4,5,6,7,6,7,[4,5]] : 2nd level nested array is not flatten
@@ -805,7 +596,8 @@ array
 console.log("Flatten the array : ",flatArray);
 ```
 
-`Use Case 2` : flat() method flattens upto any level of deep nesting using `infinity` keyword 
+`Use Case 2` : flat() method flattens upto any level of deep nesting using `infinity` keyword
+
 ```
 const anArray = [1,2,3,[4,5,6],7,[6,7,[4,5]]];
 const flatArray =anArray.flat(Infinity); // flatten the array till inifinite hierarchy or flatten the arrays into single
@@ -814,16 +606,19 @@ console.log("Flatten the array : ",flatArray); // [1,2,3,4,5,6,7,6,7,4,5]
 ```
 
 #### How to check if array isArray()
+
 `isArray()` method returns true if an object is an array otherwise false.
+
 ```
 console.log("isArray : ",Array.isArray("AB"));
 console.log("isArray : ",Array.isArray(flatArray));
 ```
 
 #### Converts String to array using Array.from()
+
 Array.from() method returns an array from an object with length property.
 
->[!CAUTION]
+> [!CAUTION]
 > If you use Array.from() on an array, will return `undefined`
 
 ```
@@ -831,6 +626,7 @@ console.log("Converts String to array : ",Array.from("ABC")); //Converts String 
 ```
 
 #### Converts variables to array
+
 ```
 let s1 = 300;
 let s2 = 400;
@@ -911,7 +707,6 @@ newMyNumsTwo = myNums.filter((num)=>{return num<4})
 console.log(newMyNumsTwo);
 ```
 
-
 ### Objects
 
 //singleton -> constructor will create singleton object.
@@ -942,7 +737,7 @@ const jsUserWithSymbol = {
 name:"Abhay",
 [mySymbol1]:"key1",
 age: 18,
-"full name":"A B"    
+"full name":"A B"  
 }
 console.log(jsUserWithSymbol);
 
@@ -1077,7 +872,7 @@ A(aObject);
 
 //Passing array to functions
 function returnsSecondValueFromArray(getArray){
-return getArray[1];    
+return getArray[1];  
 }
 
 const myArray = [3,4,6,8];
@@ -1175,11 +970,11 @@ console.log(`${name} DB Connected using arrow function`);
 
 //How code execute in JS (Execution Context)
 //Call Stack
-/*
+/_
 Global Execution Context
 Function Execution Context
 Eval Execution Context
-*/
+_/
 
 //Function code to be shown in execution context
 let v1 = 10;
@@ -1192,7 +987,7 @@ return total;
 let result = add(v1,v2);
 let resultTwo = add(10,15);
 
-/* --- How JS Execution Happends ---
+/\* --- How JS Execution Happends ---
 
 1. Global Execution or Environment -> this
 
@@ -1208,7 +1003,7 @@ let resultTwo = add(10,15);
    v2 = 20
    add -> new Enviornment + new Execution Context/thread created (Step 1 t 3 will be repeated as many times function is
    called)
-   */
+   \*/
 
 //How to write code in Chrome browser
 // Sources -> Snippeets -> New Snippet -> file name -> write code in right side pane -> Crtl + S to save file
@@ -1262,7 +1057,7 @@ case value:
 
 }
 
-/*
+/\*
 #VSCODE tips to copy/paste/delete code using keyboard shortcut
 
 1. Duplicate a Line/Code Block: place your cursor on a line or select a code block &
@@ -1272,7 +1067,7 @@ case value:
 3. Paste from history of all Copy/Cut items: There is no inbuilt feature available in #VSCODE. Here is a workaround,
    install extension #Clipboard Manager. This extension keeps history of copy/cut operation in VS Code.
    Press [Crtl + Shift + V], it will show history of values, you can select which one you want to paste.
-   */
+   \*/
 
 ### Truthy
 
@@ -1642,7 +1437,6 @@ const m = myNums.map((num)=>num*10).map((num)=>num+1).filter((num)=>num>40);
 console.log(m);
 ```
 
-
 ### loops
 
 ### String
@@ -1739,11 +1533,11 @@ https://www.youtube.com/watch?v=_TjtAyMkiTI promises starts at 5:39
     <title>Document</title>
   </head>
   <body style="background-color: #212121">
-    <!-- 
-    0. UNSENT client has been created. open() not called yet 
-    1. OPENED open() has been called 
+    <!--
+    0. UNSENT client has been created. open() not called yet
+    1. OPENED open() has been called
     2. HEADERS_RECEIVED send() has been called, and headers and
-    status are available 
+    status are available
     3. LOADING Downloading; responseText holds partial data.
     4. DONE The operation is complete. -->
     <button id="showcard">Show Card</button>
@@ -2186,8 +1980,6 @@ Task Queue in JS Engine in Event loop
 ### lexical scoping
 
 ### arrow function
-
-
 
 ### Check weather passed String is numeric or not
 
@@ -2741,8 +2533,6 @@ const Days = Object.freeze({
 })
 ```
 
-
-
 ## variable scope->Understanding
 
 Filter() method creates a new array from existing array with elements that pass a test provided by a function. It does
@@ -3001,8 +2791,6 @@ console.log(iterator);
 #### Remove duplicates from an array of objects by multiple properties
 
 https://www.javascripttutorial.net/array/javascript-remove-duplicates-from-array/
-
-
 
 ### Array
 
@@ -3571,7 +3359,7 @@ anotherUserName.trueLength();
 
     //attaching to element
     h1.appendChild(addText);
-    
+
     //appending to body
     document.body.appendChild(h1);
 
