@@ -156,7 +156,7 @@ fetchGitHubProfile();
 const promise1 = new Promise((resolve, reject) => {
   setTimeout(() => {
     resolve("Promise 1 is completed");
-  }, 1000);
+  }, 6000);
 });
 
 const promise2 = new Promise((resolve, reject) => {
@@ -182,6 +182,14 @@ Promise.all([promise1, promise2, promise3])
   });
 
 // #### Task 9 : Use Promise.race to log the value of the first promise that resolves among multiple promises
+Promise.race([promise1, promise2, promise3])
+  .then((values) => {
+    console.log("First resolve promise");
+    console.log(values);
+  })
+  .catch((error) => {
+    console.error("promise.race ", error);
+  });
 
 // ## Feature Request:
 
