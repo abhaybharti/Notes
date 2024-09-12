@@ -199,7 +199,7 @@ By the end of this Level, you will know following :
 
 #### Problem 6.13 : Access and Log a specific element from the two dimensional array
 
-# Level 7 : Objects
+## Level 7 : Objects
 
 #### Problem 7.1 : Create an object representing a book with properties like title, author and year and log the object to the console
 
@@ -300,7 +300,7 @@ By the end of this level, you will learn:
 - Understand and implement basic error handling using try-catch blocks
 - Use finally blocks to execute code regardless of the try catch outcome
 - Create and use custom error classes
-- Handle errors in promise using .catch() and within async function using try-catch
+- Handle errors in promise using `.catch()` and within async function using try-catch
 - Implement graceful error handling when making network requests with the fetch API
 
 #### Problem 10.1 : Write a function that intentionally throws an error and use a try-catch block to handle the error and log an appropriate message to the console
@@ -706,7 +706,35 @@ By the end of this level, you will learn:
 
 ### Problem 21: Lis to software required to be installed on your machine to run Playwright
 
+- `NodeJs` : Playwright requires Node.js to be installed on your system. You can downloaded from https://nodejs.org/en
+- `Package Manager` : npm(comes with Node.js) or yarn
+- `Aqua/IntelliJ/Visual Studio Code` : IDE to write code
+
 ### Problem 22: How to install Playwright
+
+- Create a new folder & initialise a Node.js project by running following command:
+
+```
+npm init -y
+```
+
+- This will create a `package.json` file in your folder.
+
+- Install playwright by running following command:
+
+`npm init playwright@latest`
+
+Above command will create following files in your project
+
+- playwright.config.ts
+- package.json
+- package-lock.json
+- tests/
+  - example.spec.ts
+- tests-examples/
+  - demo-todo-app.spec.ts
+
+The `playwright.config.js/ts` is where you can add configuration for Playwright including modifying which browsers you would like to run Playwright on.
 
 ### Problem 23: How to upgrade Playwright
 
