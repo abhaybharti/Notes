@@ -26,21 +26,47 @@ var x = 10; //Redeclaring variable ‘x’ and assigning new value 10. This is a
 console.log(x); //Output : 10
 
 function example(){
-var y =20;
-console.log(y); //Output: 20
+    var y =20;
+    console.log(y); //Output: 20
 }
 console.log(y); //Error : ‘y’ is not defined - ‘var’ variables have function scope
 ```
 
 #### Problem 1.2 : Declare a variable using let, assign it a string and log the value to the console
 
-        let name = "JavaScript";
-        console.log(name); //JavaScript
+```sh {"id":"01J7P0WR9ADDB6ZND3VBC0FBRM"}
+ let name = "JavaScript";
+ console.log(name); //JavaScript
+```
+
+It was introduced in ES6 and is preferred/recommended way to declared variables in JavaScript. Variables declared with let   can be reassigned but not re-declared within the same scope. The have block scope meaning they are limited to the block in which they are defined.
+
+```sh {"id":"01J7P0Y0WYGGWWS0MY9GVW0N02"}
+let x = 5; //Declaring a variable ‘x’ and assigning the value 5 to it
+console.log(x); //Output: 5
+
+x = 10; //Reassigning value of ‘x’
+console.log(x); //Output : 10
+
+let x = 30; //Error ‘x’ has already been declared - redeclaration is not allowed with ‘let’
+
+```
 
 #### Problem 1.3 : Declare a variable using const, assign it a boolean value and the log the value to the console
 
-    const name = "JavaScript";
-    console.log(name); //JavaScript
+```sh {"id":"01J7P0Z9FSB2XY60R4YGPGYERZ"}
+const name = "JavaScript";
+console.log(name); //JavaScript
+```
+
+const is also introduced in ES6. Variable declared with const must be assigned a value when declared, and this value cannot be changed or reassigned. It also has block scope.
+
+```sh {"id":"01J7P0YFP9SCQ3N82CGPJ3W63T"}
+const PI =3.24; //Declaring a constant ‘PI’ and assigning the value 3.14 to it
+console.log(PI); //Output : 3.14
+
+PI = 3.14159; //Error: Assignment to constant variable - can not reassign a constant variable
+```
 
 #### Problem 1.4 : create a variable of number and log variables type using the typeof operator
 
