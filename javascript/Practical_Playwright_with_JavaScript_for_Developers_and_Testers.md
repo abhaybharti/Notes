@@ -129,6 +129,41 @@ console.log(typeof Obj); //object
 
 #### Problem 1.12: Write a code that demonstrate the difference in behavior between let and const when it comes to Reassignment
 
+#### Problem 1.13: What are variable naming convention
+
+- Names should be self descriptive with enough context so we don't have to comment out code
+- Descriptive names are better than comments
+- Avoid single letter names
+- prefer explicit over implicit names
+- Use descriptive loop indexes instead of i, j, k
+- Avoid double negatives
+- Use verb as a prefix for the function name
+- No magic number or magic values, use a variable
+- Don't use abbreviations or acronyms without sufficient contexts
+- Make variable name as long as necessary if needed but no longer
+- A prefix like is, are , or has helps to distinguish a boolean from another variable
+
+#### Problem 1.13: What is variable scope 
+
+Declaring a variable in the global scope. its life span is whole program 
+
+```sh {"id":"01J7P57HXNQG205P4TFH5YTX0Q"}
+var globalScopeVariable = 7;
+function test() {
+//Declaring a variable in the function scope. It's life span is in function only
+ 	 var functionScopeVariable = 10;
+
+//Declaring a variable in the local scope, inside a for loop. It's life span is inside for loop only
+  for (let index = 0; index < functionScopeVariable; index++) {
+    console.log(index);
+  }
+}
+
+test();
+
+console.log(functionScopeVariable); //will throw error - ReferenceError: functionScopeVariable is not defined. Reason we are trying to use this outside of function scope
+```
+
 #### Problem 1.13: What is difference between null and undefined
 
 **undefined**
@@ -153,9 +188,7 @@ var Obj = {};
 console.log(Obj.name); // undefined
 ```
 
-##### null
-
-There are two features of null you should understand:
+**null** : There are two features of null you should understand:
 
 - **null** is an empty or non-existent value.
 - **null** must be assigned.
@@ -178,11 +211,38 @@ In JavaScript there are only **six falsy values**. Both **null** and **undefined
 
 #### Problem 1.14: How to add check for null or undefined in code on a variable
 
+	let a;
+	function checkUndefined(a){
+		if (a === undefined || a === null){
+			console.log('value is ',a);
+			return;
+		}
+		console.log('value is ',a);
+	}
+	
+	checkUndefined(a); //value is  undefined
+	checkUndefined(15); //value is  15
+	checkUndefined(null); //value is  null
+	
+	Using logical Not (!) operator to check null or undefined value
+	let a;
+	function checkUndefined(a){
+		if (!a){
+			console.log('value is ',a);
+			return;
+		}
+		console.log('value is ',a);
+	}
+
+	checkUndefined(a); //value is  undefined
+	checkUndefined(15); //value is  15
+	checkUndefined(null); //value is  null
+
 #### Problem 1.15: What is console.log
 
     console.log is used to output information to the web console/CMD console. In other words, it is actually an expression that retrieves the log property from the value held by console binding. It is helpful for debugging purposes, as it allows you to see the values of variables, the output of functions, and the flow of your program. Whatever value is given to console.log, gets displayed as output. Here are list of console method different options:
-    
-    
+
+```sh {"id":"01J7P18HW0ZXBSKVGPTR440C2C"}
       - `console.log()` //Output general logging information to the console
       - `console.warn()` //Output a warning message to the console
       - `console.error()` //Output an error message to the console
@@ -197,28 +257,29 @@ In JavaScript there are only **six falsy values**. Both **null** and **undefined
       - `console.countReset()` // Reset the count for the specified label
       - `console.dir()` // Displays an interactive listing of the properties of a specified JavaScript object
       - `console.trace()` // Outputs a stack trace to the console
+```
 
 #### Problem 1.16: What is JavaScript
 
-      `Interpreted Language`: JavaScript code is executed line-by-line by the browser's JavaScript engine.
+      **Interpreted Language**: JavaScript code is executed line-by-line by the browser's JavaScript engine.
     
-      `Dynamic Typing`: Variables in JavaScript are not bound to any specific data type, and their type can change at runtime.
+      **Dynamic Typing**: Variables in JavaScript are not bound to any specific data type, and their type can change at runtime.
     
-      `Prototype-Based`: JavaScript uses prototypes rather than classes for inheritance, allowing for flexible and dynamic object-oriented programming.
+      **Prototype-Based**: JavaScript uses prototypes rather than classes for inheritance, allowing for flexible and dynamic object-oriented programming.
     
-      `First-Class Functions`: Functions in JavaScript are treated as first-class citizens, meaning they can be assigned to variables, passed as arguments, and returned from other functions.
+      **First-Class Functions**: Functions in JavaScript are treated as first-class citizens, meaning they can be assigned to variables, passed as arguments, and returned from other functions.
     
-      `Event-Driven`: JavaScript is often used to handle events such as user inputs, mouse movements, and keystrokes.
+      **Event-Driven**: JavaScript is often used to handle events such as user inputs, mouse movements, and keystrokes.
     
-      `Single-Threaded`: JavaScript runs in a single-threaded environment, but it can handle asynchronous operations through callbacks, promises, and async/await.
+      **Single-Threaded**: JavaScript runs in a single-threaded environment, but it can handle asynchronous operations through callbacks, promises, and async/await.
     
-      `Cross-Platform`: JavaScript can run on any device with a web browser, making it a highly versatile language for web development.
+      **Cross-Platform**: JavaScript can run on any device with a web browser, making it a highly versatile language for web development.
     
-      `Dynamically typed`:JavaScript is a dynamically typed language which means that data types of variables are determined by the value they hold at runtime and can change throughout the program as we assign different values to them.
+      **Dynamically typed**:JavaScript is a dynamically typed language which means that data types of variables are determined by the value they hold at runtime and can change throughout the program as we assign different values to them.
 
 #### Problem 1.17: How to write code in Chrome browser
 
-    Developer Tools -> Sources -> Snippets -> New Snippet -> file name -> write code in right side pane -> Ctrl + S to save file
+     Developer Tools -> Sources -> Snippets -> New Snippet -> file name -> write code in right side pane -> Ctrl + S to save file
 
 #### Problem 1.18: How to generate random number
 
@@ -229,21 +290,167 @@ In JavaScript there are only **six falsy values**. Both **null** and **undefined
 
 let num = Math.random() -- return number between 0 and 1, every execution will generate new number
 
+#### Problem 1.17: Explain different data types in JavaScript
+
+In JavaScript, there are 7 Primitive Data types. List is as follows : 
+
+**1. String**
+Strings are used to represent text. They are written by enclosing their content in quotes.
+
+let firstName = ‘Abhay’ //String data types (using single quote)
+
+let secondName = "Abhay" //String data types (using double quote)
+
+let name = `Abhay` //String data types (using backlinks)
+
+firstName, secondName have pretty much the same behaviour.
+You can use single quote (‘’), double quote (“”) or backlinks(``) to mark strings as long the quotes at the start and the end of the string match.
+String cannot be divided, multiplied or subtracted but +/- operator can be used on them.
+Almost anything can be put between quotes and JavaScript will make a string value out of it.
+
+But putting few characters are more difficult 
+How to put quote between quotes - \’
+How to put newline in a string - \n
+How to put backslash inside a string - \\
+
+Whenever a backslash(\) is found inside quoted text, it indicates that a character after it has special meaning. This is called escaping the character.
+
+Backlink quotes string are called template literals, and can do few more things like embed other values. Example : 
+	`Half of 10 is ${10/5}` Output : Half of 10 is 5
+	
+**2. number**
+Numbers can be integers (whole numbers) or floating-point numbers (decimal numbers). They are used for arithmetic operations and calculations. 
+
+let age =18 // number data types
+
+**3. BigInt **
+It is suitable for large number calculations especially required in scientific application.  To be honest, I never needed to use this in my programming journey.
+
+**4. Boolean**
+A boolean represents one of two values : true or false. Booleans are often used for logical operations and conditional statements.
+let isLoggedIn = false //boolean data types -- true/false
+
+**5. undefined**
+When you declare a variable & do not assign any value to it, it is undefined. ex.
+
+let accountState;
+console.log(accountState);
+Output : `undefined` is the output of above code
+
+**6. null**
+let ab = null // it is a standalone value, its a type. representation of empty value
+
+**7. Symbol**
+Symbols are unique and immutable values that can be used as identifiers for object properties. It is primarily used to avoid property name collisions in objects when multiple scripts or libraries are used together. To be honest, I never needed to use this in my programming journey.
+
+//How to define Symbol
+const id = Symbol('123')
+const anotherId =Symbol('123')
+
+**Note** : all primitive type uses Stack Memory, provides only value. it is passed as value, no reference is provided.
+
+#### Problem 1.20 : Explain Object Data Type in JavaScript
+
+  There are three object data types : 
+  
+ 1. An Object (can have mixed data types) : An Object is a collection of properties, where each property has a key (or name) and a value. It is a collection of key-value pairs. 
+ let myObj = {
+         		 name:"Abhay",
+         		 age:22,
+     		 }
+ 2. An Array : An Array is an ordered list of values (elements), which can be of any data type, including other arrays and objects.
+	 const heroes = ["Shaktiman","nagraj"]
+
+ 3. A function : A Function is a block of code designed to perform a particular task. Functions can be assigned to variables and can be passed as arguments to other functions.
+  const myFunc = function(){
+        console.log("hello world");
+   }
+
+Note : All Non-Primitive or reference types provide reference (can directly refer memory address). Gets stored in Heap Memory
+
 ## Level 2 : Operators
 
 #### Problem 2.1 : Write a program to add two numbers and log the result to console
 
+	function addTwoNumber(first, second) {
+	  //check argument is valid number
+	  if (first && second) {
+		console.log(first + second);
+	  } else {
+		console.log("Not valid number");
+	  }
+	}
+
+	addTwoNumber(10, 20); //30
+	addTwoNumber(10); //Not a valid number
+	addTwoNumber("ABC"); //Not a valid number
+
 #### Problem 2.2 : Write a program to subtract two numbers and log the result to console
+	function subTractTwoNumber(first, second) {
+	  //check argument is valid number
+	  if (first && second) {
+		console.log(first - second);
+	  } else {
+		console.log("Not valid number");
+	  }
+	}
+
+	subTractTwoNumber(30, 20); //10
+	subTractTwoNumber(10); //Not a valid number
+	subTractTwoNumber("ABC"); //Not a valid number
 
 #### Problem 2.3 : Write a program to multiply two numbers and log the result to console
+	function multiplyTwoNumber(first, second) {
+	  //check argument is valid number
+	  if (first && second) {
+		console.log(first * second);
+	  } else {
+		console.log("Not valid number");
+	  }
+	}
+
+	multiplyTwoNumber(30, 20); //600
+	multiplyTwoNumber(10); //Not a valid number
+	multiplyTwoNumber("ABC"); //Not a valid number
 
 #### Problem 2.4 : Write a program to divide two numbers and log the result to console
+	function divideTwoNumber(first, second) {
+	  //check argument is valid number
+	  if (first && second) {
+		console.log(first / second);
+	  } else {
+		console.log("Not valid number");
+	  }
+	}
+
+	divideTwoNumber(30, 5); //6
+	divideTwoNumber(10); //Not a valid number
+	divideTwoNumber("ABC"); //Not a valid number
 
 #### Problem 2.5 : Write a program to find remainder when one number is divided by another and log the result to the console
+		function findRemainderOfTwoNumber(first,second){
+		 
+			if (!first % !second!==0){
+				console.log(first%second);
+			}else{
+				console.log("Not a valid number");
+			}
+		}
+
+		findRemainderOfTwoNumber(20,3); //2
+		findRemainderOfTwoNumber(20,4); //0
+		findRemainderOfTwoNumber(10); //Not a valid number
+		findRemainderOfTwoNumber("ABC");//Not a valid number
 
 #### Problem 2.6 : Use the += operator to add a number to a variable and log the result to the console
+	let a = 10;
+	a+=20;
+	console.log(a); //30
 
 #### Problem 2.7 : Use the -= operator to subtract a number to a variable and log the result to the console
+	let a = 30;
+	a-=20;
+	console.log(a); //10
 
 #### Problem 2.8 : Write a program to compare two numbers using > and < and log the results to console
 
@@ -263,11 +470,11 @@ let num = Math.random() -- return number between 0 and 1, every execution will g
 
 ### Problem 2.16: Create a script that compares two number using different comparison operator and combines conditions using logical operators, logging the results
 
-### 2.17: Write a script that uses the ternary operator to determine if a number is positive or negative and log the results
+#### Problem 2.17: Write a script that uses the ternary operator to determine if a number is positive or negative and log the results
 
-### 2.18: What is difference between == and ===
+#### Problem 2.18: What is difference between == and ===
 
-### 2.19: What is hoisting and how does it work
+#### Problem 2.19: What is hoisting and how does it work
 
 ## Level 3 : Control Structures
 
@@ -311,7 +518,7 @@ let num = Math.random() -- return number between 0 and 1, every execution will g
 
 #### Problem 4.7: Write a program to print a pattern using nested for loops
 
-- - - 
+---
 
 ---
 
@@ -320,12 +527,87 @@ let num = Math.random() -- return number between 0 and 1, every execution will g
 ---
 
 ## Level 5 : Functions
+#### Problem 5.1: What is function
+A function is a block of reusable code that performs a specific task. It is fundamental building block of JavaScript programs, allowing to organize code, make it more modular and avoid duplicate code.
+
+A function is created with an expression that starts with the keyword function. Function have a set of parameters and a body which contains the statements that are to be executed when function is called. A function can have multiple parameters or no parameters at all.
+
+A return statement determines the value the function returns. When control comes across such a statement, it immediately jumps out of the current function and gives the returned value to the code that called the function. A return keyword without an expression after it will cause the function to return undefined. Function which does not have return statement returns undefined.
+
+In JavaScript, there are three main approaches to declare a function:
+1. Declaration Notation (Function Declaration)
+2. Functions As Values (Function Expression)
+3. Arrow Function
 
 #### Problem 5.1: What is function declaration
+This is a function declaration. It is a slightly shorter way to create a function and does not require a semicolon after the function. Create function using the function keyword.
+
+		//calling the function
+			console.log(“function call : ”+userName(“Abhay”));
+
+			//function declaration
+		function userName(name){
+		 return name;
+		}
+
+		//calling the function
+			console.log(“function call : ”+userName(“Abhay”));
+
+The preceding code works, even though the function is defined below the code that uses it. Functional declarations are not part of the regular top-to-bottom flow of control. They are conceptually moved to the top of their scope and can be used by all the code in that scope. This is useful because it offers the freedom to order code in a way that seems meaningful, without worrying about having to define all functions before they are used.
+
 
 #### Problem 5.2: What is function expression
+A function binding usually simply acts as a name for a specific piece of the program. It is possible to store function value in new binding, pass it as an argument to a function. In this approach, function is assigned to a variable. It can not be called before it is defined in the code. It can be named or anonymous. When it is anonymous the function does not have a name unless assigned to a variable. 
+
+	//Anonymous function expression
+		let printName = function(){
+			console.log(“hello js”);
+	}
+	printName(); //hello js
+
+	//Named function expression
+		let printNamed = function SayHello(){
+			console.log(“hello js”);
+	}
+	printNamed() //hello js
+	SayHello() // syntax error "SayHello is not defined"
+
+##### Difference between anonymous and named Function:
+- Anonymous function has no name
+- Cannot refer to itself by name within its own body
+- When debugging, stack trace may show the function as anonymous, making it harder to identify
+- Both anonymous and named function expressions are not hoisted, meaning they are not available before their definition in the code. This 
+  contrasts with function declarations, which are hoisted.
+
+- Named The function has a name
+- Can refer to itself by name within its own body, which is useful for recursion.
+- Function name will appear in stack traces, which can make debugging easier.
+- Both anonymous and named function expressions are not hoisted, meaning they are not available before their definition in the code. This 
+  contrasts with function declarations, which are hoisted.
+
 
 #### Problem 5.3: What is difference between function expression and declaration
+function expressions are not hoisted, meaning they are not available before their definition in the code. This contrasts with function declarations, which are hoisted.
+
+#### Problem 5.2: What is an arrow fucntion
+This is the third notation of functions. Instead of the function keyword, it uses an arrow (=>) made up of an equal sign and a greater than character.
+
+
+const printName = (firstName, secondName) =>{
+return firstName+” ” + secondName;
+}
+
+The arrow comes after the list of parameters and is followed by the function’s body. It expresses something like “this input (this parameters) produces this result(the body)”.
+
+When there is only one parameter name, you can omit the parentheses around the parameter lists. If the body is a single expression, rather than a block in braces, that expression will be returned from the function. 
+
+	const name = (name) => {return name;};
+const name = name => return name;
+
+When an arrow function has not parameters at all, its parameters list is just an empty set of parameters.
+
+Arrow function was added in 2015, it allows writing small function expressions in a less verbose way.
+
 
 #### Problem 5.4 : Write a function (using function declaration) to check if a number is even or odd and log the result to the console
 
@@ -906,7 +1188,7 @@ By the end of this level, you will learn:
 
 - Create a new folder & initialise a Node.js project by running following command:
 
-        `npm init -y`
+         `npm init -y`
 
 - This will create a `package.json` file in your folder.
 - Install playwright by running following command:
