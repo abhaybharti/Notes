@@ -70,38 +70,51 @@ PI = 3.14159; //Error: Assignment to constant variable - can not reassign a cons
 
 #### Problem 1.4 : create a variable of number and log variables type using the typeof operator
 
+```sh {"id":"01J7P11JT025JDJJFDDN7R9ZQA"}
     let name = 100;
     console.log(typeof name); //number
+```
 
 #### Problem 1.5 : create a variable of string and log variables type using the typeof operator
 
-    let name = "JavaScript";
-    console.log(typeof name); //string
+```sh {"id":"01J7P11XFM3SPNB54AP9NN9X5M"}
+let name = "JavaScript";
+console.log(typeof name); //string
+```
 
 #### Problem 1.6 : create a variable of boolean and log variables type using the typeof operator
 
-    let name = true;
-    console.log(typeof name); //boolean
+```sh {"id":"01J7P12H6Q75S0VBN1EDQK3QRF"}
+let name = true;
+console.log(typeof name); //boolean
+```
 
 #### Problem 1.7 : create a variable of object and log variables type using the typeof operator
 
-    let Obj = {name:"AB"};
-    console.log(typeof Obj); //object
+```sh {"id":"01J7P13S43AA0JNWM8PT87CJY5"}
+let Obj = {name:"AB"};
+console.log(typeof Obj); //object
+```
 
 #### Problem 1.8 : create a variable of array and log variables type using the typeof operator
 
+```sh {"id":"01J7P145RAHBVFGFBHEVE1DGGW"}
     let array = ["A","B"];
     console.log(typeof array);//object
+```
 
 #### Problem 1.9 : Declare a variable using let, assign it an initial value, reassign a new value, and log both values to the console
 
+```sh {"id":"01J7P14E5CJSRQ0308MRDYAC41"}
     let dataOne = 100;
     console.log(dataOne); //100
     dataOne=200;
     console.log(dataOne); //200
+```
 
 #### Problem 1.10 : Try reassigning a variable declared with const and observe the error
 
+```sh {"id":"01J7P14RQN9CHGK04PDKK0Q1X7"}
     const dataOne = 100;
     console.log(dataOne); //100
     dataOne=200;
@@ -110,6 +123,7 @@ PI = 3.14159; //Error: Assignment to constant variable - can not reassign a cons
       dataOne=200;
     
       TypeError: Assignment to constant variable.
+```
 
 #### Problem 1.11: Write a single script that declares variables of different data types and logs both the value and type of each variable to the console
 
@@ -117,22 +131,27 @@ PI = 3.14159; //Error: Assignment to constant variable - can not reassign a cons
 
 #### Problem 1.13: What is difference between null and undefined
 
-##### undefined
-
+**undefined**
 It means a variable has been declared, but not defined. For example:
 
+```sh {"id":"01J7P169R27VP1QATD91GH0ASY"}
 let value;
 console.log(value); // undefined
+```
 
 You can also explicitly set a variable to equal undefined:
 
+```sh {"id":"01J7P16RJ1TKP1MKB79HZYJNWR"}
 let cValue = undefined;
 console.log(cValue); // undefined
+```
 
 When you are looking up non-existent properties in an object, you will receive undefined:
 
+```sh {"id":"01J7P175CYZ7MSRT5SXXRAGCC8"}
 var Obj = {};
 console.log(Obj.name); // undefined
+```
 
 ##### null
 
