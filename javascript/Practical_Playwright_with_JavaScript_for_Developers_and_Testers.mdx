@@ -11,23 +11,83 @@ By the end of this Level, you will know following :
 
 #### Problem 1.1 : Declare a variable using var, assign it a number and the log the value to the console
 
+    ```
+    var rollNum = 100;
+    console.log(rollNum); //100
+    ```
+
 #### Problem 1.2 : Declare a variable using let, assign it a string and log the value to the console
+
+    ```
+    let name = "JavaScript";
+    console.log(name); //JavaScript
+    ```
 
 #### Problem 1.3 : Declare a variable using const, assign it a boolean value and the log the value to the console
 
+    ```
+    const name = "JavaScript";
+    console.log(name); //JavaScript
+    ```
+
 #### Problem 1.4 : create a variable of number and log variables type using the typeof operator
+
+    ```
+    let name = 100;
+    console.log(typeof name); //number
+    ```
 
 #### Problem 1.5 : create a variable of string and log variables type using the typeof operator
 
+    ```
+    let name = "JavaScript";
+    console.log(typeof name); //string
+    ```
+
 #### Problem 1.6 : create a variable of boolean and log variables type using the typeof operator
+
+    ```
+    let name = true;
+    console.log(typeof name); //boolean
+    ```
 
 #### Problem 1.7 : create a variable of object and log variables type using the typeof operator
 
+    ```
+    let Obj = {name:"AB"};
+    console.log(typeof Obj); //object
+    ```
+
 #### Problem 1.8 : create a variable of array and log variables type using the typeof operator
+
+    ```
+    let array = ["A","B"];
+    console.log(typeof array);//object
+    ```
 
 #### Problem 1.9 : Declare a variable using let, assign it an initial value, reassign a new value, and log both values to the console
 
+    ```
+    let dataOne = 100;
+    console.log(dataOne); //100
+    dataOne=200;
+    console.log(dataOne); //200
+    ```
+
 #### Problem 1.10 : Try reassigning a variable declared with const and observe the error
+
+    ```
+    const dataOne = 100;
+    console.log(dataOne); //100
+    dataOne=200;
+    console.log(dataOne); //200
+    ```
+      100
+
+      ERROR!
+      dataOne=200;
+
+      TypeError: Assignment to constant variable.
 
 #### Problem 1.11: Write a single script that declares variables of different data types and logs both the value and type of each variable to the console
 
@@ -35,7 +95,69 @@ By the end of this Level, you will know following :
 
 #### Problem 1.13: What is difference between null and undefined
 
+##### undefined
+
+Type: undefined is a type itself.
+Meaning: It means a variable has been declared but has not yet been assigned a value.
+When it Occurs:
+If you declare a variable but do not assign it a value, it is automatically undefined.
+
+    ```
+    let dataOne;
+    console.log(dataOne); //undefined
+    console.log(typeof dataOne); //undefined
+    ```
+
 #### Problem 1.14: How to add check for null or undefined in code on a variable
+
+#### Problem 1.15: What is console.log
+
+    console.log is used to output information to the web console/CMD console. In other words, it is actually an expression that retrieves the log property from the value held by console binding. It is helpful for debugging purposes, as it allows you to see the values of variables, the output of functions, and the flow of your program. Whatever value is given to console.log, gets displayed as output. Here are list of console method different options:
+
+
+      - `console.log()` //Output general logging information to the console
+      - `console.warn()` //Output a warning message to the console
+      - `console.error()` //Output an error message to the console
+      - `console.info()` //Output an informational message to the console
+      - `console.debug()` //Output a debug message to the console
+      - `console.table()` //Output data as a table to the console
+      - `console.group()` //Creates a new inline group in the console, which can be used to group together related message.
+      - `console.time()` //Starts a timer with a specific label
+      - `console.timeEnd()` //Stops the timer with a specified label and logs elapsed time
+      - `console.clear()` // clears the console
+      - `console.count()` // Logs the number of times this particular call to console.count() has been called with the given label
+      - `console.countReset()` // Reset the count for the specified label
+      - `console.dir()` // Displays an interactive listing of the properties of a specified JavaScript object
+      - `console.trace()` // Outputs a stack trace to the console
+
+#### Problem 1.16: What is JavaScript
+
+      `Interpreted Language`: JavaScript code is executed line-by-line by the browser's JavaScript engine.
+
+      `Dynamic Typing`: Variables in JavaScript are not bound to any specific data type, and their type can change at runtime.
+
+      `Prototype-Based`: JavaScript uses prototypes rather than classes for inheritance, allowing for flexible and dynamic object-oriented programming.
+
+      `First-Class Functions`: Functions in JavaScript are treated as first-class citizens, meaning they can be assigned to variables, passed as arguments, and returned from other functions.
+
+      `Event-Driven`: JavaScript is often used to handle events such as user inputs, mouse movements, and keystrokes.
+
+      `Single-Threaded`: JavaScript runs in a single-threaded environment, but it can handle asynchronous operations through callbacks, promises, and async/await.
+
+      `Cross-Platform`: JavaScript can run on any device with a web browser, making it a highly versatile language for web development.
+
+#### Problem 1.17: How to write code in Chrome browser
+
+    Developer Tools -> Sources -> Snippets -> New Snippet -> file name -> write code in right side pane -> Ctrl + S to save file
+
+#### Problem 1.18: How to generate random number
+
+`True Random Number:` are generated based on external factors e.g. generating randomness using surroundings noise. It is time consuming to generate.
+
+`Pseudo Random Number:` are generated based on an algorithm and seed value. can be used in cryptography e.g. OTP
+`Math.random()` : returns a double type pseudo-random number, greater than or equal to zero and less than one. This is good enough for general purpose coding work.
+
+let num = Math.random() -- return number between 0 and 1, every execution will generate new number
 
 ## Level 2 : Operators
 
@@ -120,11 +242,16 @@ By the end of this Level, you will know following :
 #### Problem 4.7: Write a program to print a pattern using nested for loops
 
 ```
-*
-* *
-* * *
-* * * *
-* * * * *
+
+-
+- -
+
+---
+
+---
+
+---
+
 ```
 
 ## Level 5 : Functions
@@ -714,15 +841,13 @@ By the end of this level, you will learn:
 
 - Create a new folder & initialise a Node.js project by running following command:
 
-      ```
-      npm init -y
-      ```
+      `npm init -y`
 
 - This will create a `package.json` file in your folder.
 
 - Install playwright by running following command:
 
-    `npm init playwright@latest`
+  `npm init playwright@latest`
 
 Above command will create following files in your project
 
@@ -734,21 +859,128 @@ Above command will create following files in your project
     - tests-examples/
       - demo-todo-app.spec.ts
 
-The `playwright.config.js/ts` is where you can add configuration for Playwright including modifying which browsers you would like to run Playwright on.
+The `**playwright.config.js/ts**` is where you can add configuration for Playwright including modifying which browsers you would like to run Playwright on.
 
 ### Problem 23: How to upgrade Playwright
+
+    //Update playwright
+    `npm install -D @playwright/test@latest`
+
+    //Install new browsers
+    `npx playwright install --with-deps`
 
 ### Problem 24: List of extension required to setup
 
 ### Problem 25: How to do tool setup for Playwright
 
-### Problem 26: How to write tests?
+#### Setting up ESLINT and Prettier for code consistency
+
+##### Why ESLINT
+
+JavaScript is a dynamically typed language, ESLint is linting tool designed to analyse your code, pinpoint issues and guide you in rectifying potential problems in bot JS and TS code.It helps you to ensure coding standard and code quality.
+
+##### Why Prettier
+
+Prettier focuses on maintaining a consistent, unified style throughout your codebase. It enforces code format and takes care of white space, semi colon nuances.
+
+##### Install following dependency in your project
+
+ESLint and TypeScript dependencies
+`npm install --save-dev eslint typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin`
+
+Prettier and ESLint Prettier Plugin
+`npm install --save-dev prettier eslint-config-prettier eslint-plugin-prettier`
+
+Airbnb style guide
+`npx install-peerdeps --dev eslint-config-airbnb-base`
+
+    - Create TypeScript configuration file( tsconfig.json)
+    - Create an ESLint configuration file(.eslintrc.js)
+    - Create a Prettier configuration file(.prettierrc)
+
+##### Managing Environment Variables
+
+In an automation framework, setting variables at the operating system level - known as environment variables, provides flexibility to test application in different env like from development (DEV), SIT to Production (PROD). It is important to store environment specific values such as the baseUrl in a centralised location. In JavaScript world, the go to solution is .env file. Dotenv, a Node.js library simplifies the loading and management of environment variables. By storing configuration details in the .env file, you can create a centralised repository for environment specific values, streamlining configuration changes across different testing stages.
+
+    - Create an `./environment` folder at the root level
+    - Create a `[environment name].env` file for each deployment stage
+    - Set a new `NODE_ENV` environment variables on your local machine
+    - Update `playwright.config.ts` to load environment variables (below is sample code)
+
+    ```
+    // playwright.config.ts
+    import * as dotenv from 'dotenv';
+    switch(process.env.NODE_ENV){
+    case 'local': dotenv.config({path: './environments/local.env'}); break;
+    case 'dev': dotenv.config({path: './environments/dev.env'}); break;
+    case 'qa': dotenv.config({path: './environments/qa.env'}); break;
+    default: dotenv.config({path: './environments/qa.env'});
+    }
+    ```
+
+##### Add scripts in the package.json to run tests in needed environments
+
+    ```
+    // package.json
+
+    "scripts": {
+    // ...
+    "test": "echo %NODE_ENV% && npx playwright test",
+    "test:local": "cross-env NODE_ENV='local' npm run test",
+    "test:dev": "cross-env NODE_ENV='dev' npm run test",
+    "test:qa": "cross-env NODE_ENV='qa' npm run test",
+    // ...
+    }```
+
+### Problem 26: How to create a test file and write tests?
+
+In your project directory, create a file named `firstTestFile.spec.ts/js` file inside `tests` directory.
+
+    ```
+    //firstTestFile.spec.ts
+    import { test, expect } from "@playwright/test";
+
+    test("First Test", async ({ page }) => {
+    //Navigate to https://google.co.in
+    await page.goto("https://google.co.in");
+
+    //Fetch page title
+    const title = await page.title();
+
+    //Print title on console log
+    console.log(`Page Title : ${title} `);
+    });
+    ```
 
 ### Problem 27: How to run test?
 
+    //You can specify exact test file to run
+    `npx playwright test ./tests/firstTestFile.test.js`
+    Or
+    //playwright will automatically find tests
+    `npx playwright test`
+
+### Problem 27: How to run test in UI mode?
+
+    //Starts the interactive UI mode.
+    `npx playwright test --ui`
+
+### How to see Playwright execution report
+
+    `npx playwright show-report`
+
+### Problem 27: How to check version of Playwright?
+
+`npx playwright --version`
+
 ### Problem 27: How to debug tests?
 
+      //Runs the tests in debug mode.
+    `npx playwright test --debug`
+
 ### Problem 28: What is playwright codegen?
+
+    `npx playwright codegen` Auto generate tests with Codegen.
 
 ### Problem 29: What is playwright inspector?
 
@@ -761,6 +993,83 @@ The `playwright.config.js/ts` is where you can add configuration for Playwright 
 ### Problem 33: How to minimize, maximize and close the browser
 
 ### Problem 34: How to launch multiple browser in single test
+
+### Problem 34: How to take screenshot of page
+
+    ```
+    test("Launch twitter and take screenshot", async ({ page }) => {
+    await page.goto("https://x.com/i/flow/login");
+
+    //capture a screenshot of the page
+    await page.screenshot({ path: "screenshot.png" });
+    });
+    ```
+
+### Problem 34: How to take screenshot of an element of page
+
+To capture a screenshot of a specific element, first select the element and then use element.screenshot() method:
+
+    ```
+    test("Take screenshot of an element", async ({ page }) => {
+    await page.goto("https://x.com/i/flow/login");
+
+    const element = page.locator("h1");
+
+    //capture a screenshot of the element
+    await element.screenshot({ path: "screenshot.png" });
+    });
+    ```
+
+### Problem 34: How to take screenshot of full page
+
+Sometimes, you may need to capture the entire scrollable content of a page. You need to pass the fullPage flag.
+
+      ```
+      test("Launch twitter and take screenshot", async ({ page }) => {
+      await page.goto("https://x.com/i/flow/login");
+
+      //capture a screenshot of the page
+      await page.screenshot({ path: "screenshot.png", fullPage: true });
+      });
+      ```
+
+### Problem 35: How to clip screenshot
+
+If your requirement is to capture a specific region of page, use the clip option to define the region’s coordinates and dimensions.
+
+    ```
+      test("Launch twitter and take screenshot", async ({ page }) => {
+      await page.goto("https://x.com/i/flow/login");
+
+      //capture a clipped screenshot
+      await page.screenshot({
+        path: "screenshot.png",
+        clip: { x: 0, y: 0, width: 800, height: 800 },
+        });
+    });
+    ```
+
+### How to configuring Screenshots Options
+
+Playwright allows for additional configuration options to fine tune your screenshots.
+`Type`: Specify the image format(png or jpeg)
+`Quality`: Set the quality of JPEG images(1-100)
+`Omit Background`: Capture screenshots with a transparent background.
+
+    ```
+    test("Launch twitter and take screenshot", async ({ page }) => {
+      await page.goto("https://x.com/i/flow/login");
+
+
+      //capture a screenshot of the page
+        await page.screenshot({
+          path: "screenshot.jpg",
+          type: "jpeg",
+          quality: 80,
+          omitBackground: true,
+        });
+    });
+    ```
 
 ### Problem 35: How to perform operation on multiple browser
 
@@ -819,3 +1128,10 @@ The `playwright.config.js/ts` is where you can add configuration for Playwright 
 ### Problem 62: How to modify API response using Playwright
 
 ### Problem 63: How to club multiple test in single feature
+
+````
+
+```
+
+```
+````
