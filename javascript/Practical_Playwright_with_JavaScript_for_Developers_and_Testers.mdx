@@ -11,77 +11,58 @@ By the end of this Level, you will know following :
 
 #### Problem 1.1 : Declare a variable using var, assign it a number and the log the value to the console
 
-    ```
     var rollNum = 100;
     console.log(rollNum); //100
-    ```
 
 #### Problem 1.2 : Declare a variable using let, assign it a string and log the value to the console
 
-    ```
     let name = "JavaScript";
     console.log(name); //JavaScript
-    ```
 
 #### Problem 1.3 : Declare a variable using const, assign it a boolean value and the log the value to the console
 
-    ```
     const name = "JavaScript";
     console.log(name); //JavaScript
-    ```
 
 #### Problem 1.4 : create a variable of number and log variables type using the typeof operator
 
-    ```
     let name = 100;
     console.log(typeof name); //number
-    ```
 
 #### Problem 1.5 : create a variable of string and log variables type using the typeof operator
 
-    ```
     let name = "JavaScript";
     console.log(typeof name); //string
-    ```
 
 #### Problem 1.6 : create a variable of boolean and log variables type using the typeof operator
 
-    ```
     let name = true;
     console.log(typeof name); //boolean
-    ```
 
 #### Problem 1.7 : create a variable of object and log variables type using the typeof operator
 
-    ```
-    let Obj = {name:"AB"};
+    let Obj = {'name':'AB'};
     console.log(typeof Obj); //object
-    ```
 
 #### Problem 1.8 : create a variable of array and log variables type using the typeof operator
 
-    ```
     let array = ["A","B"];
     console.log(typeof array);//object
-    ```
 
 #### Problem 1.9 : Declare a variable using let, assign it an initial value, reassign a new value, and log both values to the console
 
-    ```
     let dataOne = 100;
     console.log(dataOne); //100
     dataOne=200;
     console.log(dataOne); //200
-    ```
 
 #### Problem 1.10 : Try reassigning a variable declared with const and observe the error
 
-    ```
     const dataOne = 100;
     console.log(dataOne); //100
     dataOne=200;
     console.log(dataOne); //200
-    ```
+
       100
 
       ERROR!
@@ -241,8 +222,6 @@ let num = Math.random() -- return number between 0 and 1, every execution will g
 
 #### Problem 4.7: Write a program to print a pattern using nested for loops
 
-```
-
 -
 - -
 
@@ -251,8 +230,6 @@ let num = Math.random() -- return number between 0 and 1, every execution will g
 ---
 
 ---
-
-```
 
 ## Level 5 : Functions
 
@@ -907,7 +884,7 @@ In an automation framework, setting variables at the operating system level - kn
     - Set a new `NODE_ENV` environment variables on your local machine
     - Update `playwright.config.ts` to load environment variables (below is sample code)
 
-    ```
+
     // playwright.config.ts
     import * as dotenv from 'dotenv';
     switch(process.env.NODE_ENV){
@@ -916,11 +893,9 @@ In an automation framework, setting variables at the operating system level - kn
     case 'qa': dotenv.config({path: './environments/qa.env'}); break;
     default: dotenv.config({path: './environments/qa.env'});
     }
-    ```
 
 ##### Add scripts in the package.json to run tests in needed environments
 
-    ```
     // package.json
 
     "scripts": {
@@ -930,13 +905,12 @@ In an automation framework, setting variables at the operating system level - kn
     "test:dev": "cross-env NODE_ENV='dev' npm run test",
     "test:qa": "cross-env NODE_ENV='qa' npm run test",
     // ...
-    }```
+    }
 
 ### Problem 26: How to create a test file and write tests?
 
 In your project directory, create a file named `firstTestFile.spec.ts/js` file inside `tests` directory.
 
-    ```
     //firstTestFile.spec.ts
     import { test, expect } from "@playwright/test";
 
@@ -950,7 +924,6 @@ In your project directory, create a file named `firstTestFile.spec.ts/js` file i
     //Print title on console log
     console.log(`Page Title : ${title} `);
     });
-    ```
 
 ### Problem 27: How to run test?
 
@@ -996,20 +969,17 @@ In your project directory, create a file named `firstTestFile.spec.ts/js` file i
 
 ### Problem 34: How to take screenshot of page
 
-    ```
     test("Launch twitter and take screenshot", async ({ page }) => {
     await page.goto("https://x.com/i/flow/login");
 
     //capture a screenshot of the page
     await page.screenshot({ path: "screenshot.png" });
     });
-    ```
 
 ### Problem 34: How to take screenshot of an element of page
 
 To capture a screenshot of a specific element, first select the element and then use element.screenshot() method:
 
-    ```
     test("Take screenshot of an element", async ({ page }) => {
     await page.goto("https://x.com/i/flow/login");
 
@@ -1018,26 +988,22 @@ To capture a screenshot of a specific element, first select the element and then
     //capture a screenshot of the element
     await element.screenshot({ path: "screenshot.png" });
     });
-    ```
 
 ### Problem 34: How to take screenshot of full page
 
 Sometimes, you may need to capture the entire scrollable content of a page. You need to pass the fullPage flag.
 
-      ```
       test("Launch twitter and take screenshot", async ({ page }) => {
       await page.goto("https://x.com/i/flow/login");
 
       //capture a screenshot of the page
       await page.screenshot({ path: "screenshot.png", fullPage: true });
       });
-      ```
 
 ### Problem 35: How to clip screenshot
 
 If your requirement is to capture a specific region of page, use the clip option to define the region’s coordinates and dimensions.
 
-    ```
       test("Launch twitter and take screenshot", async ({ page }) => {
       await page.goto("https://x.com/i/flow/login");
 
@@ -1047,7 +1013,6 @@ If your requirement is to capture a specific region of page, use the clip option
         clip: { x: 0, y: 0, width: 800, height: 800 },
         });
     });
-    ```
 
 ### How to configuring Screenshots Options
 
@@ -1056,7 +1021,6 @@ Playwright allows for additional configuration options to fine tune your screens
 `Quality`: Set the quality of JPEG images(1-100)
 `Omit Background`: Capture screenshots with a transparent background.
 
-    ```
     test("Launch twitter and take screenshot", async ({ page }) => {
       await page.goto("https://x.com/i/flow/login");
 
@@ -1069,7 +1033,6 @@ Playwright allows for additional configuration options to fine tune your screens
           omitBackground: true,
         });
     });
-    ```
 
 ### Problem 35: How to perform operation on multiple browser
 
@@ -1129,9 +1092,6 @@ Playwright allows for additional configuration options to fine tune your screens
 
 ### Problem 63: How to club multiple test in single feature
 
-````
+`
 
-```
-
-```
-````
+`
