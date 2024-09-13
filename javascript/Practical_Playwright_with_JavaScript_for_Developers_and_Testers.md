@@ -13,16 +13,16 @@ By the end of this Level, you will know following :
 
     var rollNum = 100;
     console.log(rollNum); //100
-
-    :: Tips :
+    
+    **Tips :**
     var is the old way to declaring variables in javascript. Variables declared with var can be reassigned and redeclared within the same scope. It has function scope or global scope(if declared outside of a function)
-
+    
     var x = 5; //Declaring a variable ‘x’ and assigning the value 5 to it
     console.log(x); //Output: 5
-
+    
     var x = 10; //Redeclaring variable ‘x’ and assigning new value 10. This is allowed with ‘var’
     console.log(x); //Output : 10
-
+    
     function example(){
     var y =20;
     console.log(y); //Output: 20
@@ -79,7 +79,7 @@ By the end of this Level, you will know following :
     console.log(dataOne); //Output:
       ERROR!
       dataOne=200;
-
+    
       TypeError: Assignment to constant variable.
 
 #### Problem 1.11: Write a single script that declares variables of different data types and logs both the value and type of each variable to the console
@@ -112,7 +112,7 @@ There are two features of null you should understand:
 - **null** is an empty or non-existent value.
 - **null** must be assigned.
 
-  Here’s an example. We assign the value of null to a:
+   Here’s an example. We assign the value of null to a:
 
 let val = null;
 console.log(val); // null
@@ -133,8 +133,8 @@ In JavaScript there are only **six falsy values**. Both **null** and **undefined
 #### Problem 1.15: What is console.log
 
     console.log is used to output information to the web console/CMD console. In other words, it is actually an expression that retrieves the log property from the value held by console binding. It is helpful for debugging purposes, as it allows you to see the values of variables, the output of functions, and the flow of your program. Whatever value is given to console.log, gets displayed as output. Here are list of console method different options:
-
-
+    
+    
       - `console.log()` //Output general logging information to the console
       - `console.warn()` //Output a warning message to the console
       - `console.error()` //Output an error message to the console
@@ -153,19 +153,19 @@ In JavaScript there are only **six falsy values**. Both **null** and **undefined
 #### Problem 1.16: What is JavaScript
 
       `Interpreted Language`: JavaScript code is executed line-by-line by the browser's JavaScript engine.
-
+    
       `Dynamic Typing`: Variables in JavaScript are not bound to any specific data type, and their type can change at runtime.
-
+    
       `Prototype-Based`: JavaScript uses prototypes rather than classes for inheritance, allowing for flexible and dynamic object-oriented programming.
-
+    
       `First-Class Functions`: Functions in JavaScript are treated as first-class citizens, meaning they can be assigned to variables, passed as arguments, and returned from other functions.
-
+    
       `Event-Driven`: JavaScript is often used to handle events such as user inputs, mouse movements, and keystrokes.
-
+    
       `Single-Threaded`: JavaScript runs in a single-threaded environment, but it can handle asynchronous operations through callbacks, promises, and async/await.
-
+    
       `Cross-Platform`: JavaScript can run on any device with a web browser, making it a highly versatile language for web development.
-
+    
       `Dynamically typed`:JavaScript is a dynamically typed language which means that data types of variables are determined by the value they hold at runtime and can change throughout the program as we assign different values to them.
 
 #### Problem 1.17: How to write code in Chrome browser
@@ -264,6 +264,7 @@ let num = Math.random() -- return number between 0 and 1, every execution will g
 #### Problem 4.7: Write a program to print a pattern using nested for loops
 
 -
+
 - -
 
 ---
@@ -859,13 +860,12 @@ By the end of this level, you will learn:
 
 - Create a new folder & initialise a Node.js project by running following command:
 
-      `npm init -y`
+       `npm init -y`
 
 - This will create a `package.json` file in your folder.
-
 - Install playwright by running following command:
 
-  `npm init playwright@latest`
+   `npm init playwright@latest`
 
 Above command will create following files in your project
 
@@ -883,7 +883,7 @@ The `**playwright.config.js/ts**` is where you can add configuration for Playwri
 
     //Update playwright
     `npm install -D @playwright/test@latest`
-
+    
     //Install new browsers
     `npx playwright install --with-deps`
 
@@ -924,8 +924,8 @@ In an automation framework, setting variables at the operating system level - kn
     - Create a `[environment name].env` file for each deployment stage
     - Set a new `NODE_ENV` environment variables on your local machine
     - Update `playwright.config.ts` to load environment variables (below is sample code)
-
-
+    
+    
     // playwright.config.ts
     import * as dotenv from 'dotenv';
     switch(process.env.NODE_ENV){
@@ -938,7 +938,7 @@ In an automation framework, setting variables at the operating system level - kn
 ##### Add scripts in the package.json to run tests in needed environments
 
     // package.json
-
+    
     "scripts": {
     // ...
     "test": "echo %NODE_ENV% && npx playwright test",
@@ -954,14 +954,14 @@ In your project directory, create a file named `firstTestFile.spec.ts/js` file i
 
     //firstTestFile.spec.ts
     import { test, expect } from "@playwright/test";
-
+    
     test("First Test", async ({ page }) => {
     //Navigate to https://google.co.in
     await page.goto("https://google.co.in");
-
+    
     //Fetch page title
     const title = await page.title();
-
+    
     //Print title on console log
     console.log(`Page Title : ${title} `);
     });
@@ -1012,7 +1012,7 @@ In your project directory, create a file named `firstTestFile.spec.ts/js` file i
 
     test("Launch twitter and take screenshot", async ({ page }) => {
     await page.goto("https://x.com/i/flow/login");
-
+    
     //capture a screenshot of the page
     await page.screenshot({ path: "screenshot.png" });
     });
@@ -1023,9 +1023,9 @@ To capture a screenshot of a specific element, first select the element and then
 
     test("Take screenshot of an element", async ({ page }) => {
     await page.goto("https://x.com/i/flow/login");
-
+    
     const element = page.locator("h1");
-
+    
     //capture a screenshot of the element
     await element.screenshot({ path: "screenshot.png" });
     });
@@ -1036,7 +1036,7 @@ Sometimes, you may need to capture the entire scrollable content of a page. You 
 
       test("Launch twitter and take screenshot", async ({ page }) => {
       await page.goto("https://x.com/i/flow/login");
-
+    
       //capture a screenshot of the page
       await page.screenshot({ path: "screenshot.png", fullPage: true });
       });
@@ -1047,7 +1047,7 @@ If your requirement is to capture a specific region of page, use the clip option
 
       test("Launch twitter and take screenshot", async ({ page }) => {
       await page.goto("https://x.com/i/flow/login");
-
+    
       //capture a clipped screenshot
       await page.screenshot({
         path: "screenshot.png",
@@ -1064,8 +1064,8 @@ Playwright allows for additional configuration options to fine tune your screens
 
     test("Launch twitter and take screenshot", async ({ page }) => {
       await page.goto("https://x.com/i/flow/login");
-
-
+    
+    
       //capture a screenshot of the page
         await page.screenshot({
           path: "screenshot.jpg",
