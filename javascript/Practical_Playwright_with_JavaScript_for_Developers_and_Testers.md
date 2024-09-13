@@ -11,23 +11,26 @@ By the end of this Level, you will know following :
 
 #### Problem 1.1 : Declare a variable using var, assign it a number and the log the value to the console
 
-    var rollNum = 100;
-    console.log(rollNum); //100
-    
-    **Tips :**
-    var is the old way to declaring variables in javascript. Variables declared with var can be reassigned and redeclared within the same scope. It has function scope or global scope(if declared outside of a function)
-    
-    var x = 5; //Declaring a variable ‘x’ and assigning the value 5 to it
-    console.log(x); //Output: 5
-    
-    var x = 10; //Redeclaring variable ‘x’ and assigning new value 10. This is allowed with ‘var’
-    console.log(x); //Output : 10
-    
-    function example(){
-    var y =20;
-    console.log(y); //Output: 20
-    }
-    console.log(y); //Error : ‘y’ is not defined - ‘var’ variables have function scope
+```sh {"id":"01J7P0R0PQ5Q19F82YNE05N5KR"}
+var rollNum = 100;
+console.log(rollNum); //100
+```
+
+var is the old way to declaring variables in javascript. Variables declared with var can be reassigned and redeclared within the same scope. It has function scope or global scope(if declared outside of a function)
+
+```sh {"id":"01J7P0S1HFH4NYKWVGSNH3V9SM"}
+var x = 5; //Declaring a variable ‘x’ and assigning the value 5 to it
+console.log(x); //Output: 5
+
+var x = 10; //Redeclaring variable ‘x’ and assigning new value 10. This is allowed with ‘var’
+console.log(x); //Output : 10
+
+function example(){
+var y =20;
+console.log(y); //Output: 20
+}
+console.log(y); //Error : ‘y’ is not defined - ‘var’ variables have function scope
+```
 
 #### Problem 1.2 : Declare a variable using let, assign it a string and log the value to the console
 
@@ -263,9 +266,7 @@ let num = Math.random() -- return number between 0 and 1, every execution will g
 
 #### Problem 4.7: Write a program to print a pattern using nested for loops
 
--
-
-- -
+- - - 
 
 ---
 
@@ -860,7 +861,7 @@ By the end of this level, you will learn:
 
 - Create a new folder & initialise a Node.js project by running following command:
 
-       `npm init -y`
+        `npm init -y`
 
 - This will create a `package.json` file in your folder.
 - Install playwright by running following command:
