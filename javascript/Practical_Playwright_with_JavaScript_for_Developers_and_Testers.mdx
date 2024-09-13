@@ -14,6 +14,20 @@ By the end of this Level, you will know following :
     var rollNum = 100;
     console.log(rollNum); //100
 
+    **Note : ** var is the old way to declaring variables in javascript. Variables declared with var can be reassigned and redeclared within the same scope. It has function scope or global scope(if declared outside of a function)
+
+    var x = 5; //Declaring a variable ‘x’ and assigning the value 5 to it
+    console.log(x); //Output: 5
+
+    var x = 10; //Redeclaring variable ‘x’ and assigning new value 10. This is allowed with ‘var’
+    console.log(x); //Output : 10
+
+    function example(){
+    var y =20;
+    console.log(y); //Output: 20
+    }
+    console.log(y); //Error : ‘y’ is not defined - ‘var’ variables have function scope
+
 #### Problem 1.2 : Declare a variable using let, assign it a string and log the value to the console
 
     let name = "JavaScript";
@@ -41,7 +55,7 @@ By the end of this Level, you will know following :
 
 #### Problem 1.7 : create a variable of object and log variables type using the typeof operator
 
-    let Obj = {'name':'AB'};
+    let Obj = {name:"AB"};
     console.log(typeof Obj); //object
 
 #### Problem 1.8 : create a variable of array and log variables type using the typeof operator
@@ -61,10 +75,7 @@ By the end of this Level, you will know following :
     const dataOne = 100;
     console.log(dataOne); //100
     dataOne=200;
-    console.log(dataOne); //200
-
-      100
-
+    console.log(dataOne); //Output:
       ERROR!
       dataOne=200;
 
@@ -78,14 +89,43 @@ By the end of this Level, you will know following :
 
 ##### undefined
 
-Type: undefined is a type itself.
-Meaning: It means a variable has been declared but has not yet been assigned a value.
-When it Occurs:
-If you declare a variable but do not assign it a value, it is automatically undefined.
+It means a variable has been declared, but not defined. For example:
 
-    let dataOne;
-    console.log(dataOne); //undefined
-    console.log(typeof dataOne); //undefined
+let value;
+console.log(value); // undefined
+
+You can also explicitly set a variable to equal undefined:
+
+let cValue = undefined;
+console.log(cValue); // undefined
+
+When you are looking up non-existent properties in an object, you will receive undefined:
+
+var Obj = {};
+console.log(Obj.name); // undefined
+
+##### null
+
+There are two features of null you should understand:
+
+- **null** is an empty or non-existent value.
+- **null** must be assigned.
+
+  Here’s an example. We assign the value of null to a:
+
+let val = null;
+console.log(val); // null
+
+##### Similarities between null and undefined
+
+In JavaScript there are only **six falsy values**. Both **null** and **undefined** are two of the six falsy values. Here’s a full list:
+
+1. false
+2. 0 (zero)
+3. “” (empty string)
+4. null
+5. undefined
+6. NaN (Not A Number)
 
 #### Problem 1.14: How to add check for null or undefined in code on a variable
 
