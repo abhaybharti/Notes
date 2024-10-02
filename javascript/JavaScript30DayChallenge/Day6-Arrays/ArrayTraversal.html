@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let data = [45, 8, 10, 87, 0, 5, 23, 12, 11];
+      function getElement() {
+        let el = document.getElementById("element").value;
+        let showVal = document.getElementById("showvalue");
+        if (el > 0 && el < data.length && typeof parseInt(el) === "number") {
+          alert(data[el]);
+          //   document.write(data[el]);
+          showVal.innerHTML = data[el];
+        } else {
+          alert("Invalid input data");
+          let showVal = document.getElementById("showvalue");
+          showVal.innerHTML = "Invalid input data";
+          showVal.textContent = "Invalid input data";
+          //   document.write("Invalid input data")
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <input type="text" id="element" />
+    <button onclick="getElement()">Click</button>
+    <label id="showvalue"></label>
+  </body>
+</html>

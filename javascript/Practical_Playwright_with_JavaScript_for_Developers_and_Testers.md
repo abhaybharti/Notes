@@ -22,7 +22,7 @@ var is the old way to declaring variables in javascript. Variables declared with
 var x = 5; //Declaring a variable ‘x’ and assigning the value 5 to it
 console.log(x); //Output: 5
 
-var x = 10; //Redeclaring variable ‘x’ and assigning new value 10. This is allowed with ‘var’
+var x = 10; //Re-declaring variable ‘x’ and assigning new value 10. This is allowed with ‘var’
 console.log(x); //Output : 10
 
 function example(){
@@ -39,7 +39,7 @@ console.log(y); //Error : ‘y’ is not defined - ‘var’ variables have func
  console.log(name); //JavaScript
 ```
 
-It was introduced in ES6 and is preferred/recommended way to declared variables in JavaScript. Variables declared with let   can be reassigned but not re-declared within the same scope. The have block scope meaning they are limited to the block in which they are defined.
+It was introduced in ES6 and is preferred/recommended way to declare variables in JavaScript. Variables declared with let can be reassigned but not re-declared within the same scope. The have block scope meaning they are limited to the block in which they are defined.
 
 ```sh {"id":"01J7P0Y0WYGGWWS0MY9GVW0N02"}
 let x = 5; //Declaring a variable ‘x’ and assigning the value 5 to it
@@ -121,7 +121,7 @@ console.log(typeof Obj); //object
     console.log(dataOne); //Output:
       ERROR!
       dataOne=200;
-    
+
       TypeError: Assignment to constant variable.
 ```
 
@@ -143,9 +143,9 @@ console.log(typeof Obj); //object
 - Make variable name as long as necessary if needed but no longer
 - A prefix like is, are , or has helps to distinguish a boolean from another variable
 
-#### Problem 1.13: What is variable scope 
+#### Problem 1.13: What is variable scope
 
-Declaring a variable in the global scope. its life span is whole program 
+Declaring a variable in the global scope. its life span is whole program
 
 ```sh {"id":"01J7P57HXNQG205P4TFH5YTX0Q"}
 var globalScopeVariable = 7;
@@ -193,7 +193,7 @@ console.log(Obj.name); // undefined
 - **null** is an empty or non-existent value.
 - **null** must be assigned.
 
-   Here’s an example. We assign the value of null to a:
+  Here’s an example. We assign the value of null to a:
 
 let val = null;
 console.log(val); // null
@@ -211,70 +211,73 @@ In JavaScript there are only **six falsy values**. Both **null** and **undefined
 
 #### Problem 1.14: How to add check for null or undefined in code on a variable
 
-	let a;
-	function checkUndefined(a){
-		if (a === undefined || a === null){
-			console.log('value is ',a);
-			return;
-		}
-		console.log('value is ',a);
-	}
-	
-	checkUndefined(a); //value is  undefined
-	checkUndefined(15); //value is  15
-	checkUndefined(null); //value is  null
-	
-	Using logical Not (!) operator to check null or undefined value
-	let a;
-	function checkUndefined(a){
-		if (!a){
-			console.log('value is ',a);
-			return;
-		}
-		console.log('value is ',a);
-	}
+```sh {"id":"01J7QTRMMYB98NSQWXCW1M4YWN"}
+    //1st Approach : using traditional way
+    let a;
+    function checkUndefined(a){
+    	if (a === undefined || a === null){
+    		console.log('value is ',a);
+    		return;
+    	}
+    	console.log('value is ',a);
+    }
 
-	checkUndefined(a); //value is  undefined
-	checkUndefined(15); //value is  15
-	checkUndefined(null); //value is  null
+    checkUndefined(a); //value is  undefined
+    checkUndefined(15); //value is  15
+    checkUndefined(null); //value is  null
+
+    //2nd Approach : Using logical Not (!) operator to check null or undefined value
+    let a;
+    function checkUndefined(a){
+    	if (!a){
+    		console.log('value is ',a);
+    		return;
+    	}
+    	console.log('value is ',a);
+    }
+
+    checkUndefined(a); //value is  undefined
+    checkUndefined(15); //value is  15
+    checkUndefined(null); //value is  null
+```
 
 #### Problem 1.15: What is console.log
 
     console.log is used to output information to the web console/CMD console. In other words, it is actually an expression that retrieves the log property from the value held by console binding. It is helpful for debugging purposes, as it allows you to see the values of variables, the output of functions, and the flow of your program. Whatever value is given to console.log, gets displayed as output. Here are list of console method different options:
 
 ```sh {"id":"01J7P18HW0ZXBSKVGPTR440C2C"}
-      - `console.log()` //Output general logging information to the console
-      - `console.warn()` //Output a warning message to the console
-      - `console.error()` //Output an error message to the console
-      - `console.info()` //Output an informational message to the console
-      - `console.debug()` //Output a debug message to the console
-      - `console.table()` //Output data as a table to the console
-      - `console.group()` //Creates a new inline group in the console, which can be used to group together related message.
-      - `console.time()` //Starts a timer with a specific label
-      - `console.timeEnd()` //Stops the timer with a specified label and logs elapsed time
-      - `console.clear()` // clears the console
-      - `console.count()` // Logs the number of times this particular call to console.count() has been called with the given label
-      - `console.countReset()` // Reset the count for the specified label
-      - `console.dir()` // Displays an interactive listing of the properties of a specified JavaScript object
-      - `console.trace()` // Outputs a stack trace to the console
+      - console.log() //Output general logging information to the console
+      - console.warn() //Output a warning message to the console
+      - console.error() //Output an error message to the console
+      - console.info() //Output an informational message to the console
+      - console.debug() //Output a debug message to the console
+      - console.table() //Output data as a table to the console
+      - console.group() //Creates a new inline group in the console, which can be used to group together related message.
+      - console.time() //Starts a timer with a specific label
+      - console.timeEnd() //Stops the timer with a specified label and logs elapsed time
+      - console.clear() // clears the console
+      - console.count() // Logs the number of times this particular call to console.count() has been called with the given label
+      - console.countReset() // Reset the count for the specified label
+      - console.dir() // Displays an interactive listing of the properties of a specified JavaScript object
+      - console.trace() // Outputs a stack trace to the console
 ```
 
 #### Problem 1.16: What is JavaScript
 
       **Interpreted Language**: JavaScript code is executed line-by-line by the browser's JavaScript engine.
-    
+
       **Dynamic Typing**: Variables in JavaScript are not bound to any specific data type, and their type can change at runtime.
-    
+
       **Prototype-Based**: JavaScript uses prototypes rather than classes for inheritance, allowing for flexible and dynamic object-oriented programming.
-    
+
       **First-Class Functions**: Functions in JavaScript are treated as first-class citizens, meaning they can be assigned to variables, passed as arguments, and returned from other functions.
-    
+
       **Event-Driven**: JavaScript is often used to handle events such as user inputs, mouse movements, and keystrokes.
-    
+
       **Single-Threaded**: JavaScript runs in a single-threaded environment, but it can handle asynchronous operations through callbacks, promises, and async/await.
-    
+
       **Cross-Platform**: JavaScript can run on any device with a web browser, making it a highly versatile language for web development.
-    
+
       **Dynamically typed**:JavaScript is a dynamically typed language which means that data types of variables are determined by the value they hold at runtime and can change throughout the program as we assign different values to them.
 
 #### Problem 1.17: How to write code in Chrome browser
@@ -292,7 +295,7 @@ let num = Math.random() -- return number between 0 and 1, every execution will g
 
 #### Problem 1.17: Explain different data types in JavaScript
 
-In JavaScript, there are 7 Primitive Data types. List is as follows : 
+In JavaScript, there are 7 Primitive Data types. List is as follows :
 
 **1. String**
 Strings are used to represent text. They are written by enclosing their content in quotes.
@@ -308,23 +311,23 @@ You can use single quote (‘’), double quote (“”) or backlinks(``) to mar
 String cannot be divided, multiplied or subtracted but +/- operator can be used on them.
 Almost anything can be put between quotes and JavaScript will make a string value out of it.
 
-But putting few characters are more difficult 
+But putting few characters are more difficult
 How to put quote between quotes - \’
 How to put newline in a string - \n
 How to put backslash inside a string - \\
 
 Whenever a backslash(\) is found inside quoted text, it indicates that a character after it has special meaning. This is called escaping the character.
 
-Backlink quotes string are called template literals, and can do few more things like embed other values. Example : 
-	`Half of 10 is ${10/5}` Output : Half of 10 is 5
-	
+Backlink quotes string are called template literals, and can do few more things like embed other values. Example :
+`Half of 10 is ${10/5}` Output : Half of 10 is 5
+
 **2. number**
-Numbers can be integers (whole numbers) or floating-point numbers (decimal numbers). They are used for arithmetic operations and calculations. 
+Numbers can be integers (whole numbers) or floating-point numbers (decimal numbers). They are used for arithmetic operations and calculations.
 
 let age =18 // number data types
 
 **3. BigInt **
-It is suitable for large number calculations especially required in scientific application.  To be honest, I never needed to use this in my programming journey.
+It is suitable for large number calculations especially required in scientific application. To be honest, I never needed to use this in my programming journey.
 
 **4. Boolean**
 A boolean represents one of two values : true or false. Booleans are often used for logical operations and conditional statements.
@@ -351,20 +354,30 @@ const anotherId =Symbol('123')
 
 #### Problem 1.20 : Explain Object Data Type in JavaScript
 
-  There are three object data types : 
-  
- 1. An Object (can have mixed data types) : An Object is a collection of properties, where each property has a key (or name) and a value. It is a collection of key-value pairs. 
- let myObj = {
-         		 name:"Abhay",
-         		 age:22,
-     		 }
- 2. An Array : An Array is an ordered list of values (elements), which can be of any data type, including other arrays and objects.
-	 const heroes = ["Shaktiman","nagraj"]
+There are three object data types :
 
- 3. A function : A Function is a block of code designed to perform a particular task. Functions can be assigned to variables and can be passed as arguments to other functions.
-  const myFunc = function(){
-        console.log("hello world");
+1. An Object (can have mixed data types) : An Object is a collection of properties, where each property has a key (or name) and a value. It is a collection of key-value pairs.
+
+```sh {"id":"01J7QWP47KNP2SB0WJVMVC8771"}
+let myObj = {
+   name:"Abhay",
+   age:22,
+}
+```
+
+2. An Array : An Array is an ordered list of values (elements), which can be of any data type, including other arrays and objects.
+
+```sh {"id":"01J7QWQ9KN90XWSP469SSNVHQ8"}
+const heroes = ["Shaktiman","nagraj"]
+```
+
+3. A function : A Function is a block of code designed to perform a particular task. Functions can be assigned to variables and can be passed as arguments to other functions.
+
+```sh {"id":"01J7QWQXM5RS3G1RQ6V9EB0ESH"}
+ const myFunc = function(){
+   console.log("hello world");
    }
+```
 
 Note : All Non-Primitive or reference types provide reference (can directly refer memory address). Gets stored in Heap Memory
 
@@ -372,85 +385,105 @@ Note : All Non-Primitive or reference types provide reference (can directly refe
 
 #### Problem 2.1 : Write a program to add two numbers and log the result to console
 
-	function addTwoNumber(first, second) {
-	  //check argument is valid number
-	  if (first && second) {
-		console.log(first + second);
-	  } else {
-		console.log("Not valid number");
-	  }
-	}
+```sh {"id":"01J7QWRMN6409FSAXTXH0CQKKS"}
+    function addTwoNumber(first, second) {
+      //check argument is valid number
+      if (first && second) {
+    	console.log(first + second);
+      } else {
+    	console.log("Not valid number");
+      }
+    }
 
-	addTwoNumber(10, 20); //30
-	addTwoNumber(10); //Not a valid number
-	addTwoNumber("ABC"); //Not a valid number
+    addTwoNumber(10, 20); //30
+    addTwoNumber(10); //Not a valid number
+    addTwoNumber("ABC"); //Not a valid number
+```
 
 #### Problem 2.2 : Write a program to subtract two numbers and log the result to console
-	function subTractTwoNumber(first, second) {
-	  //check argument is valid number
-	  if (first && second) {
-		console.log(first - second);
-	  } else {
-		console.log("Not valid number");
-	  }
-	}
 
-	subTractTwoNumber(30, 20); //10
-	subTractTwoNumber(10); //Not a valid number
-	subTractTwoNumber("ABC"); //Not a valid number
+```sh {"id":"01J7QWS0610NYD2AA161RY9WGT"}
+    function subTractTwoNumber(first, second) {
+      //check argument is valid number
+      if (first && second) {
+    	console.log(first - second);
+      } else {
+    	console.log("Not valid number");
+      }
+    }
+
+    subTractTwoNumber(30, 20); //10
+    subTractTwoNumber(10); //Not a valid number
+    subTractTwoNumber("ABC"); //Not a valid number
+```
 
 #### Problem 2.3 : Write a program to multiply two numbers and log the result to console
-	function multiplyTwoNumber(first, second) {
-	  //check argument is valid number
-	  if (first && second) {
-		console.log(first * second);
-	  } else {
-		console.log("Not valid number");
-	  }
-	}
 
-	multiplyTwoNumber(30, 20); //600
-	multiplyTwoNumber(10); //Not a valid number
-	multiplyTwoNumber("ABC"); //Not a valid number
+```sh {"id":"01J7QWSAV8PK1XXW1Q0DKMCRVQ"}
+ function multiplyTwoNumber(first, second) {
+      //check argument is valid number
+      if (first && second) {
+    	console.log(first * second);
+      } else {
+    	console.log("Not valid number");
+      }
+    }
+
+    multiplyTwoNumber(30, 20); //600
+    multiplyTwoNumber(10); //Not a valid number
+    multiplyTwoNumber("ABC"); //Not a valid number
+```
 
 #### Problem 2.4 : Write a program to divide two numbers and log the result to console
-	function divideTwoNumber(first, second) {
-	  //check argument is valid number
-	  if (first && second) {
-		console.log(first / second);
-	  } else {
-		console.log("Not valid number");
-	  }
-	}
 
-	divideTwoNumber(30, 5); //6
-	divideTwoNumber(10); //Not a valid number
-	divideTwoNumber("ABC"); //Not a valid number
+```sh {"id":"01J7QWSPJ05NGHHCG45Z07TZ0V"}
+    function divideTwoNumber(first, second) {
+      //check argument is valid number
+      if (first && second) {
+    	console.log(first / second);
+      } else {
+    	console.log("Not valid number");
+      }
+    }
+
+    divideTwoNumber(30, 5); //6
+    divideTwoNumber(10); //Not a valid number
+    divideTwoNumber("ABC"); //Not a valid number
+```
 
 #### Problem 2.5 : Write a program to find remainder when one number is divided by another and log the result to the console
-		function findRemainderOfTwoNumber(first,second){
-		 
-			if (!first % !second!==0){
-				console.log(first%second);
-			}else{
-				console.log("Not a valid number");
-			}
-		}
 
-		findRemainderOfTwoNumber(20,3); //2
-		findRemainderOfTwoNumber(20,4); //0
-		findRemainderOfTwoNumber(10); //Not a valid number
-		findRemainderOfTwoNumber("ABC");//Not a valid number
+```sh {"id":"01J7QWSZVW0PKDSTGPME369G63"}
+    	function findRemainderOfTwoNumber(first,second){
+
+    		if (!first % !second!==0){
+    			console.log(first%second);
+    		}else{
+    			console.log("Not a valid number");
+    		}
+    	}
+
+    	findRemainderOfTwoNumber(20,3); //2
+    	findRemainderOfTwoNumber(20,4); //0
+    	findRemainderOfTwoNumber(10); //Not a valid number
+    	findRemainderOfTwoNumber("ABC");//Not a valid number
+```
 
 #### Problem 2.6 : Use the += operator to add a number to a variable and log the result to the console
-	let a = 10;
-	a+=20;
-	console.log(a); //30
+
+```sh {"id":"01J7QWTAWQGGH3YCEEK6F1K4PX"}
+   let a = 10;
+    a+=20;
+    console.log(a); //30
+```
 
 #### Problem 2.7 : Use the -= operator to subtract a number to a variable and log the result to the console
-	let a = 30;
-	a-=20;
-	console.log(a); //10
+
+```sh {"id":"01J7QWTKVV6AKWD4HVJPYED6C6"}
+    let a = 30;
+    a-=20;
+    console.log(a); //10
+```
 
 #### Problem 2.8 : Write a program to compare two numbers using > and < and log the results to console
 
@@ -474,11 +507,112 @@ Note : All Non-Primitive or reference types provide reference (can directly refe
 
 #### Problem 2.18: What is difference between == and ===
 
+**==** operator is also known as the loose equality operator which is mainly used to compare two values on both sides and then return true or false. This operator checks equality only after converting both the values to a common type i.e type coercion.
+
+**===** operator is also known as strict equality operator, it compares both the value and the type which is why the name “strict equality”. When you do not want automatic type conversion to be applied, use === operator.
+
+**Note** : It is advised to use `===` operator for comparing equality of two values.
+
 #### Problem 2.19: What is hoisting and how does it work
+
+Hoisting is a mechanism where variable and function declarations are moved (or "hoisted") to the top of their containing scope (either the function or global scope) during the compilation phase, before the code is executed.
+
+Only the declarations are hoisted—not the initializations.
+
+**Variable Hoisting**:
+
+- Only the declaration of variables (using var, let, or const) is hoisted, not their initialization.
+- var variables are hoisted and initialized with undefined at the top.
+- let and const are also hoisted but are placed in a `"temporal dead zone"` (TDZ) until their actual initialization in the code. Accessing them before initialization results in a ReferenceError.
+
+```sh {"id":"01J7QXBNZ8J6H3Z8NYADR7B3X2"}
+console.log(x); // Output: undefined (due to hoisting)
+var x = 5;
+
+console.log(y); // Throws ReferenceError: Cannot access 'y' before initialization
+let y = 10;
+
+```
+
+**Function Hoisting**:
+
+- Function declarations are fully hoisted, meaning both the declaration and the body of the function are moved to the top of the scope.
+- This allows you to call a function before it is defined in the code.
+
+```sh {"id":"01J7QXDCS0Q2CZQ9K9Q5H8S6QP"}
+myFunction(); // This works because of hoisting
+function myFunction() {
+  console.log("Hoisted function!");
+}
+
+```
+
+**function expressions**
+
+- function expression (`functions assigned to variables`) are not fully hoisted. The variable is hoisted, but the assignment happens at runtime, not during hoisting.
+- Arrow functions are a type of function expression.
+
+```sh {"id":"01J7QXEDY3H8881FKW469B7ZDH"}
+//Example with function declaration
+myFunc(); // Throws TypeError: myFunc is not a function
+var myFunc = function() {
+  console.log("This is a function expression");
+};
+
+//Example using Arrow function using var
+console.log(myArrowFunction); // Output: undefined (because of hoisting of the variable declaration)
+myArrowFunction(); // Throws TypeError: myArrowFunction is not a function
+var myArrowFunction = () => {
+  console.log("Arrow function");
+};
+
+//Example of Arrow function using let/const
+myArrowFunction(); // ReferenceError: Cannot access 'myArrowFunction' before initialization
+let myArrowFunction = () => {
+  console.log("Arrow function");
+};
+//let or const variables are hoisted but remain in the Temporal Dead Zone (TDZ), so accessing them before initialization throws a ReferenceError.
+
+```
+
+##### Working Example of working variable hoisting
+
+```sh {"id":"01J7QY249NKXN9KDSX2X9QWTKF"}
+console.log(firstVal); // Output: undefined (because of hoisting, only the declaration is moved to the top)
+var firstVal  = 10;
+console.log(firstVal); // Output: 10
+
+console.log(secondVal); // Throws ReferenceError: Cannot access 'b' before initialization
+let secondVal = 20;
+console.log(secondVal); // This line will not be reached due to the error above
+
+console.log(thirdVal); // Throws ReferenceError: Cannot access 'c' before initialization
+const thirdVal = 30;
+console.log(thirdVal); // This line will not be reached due to the error above
+//secondVal and thirdVal are hoisted but are in Temporaral Dead Zone, that's why throwing why throwing ReferenceError
+```
 
 ## Level 3 : Control Structures
 
 ### Problem 3.1: Write a program to check if a number is positive, negative, or zero, and log the result to the console.
+
+```sh {"id":"01J7R7XGKW4P9GGHE0KYGFH8PN"}
+function checkNumberIsGreaterThanZero(number) {
+  if (number === 0) {
+    console.log(`${number} is zero`);
+  }
+  if (number < 0) {
+    console.log(`${number} is negative`);
+  }
+  if (number > 0) {
+    console.log(`${number} is positive`);
+  }
+}
+checkNumberIsGreaterThanZero(0);
+checkNumberIsGreaterThanZero(5);
+checkNumberIsGreaterThanZero(-1);
+checkNumberIsGreaterThanZero("ABC");
+```
 
 ### Problem 3.2: Write a program to check if a person is eligible to vote (age >= 18) and log the result to the console.
 
@@ -506,28 +640,167 @@ Note : All Non-Primitive or reference types provide reference (can directly refe
 
 #### Problem 4.1: Write a program to print numbers from 1 to 10 using a for loop
 
+```sh {"id":"01J7QYJNXXHQ9RVK38FPEPY13S"}
+for (let i = 1; i <= 10; i++) {
+  console.log(i);
+}
+//Output:
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+```
+
 #### Problem 4.2: Write a program to print the multiplication table of 5 using a for loop
+
+```sh {"id":"01J7QYKTRRBQGGDQWHBTMK4F6N"}
+for (let i = 1; i <= 10; i++) {
+  console.log(i * 5);
+}
+//Output:
+5
+10
+15
+20
+25
+30
+35
+40
+45
+50
+
+```
 
 #### Problem 4.3: Write a program to calculate the sum of numbers from 1 to 10 using while loops
 
+```sh {"id":"01J7QYP792SYBDY2SY4TAHJ3R8"}
+let iLoop = 1;
+let total = 0;
+while (iLoop < 11) {
+  total = total + iLoop;
+  iLoop++;
+}
+console.log(total); //55
+```
+
 #### Problem 4.4: Write a program to print numbers from 10 to 1 using a while loop
+
+```sh {"id":"01J7QYQ6SXKDWVZJ1M1B09K43B"}
+let iLoop2 = 10;
+
+while (iLoop2 > 0) {
+  console.log(iLoop2);
+  iLoop2--;
+}
+//Output:
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+```
 
 #### Problem 4.5: Write a program to print numbers from 1 to 5 using a do.. while loop
 
+```sh {"id":"01J7QYREFG6YT8SHVC3PA0ZTB9"}
+let iLoop3 = 1;
+
+do {
+  console.log(iLoop3);
+  iLoop3++;
+} while (iLoop3 <= 5);
+//Output:
+1
+2
+3
+4
+5
+```
+
 #### Problem 4.6: Write a program to calculate the factorial of a number using a do... while
+
+```sh {"id":"01J7QYSJQ0P7CCD30X6F9JKV4P"}
+let iLoop4 = 4;
+let fact = 1;
+do {
+  fact = fact * iLoop4;
+  iLoop4--;
+} while (iLoop4 >= 1);
+console.log(fact); //24
+```
 
 #### Problem 4.7: Write a program to print a pattern using nested for loops
 
----
+```sh {"id":"01J7QYXSQRW3VPD89C95BHV50V"}
++
++ +
++ + +
++ + + +
++ + + + +
+```
 
----
+```sh {"id":"01J7QYZA9R3BMG6T7ANGNA8QH8"}
+for (let i = 1; i <= 5; i++) {
+  console.log("*".repeat(i));
+}
+```
 
----
+#### Problem 4.8: How to skip an iteration in a loop using continue
 
----
+```sh {"id":"01J7QZ1C59B9BNJC6EEAWZNRFF"}
+for (let i = 0; i < 10; i++) {
+  if (i == 5) {
+    continue;
+  }
+  console.log(i);
+}
+//Output:
+0
+1
+2
+3
+4
+6
+7
+8
+9
+
+```
+
+```sh
+for (let i = 0; i < 10; i++) {
+  if (i == 7) {
+    break;
+  }
+  console.log(i);
+}
+//Output:
+//
+0
+1
+2
+3
+4
+5
+6
+
+```
 
 ## Level 5 : Functions
+
 #### Problem 5.1: What is function
+
 A function is a block of reusable code that performs a specific task. It is fundamental building block of JavaScript programs, allowing to organize code, make it more modular and avoid duplicate code.
 
 A function is created with an expression that starts with the keyword function. Function have a set of parameters and a body which contains the statements that are to be executed when function is called. A function can have multiple parameters or no parameters at all.
@@ -535,63 +808,56 @@ A function is created with an expression that starts with the keyword function. 
 A return statement determines the value the function returns. When control comes across such a statement, it immediately jumps out of the current function and gives the returned value to the code that called the function. A return keyword without an expression after it will cause the function to return undefined. Function which does not have return statement returns undefined.
 
 In JavaScript, there are three main approaches to declare a function:
+
 1. Declaration Notation (Function Declaration)
 2. Functions As Values (Function Expression)
 3. Arrow Function
 
 #### Problem 5.1: What is function declaration
+
 This is a function declaration. It is a slightly shorter way to create a function and does not require a semicolon after the function. Create function using the function keyword.
-
-		//calling the function
-			console.log(“function call : ”+userName(“Abhay”));
-
-			//function declaration
-		function userName(name){
-		 return name;
-		}
-
-		//calling the function
-			console.log(“function call : ”+userName(“Abhay”));
 
 The preceding code works, even though the function is defined below the code that uses it. Functional declarations are not part of the regular top-to-bottom flow of control. They are conceptually moved to the top of their scope and can be used by all the code in that scope. This is useful because it offers the freedom to order code in a way that seems meaningful, without worrying about having to define all functions before they are used.
 
-
 #### Problem 5.2: What is function expression
-A function binding usually simply acts as a name for a specific piece of the program. It is possible to store function value in new binding, pass it as an argument to a function. In this approach, function is assigned to a variable. It can not be called before it is defined in the code. It can be named or anonymous. When it is anonymous the function does not have a name unless assigned to a variable. 
 
-	//Anonymous function expression
-		let printName = function(){
-			console.log(“hello js”);
-	}
-	printName(); //hello js
+A function binding usually simply acts as a name for a specific piece of the program. It is possible to store function value in new binding, pass it as an argument to a function. In this approach, function is assigned to a variable. It can not be called before it is defined in the code. It can be named or anonymous. When it is anonymous the function does not have a name unless assigned to a variable.
 
-	//Named function expression
-		let printNamed = function SayHello(){
-			console.log(“hello js”);
-	}
-	printNamed() //hello js
-	SayHello() // syntax error "SayHello is not defined"
+```sh {"id":"01J7QZMAFW66HTAP2RHAS2Z0G1"}
+    //Anonymous function expression
+    	let printName = function(){
+    		console.log(“hello js”);
+    }
+    printName(); //hello js
+
+    //Named function expression
+    	let printNamed = function SayHello(){
+    		console.log(“hello js”);
+    }
+    printNamed() //hello js
+    SayHello() // syntax error "SayHello is not defined"
+```
 
 ##### Difference between anonymous and named Function:
+
 - Anonymous function has no name
 - Cannot refer to itself by name within its own body
 - When debugging, stack trace may show the function as anonymous, making it harder to identify
-- Both anonymous and named function expressions are not hoisted, meaning they are not available before their definition in the code. This 
+- Both anonymous and named function expressions are not hoisted, meaning they are not available before their definition in the code. This
   contrasts with function declarations, which are hoisted.
-
 - Named The function has a name
 - Can refer to itself by name within its own body, which is useful for recursion.
 - Function name will appear in stack traces, which can make debugging easier.
-- Both anonymous and named function expressions are not hoisted, meaning they are not available before their definition in the code. This 
+- Both anonymous and named function expressions are not hoisted, meaning they are not available before their definition in the code. This
   contrasts with function declarations, which are hoisted.
 
-
 #### Problem 5.3: What is difference between function expression and declaration
+
 function expressions are not hoisted, meaning they are not available before their definition in the code. This contrasts with function declarations, which are hoisted.
 
 #### Problem 5.2: What is an arrow fucntion
-This is the third notation of functions. Instead of the function keyword, it uses an arrow (=>) made up of an equal sign and a greater than character.
 
+This is the third notation of functions. Instead of the function keyword, it uses an arrow (=>) made up of an equal sign and a greater than character.
 
 const printName = (firstName, secondName) =>{
 return firstName+” ” + secondName;
@@ -599,33 +865,175 @@ return firstName+” ” + secondName;
 
 The arrow comes after the list of parameters and is followed by the function’s body. It expresses something like “this input (this parameters) produces this result(the body)”.
 
-When there is only one parameter name, you can omit the parentheses around the parameter lists. If the body is a single expression, rather than a block in braces, that expression will be returned from the function. 
+When there is only one parameter name, you can omit the parentheses around the parameter lists. If the body is a single expression, rather than a block in braces, that expression will be returned from the function.
 
-	const name = (name) => {return name;};
+```sh {"id":"01J7QZN0MXY5BW0K50VAWCVNVC"}
+const name = (name) => {
+    return name;
+};
 const name = name => return name;
+```
 
 When an arrow function has not parameters at all, its parameters list is just an empty set of parameters.
 
 Arrow function was added in 2015, it allows writing small function expressions in a less verbose way.
 
-
 #### Problem 5.4 : Write a function (using function declaration) to check if a number is even or odd and log the result to the console
+
+```sh {"id":"01J7QZP02FJENMFVKF9XX9KCJ8"}
+//This approach of writing function is called as function declaration
+function findOddEven(number) {
+  if (number % 2 === 0) {
+    console.log(`${number} is even`);
+  } else {
+    console.log(`${number} is odd`);
+  }
+}
+findOddEven(20); //20 is even
+findOddEven(19); //19 is odd
+```
 
 #### Problem 5.5 : Write a function (using function declaration) to calculate the square of a number and return the result
 
+```sh {"id":"01J7QZQHCAEEHCX9B5TZ1472WN"}
+function calculateSquare(number) {
+  return number * number;
+}
+
+console.log(calculateSquare(5)); //25
+console.log(calculateSquare(10)); //100
+```
+
 #### Problem 5.6 : Write a function expression to find the maximum of two number and log the results to console
+
+```sh {"id":"01J7QZRT9HGEVRRNV127BTMXA4"}
+const maxNumber = function (first, second) {
+  return first > second ? first : second;
+};
+
+console.log(maxNumber(10, 20)); //20
+console.log(maxNumber(30, 20)); //30
+
+```
 
 #### Problem 5.7 : Write a function expression to concatenate two strings and return the result
 
+```sh {"id":"01J7QZSQQZYDXHCQPZSXMF8FVP"}
+const joinTwoString = function (first, second) {
+  return first + second;
+};
+
+console.log(joinTwoString("Ab", "Bh")); //AbBh
+console.log(joinTwoString("BH", "ART")); //BHART
+```
+
 #### Problem 5.8 : Write an arrow function to calculate sum of two number and return the result
+
+```sh {"id":"01J7QZVEDMTM6TT7TJ7WJE2MVW"}
+const sumOfTwoNumber = (first, second) => {
+  return first + second;
+};
+
+console.log(sumOfTwoNumber(10, 11)); //21const checkStringValue = (first, toContain) => {
+  if (first.includes(toContain)) {
+    return true;
+  }
+  return false;
+};
+
+console.log(checkStringValue("Abhay", "A"));
+```
 
 #### Problem 5.9 : Write an arrow function to check if a string contains a specific characters and return a boolean value
 
+```sh {"id":"01J7QZW1K16V47ZJD3JRDSYKPH"}
+const checkStringValue = (first, toContain) => {
+  if (first.includes(toContain)) {
+    return true;
+  }
+  return false;
+};
+
+console.log(checkStringValue("Abhay", "A")); //true
+console.log(checkStringValue("Abhay", "Z")); //false
+```
+
 #### Problem 5.10 : Write a function that takes two parameters and return their product. Provide a default value for the second parameter
+
+```sh {"id":"01J7QZXYC4GQMVARXFBBG9WWYG"}
+function multiplyTwoNum(first, second = 3) {
+  return first * second;
+}
+
+console.log(multiplyTwoNum(10, 5)); //50
+console.log(multiplyTwoNum(10)); //30
+```
 
 #### Problem 5.11 : Write a function that takes a person's name and age and returns a greeting message. Provide default value for the age.
 
+```sh {"id":"01J7R027Y9VV570867YRX43FQA"}
+function greetMessage(name, age = 20) {
+  return `Hello ${name} and age : ${age}`;
+}
+
+console.log(greetMessage("Ajay", 40)); //Hello Ajay and age : 40
+console.log(greetMessage("Ajay")); //Hello Ajay and age : 20
+```
+
+#### Problem 5.12 : What is a higher order function and how to call hthem
+
+A higher-order function is a function that can accept other functions (one or more function) as arguments, return functions, or both. It enable abstraction, composition, and the creation of more flexible and reusable code.
+
+**Approach 1 : Function as an Argument**
+This approach involves passing a function (callback) as an argument to another function. The receiving function can then execute the callback, enabling flexible and customizable behavior in JavaScript programs.
+
+```sh {"id":"01J7R5A5MRSABYS8JRQBHAPX6Q"}
+function greet(name) {
+    return `Hi!! ${name} `;
+}
+
+function greet_name(greeting, message, name) {
+    console.log(`${greeting(name)} ${message}`);
+}
+
+greet_name(greet, 'Welcome To JavaScript, 'JavaScript');
+```
+
+**Approach 2 : Functions as Return Values**
+Higher-order functions can also return new functions.
+In below example, multiplier is a higher-order function that takes a factor as an argument and returns a new function that multiplies any number by that factor. We then use double and triple to create specialized functions.
+
+```sh {"id":"01J7R5J12G7B9SPPP5DQS53GHD"}
+function multiplier(factor) {
+    return function (x) {
+        return x * factor;
+    };
+}
+
+const double = multiplier(2);
+const triple = multiplier(3);
+
+console.log(double(5)); //10
+console.log(triple(5)); //15
+```
+
 #### Problem 5.12 : Write a higher order function that takes a function and a number and calls the function that many times.
+
+```sh {"id":"01J7R03X2DW783P15R37KSKMPM"}
+function higherOrderFunction(callback, num) {
+  for (let i = 0; i < num; i++) {
+    //call the callback function
+    callback();
+  }
+}
+
+function callBackFunction() {
+  console.log("Callback function is executed");
+}
+
+// Passing the callback function to the higher-order function
+higherOrderFunction(callBackFunction, 5);
+```
 
 #### Problem 5.13 : Write a higher order function that takes two function and a value, applies the second function to the result.
 
@@ -649,55 +1057,296 @@ Arrow function was added in 2015, it allows writing small function expressions i
 
 #### Problem 6.1 : Create an array of numbers from 1 to 5 and log the array to the console
 
+```sh {"id":"01J7R60DB8FHBES8RV0QG5WADB"}
+let numberArray5 = [1, 2, 3, 4, 5];
+for (let iLoop = 0; iLoop < numberArray5.length; iLoop++) {
+  console.log(numberArray5[iLoop]);
+}
+```
+
 #### Problem 6.2 : Access the first and last elements of the array and log them to the console
+
+```sh {"id":"01J7R60Z219FGQJJWE8Z4W1WRS"}
+console.log(numberArray5[0]);
+console.log(numberArray5[4]);
+```
 
 #### Problem 6.3 : Use the push method to add a new number to the end of the array and log the updated array
 
+```sh {"id":"01J7R61DJ2RXZ5QP6XRR48HMYC"}
+numberArray5.push(6);
+console.log("push -> ", numberArray5);
+```
+
 #### Problem 6.4 : Use the pop method to remove the last element from the array and log the updated array
+
+```sh {"id":"01J7R7HK4G2XGDJE7DY7333G7A"}
+let temp = numberArray5.pop();
+console.log("pop -> ", numberArray5);
+console.log("pop -> ", temp);
+```
 
 #### Problem 6.5 : Use the shift method to remove the first element from the array and log the updated array
 
+```sh {"id":"01J7R7HWHDTYXYZ5FZ818J1Q3V"}
+temp = numberArray5.shift();
+console.log("shift -> ", numberArray5);
+console.log("shift -> ", temp);
+
+```
+
 #### Problem 6.6 : Use the unshift method to add a new number to the beginning of the array and log the update array
+
+```sh {"id":"01J7R7J3PDAWRZ4ZB3J76MVCAG"}
+temp = numberArray5.unshift(10);
+console.log("unshift -> ", numberArray5);
+console.log("unshift -> ", temp);
+
+```
 
 #### Problem 6.7 : Use the map method to create a new array where each number is doubled and log the new array
 
+```sh {"id":"01J7R7JPVP7CTA5W7SERA5WGRF"}
+numberArray5 = numberArray5.map((ele) => {
+  return ele * 2;
+});
+console.log("map -> ", numberArray5);
+```
+
 #### Problem 6.8 : Use the filter method to create a new array with only even number and log the new array
+
+```sh {"id":"01J7R7K0446Y6116B29GPPAF6B"}
+numberArray5 = numberArray5.filter((ele) => {
+  return ele % 2 === 0;
+});
+console.log("filter -> ", numberArray5);
+```
 
 #### Problem 6.9 : Use the reduce method to calculate the sum of all numbers in the array and log the results
 
+```sh {"id":"01J7R7K99CSP27AYY9WES5C5GX"}
+let sumOfAll = numberArray5.reduce((accumulator, ele) => {
+  return (accumulator += ele);
+}, 0);
+console.log("reduce -> ", sumOfAll);
+```
+
 #### Problem 6.10 : Use a for loop to iterate over the array and log each element to console
+
+```sh {"id":"01J7R7KMTZR0V5KNR4DCMZ86NS"}
+console.log("For Loop to iterate array");
+for (let iLoop = 0; iLoop < numberArray5.length; iLoop++) {
+  console.log(numberArray5[iLoop]);
+}
+```
 
 #### Problem 6.11 : Use the forEach method to iterate over array and log each element to the console
 
+```sh {"id":"01J7R7KW25FJEFWCS7ERV1T151"}
+console.log("ForEach to iterate array");
+numberArray5.forEach((ele) => {
+  console.log(ele);
+});
+```
+
 #### Problem 6.12 : Create a tow dimensional array (matrix) and the entire array to the console
+
+```sh {"id":"01J7R7M2V5E1SPZ5WVDAE06YAQ"}
+console.log("MultiDimesional Array ");
+let multiDimensionalArray = [
+  [1, 2],
+  [3, 4],
+];
+multiDimensionalArray.forEach((ele) => {
+  ele.forEach((childEle) => {
+    console.log(childEle);
+  });
+});
+
+```
 
 #### Problem 6.13 : Access and Log a specific element from the two dimensional array
 
+```sh {"id":"01J7R7MKYPD26P1NH1J274D4G9"}
+console.log("multiDimensionalArray -> ", multiDimensionalArray[0][1]);
+```
+
 ## Level 7 : Objects
 
-#### Problem 7.1 : Create an object representing a book with properties like title, author and year and log the object to the console
+#### Problem 7.1 : What is an object
 
-#### Problem 7.2 : Access and log the title and author properties of book object
+Objects are like containers for storing related data and functionalities. It is defined using curly braces {}.
 
-#### Problem 7.3 : Add a method to the book object that returns a string with the book's title and author and log the result of calling this method.
+#### Problem 7.1 : Create an object representing a car with properties like make, model and year and log the object to the console
+
+```sh {"id":"01J7R7NP0S1P99YCFX10AQDFQV"}
+//Creating a simple car object
+let car = {
+  make: "Toyota",
+  model: "Corolla",
+  year: 2024,
+};
+
+//Displaying the card object
+console.log(car);
+```
+
+#### Problem 7.2 : Access and log the model and year properties of car object
+
+```sh {"id":"01J7R7NXB7W92XKKWS986HYEM6"}
+//Accessing the model property of car object
+console.log(car.model); // Corolla
+
+//Accessing the year property of car object
+console.log(car.year); //2024
+
+let carMake = car.make;
+
+//Displaying the make of car
+console.log("The make of the car is :",carMake );
+```
+
+#### Problem 7.2 : Modify the year property of of car object
+
+//Modifying the 'year' property of car object
+car.year = 2022;
+
+//Displaying the updated car object
+console.log("Updated car:", car);
+
+#### Problem 7.3 : Add a method to the car object that returns a string with the car's make and year and log the result of calling this method.
+
+```sh {"id":"01J7R7P4W7D349SKHKFQENMR7Y"}
+car = {
+  make: "Tata Motor",
+  model: "Nexon",
+  year: 2024,
+  //method to return a string with make and year
+  getMakeAndYear() {
+    return `${this.make} in ${this.year}`;
+  },
+};
+console.log(car);
+const makeYear = car.getMakeAndYear();
+console.log(makeYear);
+```
 
 #### Problem 7.4 : Add a method to the book object that takes a parameter (Year) and updates the book's year property, then log the updated object
 
+```sh {"id":"01J7R7PBN0E47HK0NBRY7FVDG0"}
+
+book = {
+  title: "JavaScript Code",
+  author: "Abhay Bharti",
+  year: 2024,
+  //method to return a string with books title and author
+  newYear(newYear) {
+    this.year = newYear;
+  },
+};
+console.log(book);
+book.newYear(2025);
+console.log(book);
+```
+
 #### Problem 7.5 : Create a nested object representing a library with properties like name and books (an array of book objects), and log the library object to the console
 
+```sh {"id":"01J7R7PKA8MS41N3P7Y5FADMAS"}
+
+const library = {
+  name: "AB Library",
+  books: [
+    { title: "JavaScript", author: "A B" },
+    { title: "Betal Pachisi", author: "Abhay" },
+  ],
+};
+console.log(library);
+//  Task 6 : Access and log the name of the library and the titles of all the books in the library
+
+console.log(library.name);
+
+//log the title of all books in the library
+library.books.forEach((book) => {
+  console.log(book.title);
+});
+```
+
 #### Problem 7.6 : Access and log the name of the library and the titles of all the books in the library
+
+```sh {"id":"01J7R7QDJ0WNR6VWVRXEGEWADA"}
+
+let bookInTask7 = {
+  title: "JavaScript Code",
+  author: "Abhay Bharti",
+  year: 2024,
+  //method to use this keyword and
+  getTitle() {
+    return `${this.title}`;
+  },
+};
+console.log(bookInTask7.getTitle());
+```
 
 #### Problem 7.7 : Add a method to the book object that uses the `this` keyword to return a string with book's title and year and log the result of calling this method
 
 #### Problem 7.8 : Use a for...in loop to iterate over the properties of the book object and log each property and its value
 
+This involves going through each property in the object and performing an action with it. We can use a `for...in` loop, a special type of loop in JavaScript designed for iterating over the properties of an object. This is useful in scenarios where exact properties of the objects are not known especially when working with dynamic data structures.
+
+```sh {"id":"01J7R7QRBK67QK9JNH9YGFQQ9N"}
+
+//iterating over each property in the 'car' object
+for (const prop in book) {
+  //Printing the key and its corresponding values
+  console.log(`${prop} : ${book[prop]} `);
+}
+
+if (library.books) {
+  for (const book of library.books) {
+    for (const key in book) {
+      console.log(`${key} : ${book[key]}`);
+    }
+  }
+}
+```
+
+#### Problem 7.9 : Iterate over car object properties.
+
 #### Problem 7.9 : Use Object.keys and Object.values method a log all the keys and values of the book object.
+
+```sh {"id":"01J7R7R71VB1A31D0K9RDYBNT1"}
+
+library.books.forEach((book) => {
+  console.log(`keys : ${Object.keys(book)}`);
+  console.log(`values : ${Object.values(book)}`);
+});
+
+```
 
 #### Problem 7.10 : Explain difference between Object.create and the constructor pattern
 
 #### Problem 7.11 : How do we prevent modification of object in JavaScript
 
 #### Problem 7.12 : What is new keyword and its usage
+
+#### Problem 7.12 : What a constructor function to create `car` object
+
+Constructor function act as a blueprint for creating multiple object of the same type. This useful when you want to create multiple object with same properties but different values.
+
+//constructor function for Car object
+function Car(model, make, year){
+this.model = model;
+this.make = make;
+this.year= year;  
+}
+
+//Creating a new instances of Car object
+let carOne = new Car("nexon","Tata", 2021);
+let carTwo = new Car("tiago","Tata", 2022);
+
+//Displaying the crated object
+console.log(carOne); //Car { model: 'nexon', make: 'Tata', year: 2021 }
+console.log(carTwo); //Car { model: 'tiago', make: 'Tata', year: 2022 }
 
 #### Problem 7.13 : Explain concept of Object Destructuring in JavaScript
 
@@ -706,6 +1355,72 @@ Arrow function was added in 2015, it allows writing small function expressions i
 #### Problem 7.15 Write a script that defines a library object containing and arrya of book objects and logs the library's details
 
 #### Problem 7.16 Write a script that demonstrates iterating over an object's properties using for...in loop and Object.keys/Object.values
+
+#### Problem 7.16 Create an array of Objects and prints details of each one
+
+Arrays of objects are common data structure in JavaScript, combining power of arrays with the detailed representations of objects. This is especially useful when you have a list of similar items, each with its own set of properties. Continuign our car example, car company might use an array of car object to keep track of their inventory, where each car has properties like make, model and year.
+
+//Creating an array of car objects
+let cars =[
+{make:"Tata", model:"Altroz", year:2023}
+{make:"Tata", model:"Nexon", year:2022}
+{make:"Suzuki", model:"Swift", year:2020}
+]
+
+//iterating over the array and printing each car's details
+cars.forEach(car =>{
+console.log(`Make : ${car.make}, Model : ${car.model}, Year : ${car.year}`);
+})
+
+#### Problem 7.16 How to delete a property from the car object
+
+In addition to add and modify, you can also delete properties of objects. This is useful in scenarios when certain properties are no longer needed.
+
+//Deleting the 'year' propert from car object
+delete car.year
+
+console.log(car.hasOwnProperty('year')) //false
+console.log(car);//
+
+#### Problem 7.16 Compare two objects and check if they are identical
+
+As objects are reference type, so comparions is little tricky. As objects are reference type, even if two objects have identical propeties and values, they are considered different if they reference different locations in memory. A direct comparions using `==` or `===` checks for reference equality and not the equality of content within objects.
+
+```
+//Function to compare two objects for equality
+function areObjectEqual(firstObj, secondObj){
+
+  //get list of keys from object
+    const firstKeyList = Object.keys(firstObj);
+    const secondKeyList = Object.keys(secondObj);
+
+    //Check if both objects have same number of properties
+    if (firstKeyList.length !== secondKeyList.length){
+        return false;
+    }
+
+    for (let key of firstKeyList){
+        if (firstObj[key]!== secondObj[key]){
+            return false;
+        }
+    }
+    return true; //return true if all properties and their value match (means objects are equal in content)
+}
+
+//Creating two objects for comparision
+let carOne = {make:"Tata", model:"nexon", year:2021}
+let carTwo = {make:"Tata", model:"nexon", year:2021}
+
+//Compare the two objects
+console.log("Are carOne and carTwo equal ? ",areObjectEqual(carOne,carTwo)); //true
+
+//Creating two objects for comparision
+ carOne = {make:"Tata", model:"nexon", year:2021}
+ carTwo = {make:"Tata", model:"nexon", year:2022}
+
+//Compare the two objects
+console.log("Are carOne and carTwo equal ? ",areObjectEqual(carOne,carTwo)); //false
+```
 
 # Level 8 : ES6 + Features
 
@@ -830,6 +1545,25 @@ By the end of this level, you will learn:
 
 #### Problem 11.9: Write a script that creates a module exporting a function and imports it in another script
 
+1. Create a JavaScript file for example `mathUtils.js`
+
+   // Function to add two numbers
+   function addTwoNumbers(firstNumber, secondNumber) {
+   return firstNumber + secondNumber;
+   }
+
+   // Export the function to make it available in other files
+   module.exports = addNumbers;
+
+2. Create another JavaScript file to import the function and use `addTwoNumbers`. For example `mathExample.js`
+
+   // Import the addTwoNumbers function from mathUtils.js
+   const addNumbers = require('./mathUtils');
+
+   // Use the imported function
+   const result = addTwoNumbers(5, 3);
+   console.log(`The sum is: ${result}`);
+
 #### Problem 11.10: Create a script demonstrating both named and default exports and their usage
 
 #### Problem 11.11: Write a script that installs, imports and uses functions from third party modules like lodash and axios (`Third Party Module Script`)
@@ -901,7 +1635,7 @@ By the end of this level, you will learn:
 
 #### Problem 13.8 : Use closure to create a simple module for managing a collection of items. Implement methods to add, remove and list items
 
-#### Problem 13.9 : Write a function that memoizes the results of another function. Use a closure to store teh results of previous computations
+#### Problem 13.9 : Write a function that memoizes the results of another function. Use a closure to store the results of previous computations
 
 #### Problem 13.10: Create a memoization version of a function that calculates the factorial number
 
@@ -934,7 +1668,7 @@ By the end of this level, you will learn:
 
 #### Problem 14.5 : Write recursive function to reverse a string. Log the result for a few test cases.
 
-#### Problem 14.6 : Write a recursive function to check if a string is a palindrome. Log the result for a fwe tet cases.
+#### Problem 14.6 : Write a recursive function to check if a string is a palindrome. Log the result for a few test cases.
 
 #### Problem 14.7 : Write a recursive function to perform a binary search on a sorted array. Log the index of the target element for few test cases
 
@@ -1005,6 +1739,77 @@ By the end of this level, you will learn:
 - Apply dynamic programming to solve complex problems(optional)
 
 #### Problem 16.1 : Implement a bubble sort algorithm to sort an array of numbers in ascending order. Log the sorted array.
+
+Note that bubble sort has a time complexity of O(n^2), making it less efficient for large datasets. However, it can be useful for small datasets or educational purposes.
+
+/\*\*
+
+- Sorts an array of numbers in ascending order using the bubble sort algorithm.
+-
+- @param {number[]} arr - The input array to be sorted.
+- @returns {number[]} - The sorted array.
+  \*/
+
+      function bubbleSort(arr, isAscending) {
+
+  const n = arr.length;
+  let swapped = false;
+  do {
+  // Create a flag that will allow the function to terminate early if there's nothing left to sort
+  swapped = false;
+
+      // Start looking at each item of the array one by one, comparing it with its adjacent value
+      for (let j = 0; j < n - 1; j++) {
+        let current = arr[j];
+        let next = arr[j + 1];
+        // If we find an element that is greater than its adjacent element, then swap them
+
+        if (isAscending) {
+          // sort in ascending order
+          if (current > next) {
+            // Swap values using destructuring assignment syntax
+            [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+
+            // Set the flag to True so we'll loop again
+            swapped = true;
+          }
+        } else {
+          //sort in descending order
+          if (current < next) {
+            // Swap values using destructuring assignment syntax
+
+            [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+
+            // Set the flag to True so we'll loop again
+            swapped = true;
+          }
+        }
+      }
+
+  } while (swapped);
+
+  return arr;
+  }
+
+Note :
+
+- [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]; // Values are swapped using destructuring assignment syntax
+- arr[i] and arr[i + 1] are being destructured into a new array [arr[i], arr[i + 1]].
+- This creates a new array with the values of arr[i] and arr[i + 1] in that order.
+- The new array is then immediately re-assigned to the variables arr[i] and arr[i + 1], respectively.
+- This effectively swaps the values of arr[i] and arr[i + 1].
+
+const numbers = [64, 34, 25, 12, 22, 11, 90];
+const sortedNumbers = bubbleSort(numbers);
+console.log(sortedNumbers); // Output: [11, 12, 22, 25, 34, 64, 90]
+
+`Note` : You can also use the Array.prototype.sort() method to sort the array in a more concise way:
+
+const numbers = [64, 34, 25, 12, 22, 11, 90];
+const sortedNumbers = numbers.slice().sort((a, b) => a - b);
+console.log(sortedNumbers); // Output: [11, 12, 22, 25, 34, 64, 90]
+
+This may use quicksort or mergesort under the hood.
 
 #### Problem 16.2 : Implement the selection sort algorithm to sort an array of numbers in ascending order. Log the sorted array.
 
@@ -1188,12 +1993,12 @@ By the end of this level, you will learn:
 
 - Create a new folder & initialise a Node.js project by running following command:
 
-         `npm init -y`
+          `npm init -y`
 
 - This will create a `package.json` file in your folder.
 - Install playwright by running following command:
 
-   `npm init playwright@latest`
+  `npm init playwright@latest`
 
 Above command will create following files in your project
 
@@ -1211,7 +2016,7 @@ The `**playwright.config.js/ts**` is where you can add configuration for Playwri
 
     //Update playwright
     `npm install -D @playwright/test@latest`
-    
+
     //Install new browsers
     `npx playwright install --with-deps`
 
@@ -1252,8 +2057,8 @@ In an automation framework, setting variables at the operating system level - kn
     - Create a `[environment name].env` file for each deployment stage
     - Set a new `NODE_ENV` environment variables on your local machine
     - Update `playwright.config.ts` to load environment variables (below is sample code)
-    
-    
+
+
     // playwright.config.ts
     import * as dotenv from 'dotenv';
     switch(process.env.NODE_ENV){
@@ -1266,7 +2071,7 @@ In an automation framework, setting variables at the operating system level - kn
 ##### Add scripts in the package.json to run tests in needed environments
 
     // package.json
-    
+
     "scripts": {
     // ...
     "test": "echo %NODE_ENV% && npx playwright test",
@@ -1282,14 +2087,14 @@ In your project directory, create a file named `firstTestFile.spec.ts/js` file i
 
     //firstTestFile.spec.ts
     import { test, expect } from "@playwright/test";
-    
+
     test("First Test", async ({ page }) => {
     //Navigate to https://google.co.in
     await page.goto("https://google.co.in");
-    
+
     //Fetch page title
     const title = await page.title();
-    
+
     //Print title on console log
     console.log(`Page Title : ${title} `);
     });
@@ -1340,7 +2145,7 @@ In your project directory, create a file named `firstTestFile.spec.ts/js` file i
 
     test("Launch twitter and take screenshot", async ({ page }) => {
     await page.goto("https://x.com/i/flow/login");
-    
+
     //capture a screenshot of the page
     await page.screenshot({ path: "screenshot.png" });
     });
@@ -1351,9 +2156,9 @@ To capture a screenshot of a specific element, first select the element and then
 
     test("Take screenshot of an element", async ({ page }) => {
     await page.goto("https://x.com/i/flow/login");
-    
+
     const element = page.locator("h1");
-    
+
     //capture a screenshot of the element
     await element.screenshot({ path: "screenshot.png" });
     });
@@ -1364,7 +2169,7 @@ Sometimes, you may need to capture the entire scrollable content of a page. You 
 
       test("Launch twitter and take screenshot", async ({ page }) => {
       await page.goto("https://x.com/i/flow/login");
-    
+
       //capture a screenshot of the page
       await page.screenshot({ path: "screenshot.png", fullPage: true });
       });
@@ -1375,7 +2180,7 @@ If your requirement is to capture a specific region of page, use the clip option
 
       test("Launch twitter and take screenshot", async ({ page }) => {
       await page.goto("https://x.com/i/flow/login");
-    
+
       //capture a clipped screenshot
       await page.screenshot({
         path: "screenshot.png",
@@ -1392,8 +2197,8 @@ Playwright allows for additional configuration options to fine tune your screens
 
     test("Launch twitter and take screenshot", async ({ page }) => {
       await page.goto("https://x.com/i/flow/login");
-    
-    
+
+
       //capture a screenshot of the page
         await page.screenshot({
           path: "screenshot.jpg",
