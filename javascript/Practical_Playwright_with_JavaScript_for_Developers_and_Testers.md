@@ -1039,6 +1039,76 @@ higherOrderFunction(callBackFunction, 5);
 
 #### Problem 5.14 : What is callback function, why we need it
 
+You can pass a function as an argument in another function. When you do this, function that is passed is called as `callback` function. Due to this feature, we can do asynchrnous thing in JavaScript.
+
+    setTimeout(function(){
+        console.log("timer");
+    },5000);
+
+    function x(y){
+        console.log("X");
+        y();
+    }
+
+    x(function y(){
+        console.log("Y");
+    })
+
+
+    function square(n){
+            console.log("square");
+            return n*n;
+        }
+
+        function cube(n){
+            console.log("cube");
+            return n*n*n;
+        }
+
+        function quad(n){
+            console.log("quad");
+            return n*n*n*n*n
+        }
+
+        function sumOfSquares(a,b){
+            let val1 = square(a);
+            let val2 = square(b);
+            return val1+val2;
+        }
+
+        let ans = sumOfSquares(2,1);
+        console.log(ans);
+
+        function sumOfSomething(a,b,callBackFn){
+            let val1 = callBackFn(a);
+            let val2 = callBackFn(b);
+            return val1+val2;
+        }
+
+        //using functional argument
+        ans = sumOfSomething(2,1,cube);
+        console.log("cube : ",ans);
+        ans = sumOfSomething(2,1,square);
+        console.log("square : ",ans);
+        ans = sumOfSomething(2,1,quad);
+        console.log("quad : ",ans);
+
+        You never really need callback in synchronous programming.
+
+##### `Non-blocking Execution`: JavaScript is single-threaded, meaning it can only execute one operation at a time. Callbacks allow long-running operations (like network requests or file reading) to run in the background while the main thread continues executing other code. This prevents the application from freezing during these operations.
+
+##### `Event Handling`: Callbacks are crucial for handling events (like user interactions, timers, or messages). They allow the code to respond to events when they occur, rather than waiting for them to happen.
+
+##### `Control Flow`: Callbacks help manage the flow of asynchronous code, allowing developers to specify what should happen after an operation completes. This is especially useful for chaining operations or handling results.
+
+Drawbacks of Callbacks
+
+While callbacks solve many problems, they also introduce challenges, such as:
+
+##### `Callback Hell`: Nested callbacks can lead to code that is difficult to read and maintain, often referred to as "callback hell."
+
+##### `Error Handling`: Managing errors across multiple callbacks can be cumbersome.
+
 #### Problem 5.15 : How can one avoid callback hell in JavaScript
 
 #### Problem 5.16 : What is concept of pure function
@@ -1147,6 +1217,15 @@ console.log("ForEach to iterate array");
 numberArray5.forEach((ele) => {
   console.log(ele);
 });
+
+const initialArray = [1,2,3];
+
+function logThing(str){
+    console.log(str);
+}
+
+//pass function as a callback
+initialArray.forEach(logThing);
 ```
 
 #### Problem 6.12 : Create a tow dimensional array (matrix) and the entire array to the console
@@ -1454,6 +1533,66 @@ console.log("Are carOne and carTwo equal ? ",areObjectEqual(carOne,carTwo)); //f
 
 # Level 9 : Promises and Async/Await
 
+#### Problem 9.1 : What is async function?
+
+An async function declaration creates an AsyncFunction object. Each time when an async function is called, it returns a new Promise which will be resolved with the value returned by the async function, or rejected with an exception uncaught within the async function.
+
+Async functions can contain zero or more await expressions. Await expressions make promise-returning functions behave as though they're synchronous by suspending execution until the returned promise is fulfilled or rejected. The resolved value of the promise is treated as the return value of the await expression. Use of async and await enables the use of ordinary try / catch blocks around asynchronous code.
+
+The purpose of async/await is to simplify the syntax necessary to consume promise-based APIs. The behavior of async/await is similar to combining generators and promises.
+
+Async functions always return a promise. If the return value of an async function is not explicitly a promise, it will be implicitly wrapped in a promise.
+
+    async function foo() {
+      return 1;
+    }
+    Both code(above & below) are similar
+
+    function foo() {
+      return Promise.resolve(1);
+    }
+
+Code after each await expression can be thought of as existing in a `.then` callback.
+
+    //Declare a async function
+    async function fetchData() {
+      return "Data fetched";
+    }
+
+    fetchData().then(console.log); // Logs: "Data fetched"
+
+    //Create an async/await function
+    async function fetchData() {
+      let response = await fetch("https://api.example.com/data");
+      let data = await response.json();
+      console.log(data);
+    }
+
+    fetchData();
+    await : Pauses the execution of the async function until the Promise is resolved or rejected. It can only be used inside an async function.
+
+    //Error handling inside async await function
+    async function fetchData() {
+      try {
+        let response = await fetch("https://api.example.com/data");
+        let data = await response.json();
+        console.log(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+
+`Benefits:`
+
+##### `Non-blocking`: While an async operation (such as fetching data) is in progress, the rest of the code can continue executing, leading to better performance, especially in I/O-bound operations like network requests or file reading.
+
+##### `Improved Readability`: Async functions with await often lead to more readable code compared to using chained .then() and .catch() methods with Promises.
+
+`When to use Async function`:
+
+- When handling tasks that involve I/O operations, like making network requests or reading/writing files.
+- When you want to avoid blocking the execution of other tasks in a program.
+
 #### Problem 9.1 : Create a promise that resolves with a message after a 2-seconds timeout and log the message to the console
 
 #### Problem 9.2 : Create a promise that rejects with an error message after 2-seconds timeout and handle the error using `.catch`
@@ -1477,6 +1616,27 @@ console.log("Are carOne and carTwo equal ? ",areObjectEqual(carOne,carTwo)); //f
 #### Problem 9.11 : Create a script that chains multiple promises and logs messages in a specific sequence
 
 #### Problem 9.12 : Write a script that uses async/await to handle promises and includes error handling with try-catch
+
+#### Problem 9.12 : Write a script to show example of aysnc nature of global function
+
+      function findSum(n){
+          let ans = 0;
+          for(let i = 0;i<n;i++){
+              ans +=i;
+          }
+          return ans;
+      }
+
+      function findSumTill100(){
+        console.log(findSum(100));
+      }
+
+      setTimeout(findSumTill100,1000);//will wait for 1 second
+      console.log("hello world"); //will execute immediately
+
+      `Output`:
+      hello world
+      4950
 
 #### Problem 9.13 : Create a script that fetches data from a public API using both promises and async/await and logs the response data
 
