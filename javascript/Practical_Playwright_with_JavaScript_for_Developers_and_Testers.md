@@ -1642,6 +1642,39 @@ Code after each await expression can be thought of as existing in a `.then` call
 
 #### Problem 9.14 : Write a script that uses Promise.all and Promise.race to handle multiple promises concurrently and logs the results
 
+#### Problem 9.14 : What are promises
+
+- Just a syntatical sugar
+- Just a more readable way to write async function
+
+can you write JavaScript without them
+Yes - Just use `callbacks`
+
+##### How would you create your own aysnc function?
+
+- Approach 1 (Wrapping another aysnc fn)
+  function myOwnSetTimeout(fn,duration){
+  setTimeout(fn,duration);
+  }
+
+  myOwnSetTimeout(function(){
+  console.log("Hi there");
+  },1000)
+
+  This approach uses a callback. You have created a function where other people can send callback. This is good, but could lead to `callback hell`.
+
+  Example:
+
+      setTimeout(function(){
+        console.log("Hi There");
+        setTimeout(function(){
+            console.log("inside the second one");
+            setTimeout(function(){
+                console.log("inside the third one");
+            },3000);
+        },3000);
+      },3000);
+
 #### Problem 9.14 : Asynchronous JavaScript : Callbacks, Promises, Async/Await
 
 JavaScript is a single threaded language, meaning it can execute one task at a time. But handling asynchronous operation is crucial, especially for tasks like fetching data in react. callback functions are one of the earliest pattern used to handle asynchrnous behavior:
